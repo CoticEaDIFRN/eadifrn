@@ -27,7 +27,7 @@ $THEME->name = 'eadifrn';
 // This setting list the style sheets we want to include in our theme. Because we want to use SCSS instead of CSS - we won't
 // list any style sheets. If we did we would list the name of a file in the /style/ folder for our theme without any css file
 // extensions.
-$THEME->sheets = [];
+$THEME->sheets = ['main'];
 
 // This is a setting that can be used to provide some styling to the content in the TinyMCE text editor. This is no longer the
 // default text editor and "Atto" does not need this setting so we won't provide anything. If we did it would work the same
