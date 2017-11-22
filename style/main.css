@@ -77,14 +77,14 @@
 }
 
 /* Botões de classe btn-primary */
-.btn-primary {
+.btn-primary, .btn-primary:focus {
     color: #fff;
     background-color: #39B34A;
     border-color: #39B34A;
 }
 
-/* [HOVER] Botões de classe btn-primary */
-.btn-primary:hover {
+/* [HOVER e ACTIVE] Botões de classe btn-primary */
+.btn-primary:hover, .btn-primary:active {
   background-color: #235336;
   border-color: #235336;
 }
@@ -113,6 +113,12 @@
 /* Cards */
 .card {
   border: none;
+}
+
+/* Títulos dos cards */
+.card-title {
+  font-size: 20px !important;
+  color: #274333;
 }
 
 /* links */
