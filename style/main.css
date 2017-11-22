@@ -68,8 +68,66 @@
 }
 
 /*==================================================*/
+/*====================== Geral =====================*/
+/*==================================================*/
+
+/* Botões com bordas arredondadas */
+.btn {
+  border-radius: 25px;
+}
+
+/* Botões de classe btn-primary */
+.btn-primary {
+    color: #fff;
+    background-color: #39B34A;
+    border-color: #39B34A;
+}
+
+/* [HOVER] Botões de classe btn-primary */
+.btn-primary:hover {
+  background-color: #235336;
+  border-color: #235336;
+}
+
+/* Botões de classe btn-secondary e btn-default */
+.btn-secondary, .btn-default {
+    color: #39B34A;
+    background-color: #fff;
+    border-color: #39B34A;
+}
+
+/* [HOVER] Botões de classe btn-secondary e btn-default */
+.btn-secondary:hover, .btn-default:hover {
+    color: #235336;
+    background-color: #fff;
+    border-color: #235336;
+}
+
+/* Botões de classe btn-default.active */
+.btn-default.active, .btn-default.active:focus, .btn-default.active:hover{
+  color: #fff;
+  background-color: #39B34A;
+  border-color: #39B34A;
+}
+
+/* Cards */
+.card {
+  border: none;
+}
+
+/* links */
+a {
+  color: #39B34A;
+}
+
+a:hover {
+  color: #235336;
+}
+
+/*==================================================*/
 /*=============== Barra de Navegação ===============*/
 /*==================================================*/
+
 /* Altura da barra */
 .navbar {
   max-height: 70px;
