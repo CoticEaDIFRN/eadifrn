@@ -14,20 +14,19 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-// This line protects the file from being accessed by a URL directly.
+/**
+ * Theme Boost eadifrn - Version file
+ *
+ * @package    theme_boost_eadifrn
+ * @copyright  2017 Kathrin Osswald, Ulm University <kathrin.osswald@uni-ulm.de>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 defined('MOODLE_INTERNAL') || die();
 
-// This is the version of the plugin.
-$plugin->version = '2017111700';
-
-// This is the version of Moodle this plugin requires.
-$plugin->requires = '2016070700';
-
-// This is the component name of the plugin - it always starts with 'theme_'
-// for themes and should be the same as the name of the folder.
-$plugin->component = 'theme_eadifrn';                                                                                                 
-
-// This is a list of plugins, this plugin depends on (and their versions).
-$plugin->dependencies = [
-    'theme_boost' => '2017111300'
-];
+$plugin->component = 'theme_boost_eadifrn';
+$plugin->version = 2017111700;
+$plugin->release = 'v3.2-r6';
+$plugin->requires = 2016120503.05;
+$plugin->maturity = MATURITY_STABLE;
+$plugin->dependencies = array('theme_boost' => 2016102100);
