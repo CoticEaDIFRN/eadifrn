@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
-/*
+
     // Create settings page with tabs.
     $settings = new theme_boost_admin_settingspage_tabs('themesettingboost_eadifrn',
         get_string('configtitle', 'theme_boost_eadifrn', null, true));
@@ -59,7 +59,8 @@ if ($ADMIN->fulltree) {
     // These are the built in presets from Boost.
     $choices['default.scss'] = 'default.scss';
     $choices['plain.scss'] = 'plain.scss';
-
+    $choices['eadifrn.scss'] = 'eadifrn.scss';
+    
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -498,5 +499,5 @@ if ($ADMIN->fulltree) {
 
     // Add tab to settings page.
     $settings->add($page);
-*/
+
 }

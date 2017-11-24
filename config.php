@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $THEME->name = 'boost_eadifrn';
 $THEME->parents = ['boost'];
-$THEME->sheets = ['main'];
+// $THEME->sheets = ['main'];
 $THEME->editor_sheets = [];
 $THEME->scss = function($theme) {
     return theme_boost_eadifrn_get_main_scss_content($theme);
