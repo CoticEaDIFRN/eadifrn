@@ -1,0 +1,82 @@
+/*==================================================*/
+/*====================== Cores =====================*/
+/*==================================================*/
+
+/* Header */ 
+$header-background: #5BC166;
+$header-searchbox: #71CC78;
+$header-searchbox-text: #369530;
+$header-icons: #FFFFFF;
+$header-onlineuser-indicator: #81FD6C;
+
+/*==================================================*/
+/*===================== NavBar =====================*/
+/*==================================================*/
+
+/* Altura da barra */
+.navbar {
+    max-height: 70px;
+    height: 70px;
+}
+
+/* Conteúdo alinhado verticalmente no centro da barra */
+.container-fluid {
+    padding-top: 10px;
+}
+
+/* Barra completa */
+.navbar-light {
+    background-color: #5BC166 !important;
+    border-bottom: 1px solid #5BC166;
+}
+
+/* Botão do menu hamburguer */
+.navbar-light .btn-secondary {
+    color: #FFFFFF;
+    background-color: #5BC166;
+    border-color: #5BC166;
+}
+
+/* Área do Logo */
+.navbar-light .navbar-brand {
+    color: #fff;
+    background-color: #5BC166;
+    font-size: 24px;
+    padding-top: 0px;
+}
+
+/* Dropdown de escolha do idioma */
+.navbar-light .dropdown-menu {
+    color: #FFFFFF;
+    background-color: #5bc166;
+    border: 1px solid #5bc166;
+}
+
+/* Item do dropdown de escolha do idioma */
+.navbar-light .dropdown-menu .dropdown-item {
+    color: #FFFFFF;
+    border-bottom: 1px solid #5bc166;
+}
+
+/* [HOVER] Item do dropdown de escolha do idioma */
+.navbar-light .dropdown-item:focus, .dropdown-item:hover {
+    color: #FFFFFF;
+    background-color: #39B34A;
+}
+
+/* Ícones de notificações da barra */
+.navbar-light .icon {
+    color: #FFFFFF;
+}
+
+/* Nome do usuário */
+.navbar-light .usertext {
+    font-size: 12px;
+    color: #FFFFFF;
+    line-height: 40px;
+}
+
+/* Avatar modificado para a esquerda do nome de usuário */
+.navbar-light .avatars {
+    float: left;
+}

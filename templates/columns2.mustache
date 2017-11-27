@@ -1,0 +1,73 @@
+{{{ output.doctype }}}
+<html {{{ output.htmlattributes }}}>
+<head>
+    <title>{{{ output.page_title }}}</title>
+    <link rel="shortcut icon" href="{{{ output.favicon }}}" />
+    {{{ output.standard_head_html }}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body {{{ bodyattributes }}}>
+
+<div id="page-wrapper">
+
+    {{{ output.standard_top_of_body_html }}}
+
+    {{>theme_boost_eadifrn/header}}
+
+    <div id="page" class="container-fluid">
+        {{{ output.full_header }}}
+
+        <div id="page-content" class="row">
+            <div id="region-main-box" class="col-xs-12">
+                {{#node}}
+                    {{> theme_boost_campus/settings_link_page }}
+                {{/node}}
+                {{#hasregionmainsettingsmenu}}
+                <div id="region-main-settings-menu" class="hidden-print {{#hasblocks}}has-blocks{{/hasblocks}}">
+                    <div> {{{ output.region_main_settings_menu }}} </div>
+                </div>
+                {{/hasregionmainsettingsmenu}}
+                <section id="region-main" {{#hasblocks}}class="has-blocks"{{/hasblocks}}>
+                    <div class="card card-block">
+                    {{#hasregionmainsettingsmenu}}
+                        <div class="region_main_settings_menu_proxy"></div>
+                    {{/hasregionmainsettingsmenu}}
+                    {{{ output.course_content_header }}}
+                        {{#activitynode}}
+                            {{> theme_boost_campus/activity_settings_incourse }}
+                        {{/activitynode}}
+                    {{{ output.main_content }}}
+                    {{{ output.course_content_footer }}}
+                    </div>
+                </section>
+                {{#hasblocks}}
+                <section data-region="blocks-column" class="hidden-print">
+                    {{{ sidepreblocks }}}
+                </section>
+                {{/hasblocks}}
+            </div>
+        </div>
+    </div>
+    {{> theme_boost_eadifrn/nav-drawer }}
+</div>
+
+</body>
+</html>
+{{#js}}
+require(['theme_boost/loader']);
+require(['theme_boost/drawer'], function(mod) {
+    mod.init();
+});
+require(['theme_boost_campus/backtotop'], function(mod) {
+    mod.init();
+});
+require(['theme_boost_campus/catchshortcuts'], function(mod) {
+    mod.init({{{catchshortcuts}}});
+});
+{{#incoursesettings}}
+    require(['theme_boost_campus/incoursesettings'], function(mod) {
+    mod.init();
+    });
+{{/incoursesettings}}
+{{/js}}

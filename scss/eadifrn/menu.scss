@@ -1,0 +1,59 @@
+/*==================================================*/
+/*====================== Cores =====================*/
+/*==================================================*/
+
+// /* Menu */
+$menu-background: $header-icons;
+$menu-item-font: #748073;
+$menu-selected-item-font: #2F8C47;
+$menu-item-hover: #F0F0F0;
+$menu-divisor-background: #F2F2F2;
+
+// /*==================================================*/
+// /*====================== Menu ======================*/
+// /*==================================================*/
+
+/* Menu background */
+[data-region="drawer"] {
+    padding: 20px 0;
+    background-color: #FFFFFF;
+    border-right: 2px solid #CAD9CB;
+}
+
+/* Itens do Menu */
+#nav-drawer .list-group-item {
+    padding: .75rem 2.25rem;
+    background-color: #fff;
+    border: none;
+    font-size: 18px;
+    color: #748073;
+}
+
+/* [HOVER] Itens do Menu */
+#nav-drawer .list-group-item:hover {
+    background-color: #F0F0F0;
+}
+
+#nav-drawer [data-type="0"]:hover {
+    background-color: #FFFFFF;
+}
+
+/* Item do menu ativo */
+#nav-drawer [data-isactive="1"] {
+    border-left: 6px solid #2f8c47;
+    padding: .75rem 1.8rem;
+    color: #2f8c47;
+    font-weight: normal;
+}
+
+/* Itens do menu sem border radius */
+#nav-drawer .list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+#nav-drawer .list-group-item:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+  

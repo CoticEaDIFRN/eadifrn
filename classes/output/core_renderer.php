@@ -64,6 +64,8 @@ defined('MOODLE_INTERNAL') || die;
 /**
  * Extending the core_renderer interface.
  * 
+ * lib/outputrenderers.php --> core_renderer
+ * 
  * @category  Renderer
  * @package   Theme_Boost_EadIfrn.Classes.Output
  * @author    Sueldo Sales <sueldosales@gmail.com>
@@ -74,7 +76,17 @@ defined('MOODLE_INTERNAL') || die;
  */
 class core_renderer extends \theme_boost\output\core_renderer {
 
-    // /**
+    /**  
+     * Override header
+     *
+     * @return string HTML of header
+     */
+    public function header() {
+        return parent::header() . "KKKKKK";
+    }
+        
+
+    // /**  
     //  * Override to add additional class for the random login image to the body.
     //  *
     //  * @param string|array $additionalclasses Any additional classes to give the body tag,
