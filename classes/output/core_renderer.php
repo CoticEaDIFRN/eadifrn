@@ -82,7 +82,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string HTML of header
      */
     public function header() {
-        return parent::header() . "KKKKKK";
+        return parent::header();
     }
         
 
