@@ -20,9 +20,6 @@
 
         <div id="page-content" class="row">
             <div id="region-main-box" class="col-xs-12">
-                {{#node}}
-                    {{> theme_boost_campus/settings_link_page }}
-                {{/node}}
                 {{#hasregionmainsettingsmenu}}
                 <div id="region-main-settings-menu" class="hidden-print {{#hasblocks}}has-blocks{{/hasblocks}}">
                     <div> {{{ output.region_main_settings_menu }}} </div>
@@ -34,10 +31,8 @@
                         <div class="region_main_settings_menu_proxy"></div>
                     {{/hasregionmainsettingsmenu}}
                     {{{ output.course_content_header }}}
-                        {{#activitynode}}
-                            {{> theme_boost_campus/activity_settings_incourse }}
-                        {{/activitynode}}
                     {{{ output.main_content }}}
+                    {{{ output.activity_navigation }}}
                     {{{ output.course_content_footer }}}
                     </div>
                 </section>
@@ -51,6 +46,28 @@
     </div>
     {{> theme_boost_eadifrn/nav-drawer }}
 </div>
+<footer id="page-footer" class="p-y-1 bg-inverse">
+    <div class="container">
+        <div id="course-footer">{{{ output.course_footer }}}</div>
+
+        {{# output.page_doc_link }}
+            <p class="helplink">{{{ output.page_doc_link }}}</p>
+        {{/ output.page_doc_link }}
+
+        {{{ output.login_info }}}
+        <div class="tool_usertours-resettourcontainer"></div>
+        {{{ output.home_link }}}
+        <nav class="nav navbar-nav hidden-lg-up">
+            {{# output.custom_menu_flat }}
+                <ul class="list-unstyled p-t-1">
+                    {{> theme_boost/custom_menu_footer }}
+                </ul>
+            {{/ output.custom_menu_flat }}
+        </nav>
+        {{{ output.standard_footer_html }}}
+        {{{ output.standard_end_of_body_html }}}
+    </div>
+</footer>
 
 </body>
 </html>
@@ -59,15 +76,4 @@ require(['theme_boost/loader']);
 require(['theme_boost/drawer'], function(mod) {
     mod.init();
 });
-require(['theme_boost_campus/backtotop'], function(mod) {
-    mod.init();
-});
-require(['theme_boost_campus/catchshortcuts'], function(mod) {
-    mod.init({{{catchshortcuts}}});
-});
-{{#incoursesettings}}
-    require(['theme_boost_campus/incoursesettings'], function(mod) {
-    mod.init();
-    });
-{{/incoursesettings}}
 {{/js}}
