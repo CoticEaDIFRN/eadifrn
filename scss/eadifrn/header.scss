@@ -69,6 +69,35 @@ $header-onlineuser-indicator: #81FD6C;
     background-color: #39B34A;
 }
 
+#header-searchbox {
+    position: absolute;
+    width: 95%;
+    text-align: center;
+}
+
+#header-searchbox input {
+    border-style: none;
+    height: 32px;
+    width: 350px;
+    background-color: $header-searchbox;
+    padding-left: 20px;
+    color: $header-searchbox-text;
+    font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    margin-top: 2px;
+    border-radius: 4px;
+}
+
+#header-searchbox input::placeholder {
+    color: $header-searchbox-text;
+}
+
+#header-searchbox input:focus {
+    border-color: $header-searchbox-text;
+}
+
 /* Ícones de notificações da barra */
 .navbar-light .icon {
     color: $header-icons;
