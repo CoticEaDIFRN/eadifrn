@@ -39,7 +39,7 @@ $header-onlineuser-indicator: #81FD6C;
 
 /* Área do Logo */
 .navbar-light .navbar-brand {
-    color: #fff;
+    color: $header-icons;
     background-color: $header-background;
     font-size: 24px;
     padding-top: 0px;
@@ -101,6 +101,7 @@ $header-onlineuser-indicator: #81FD6C;
 /* Ícones de notificações da barra */
 .navbar-light .icon {
     color: $header-icons;
+    font-size: 20px;
 }
 
 /* Nome do usuário */

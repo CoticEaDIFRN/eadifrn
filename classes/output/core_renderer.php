@@ -84,6 +84,28 @@ class core_renderer extends \theme_boost\output\core_renderer {
     public function header() {
         return parent::header();
     }
+
+    /**
+     * Allow plugins to provide some content to be rendered in the navbar.
+     *
+     * @see message_popup_render_navbar_output in lib.php
+     * 
+     * @return string HTML for the navbar
+     */
+    public function navbar_plugin_output() {
+
+        $output = '';
+        // // Early bail out conditions.
+        // if (!isloggedin() || isguestuser() || user_not_fully_set_up($USER) || 
+        //     get_user_preferences('auth_forcepasswordchange') || 
+        //     ($CFG->sitepolicy && !$USER->policyagreed && !is_siteadmin())) {
+        //     return $output;
+        // }
+        $output .= $this->header_messsage();
+        $output .= $this->header_help();
+        $output .= $this->header_notification();
+        return $output;
+    }
         
 
     // /**  
@@ -444,4 +466,46 @@ class core_renderer extends \theme_boost\output\core_renderer {
     //     }
     //     return $skipped;
     // }
+
+    protected function header_help() {
+        return '<div class="popover-region collapsed popover-region-help" id="nav-help-popover-container" data-userid="2" data-region="popover-region">
+        <a href="https://moodle.org/mod/forum/view.php?id=50"><div class="popover-region-toggle nav-link" data-region="popover-region-toggle" aria-role="button" aria-controls="popover-region-container-5a254db9cba625a254db9b2d7016" aria-haspopup="true" aria-label="Mostrar janela de mensagens sem as novas mensagens" tabindex="0">
+                    <i class="icon fa fa-question-circle fa-fw " aria-hidden="true" title="Obter ajuda" aria-label="Obter ajuda"></i>
+        </div></a></div>';
+    }
+
+    protected function header_notification() {
+        global $USER;
+        // Add the notifications popover.
+        $enabled = \core_message\api::is_processor_enabled("popup");
+        if ($enabled) {
+            $context = [
+                'userid' => $USER->id,
+                'urls' => [
+                    'seeall' => (new moodle_url('/message/output/popup/notifications.php'))->out(),
+                    'preferences' => (new moodle_url('/message/notificationpreferences.php', ['userid' => $USER->id]))->out(),
+                ],
+            ];
+            $output .= $this->render_from_template('message_popup/notification_popover', $context);
+        }
+    
+        return $output;
+    }
+
+    protected function header_messsage() {
+        global $USER, $CFG;
+        if (!empty($CFG->messaging)) {
+            $context = [
+                'userid' => $USER->id,
+                'urls' => [
+                    'seeall' => (new moodle_url('/message/index.php'))->out(),
+                    'writeamessage' => (new moodle_url('/message/index.php', ['contactsfirst' => 1]))->out(),
+                    'preferences' => (new moodle_url('/message/edit.php', ['id' => $USER->id]))->out(),
+                ],
+            ];
+            return $this->render_from_template('message_popup/message_popover', $context);
+        }
+        return '';
+    }      
+    
 }
