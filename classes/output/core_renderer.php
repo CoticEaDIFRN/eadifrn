@@ -104,6 +104,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $output .= $this->header_messsage();
         $output .= $this->header_help();
         $output .= $this->header_notification();
+        $output .= $this->header_admin();
         return $output;
     }
         
@@ -471,6 +472,13 @@ class core_renderer extends \theme_boost\output\core_renderer {
         return '<div class="popover-region collapsed popover-region-help" id="nav-help-popover-container" data-userid="2" data-region="popover-region">
         <a href="https://moodle.org/mod/forum/view.php?id=50"><div class="popover-region-toggle nav-link" data-region="popover-region-toggle" aria-role="button" aria-controls="popover-region-container-5a254db9cba625a254db9b2d7016" aria-haspopup="true" aria-label="Mostrar janela de mensagens sem as novas mensagens" tabindex="0">
                     <i class="icon fa fa-question-circle fa-fw " aria-hidden="true" title="Obter ajuda" aria-label="Obter ajuda"></i>
+        </div></a></div>';
+    }
+
+    protected function header_admin() {
+        return '<div class="popover-region collapsed popover-region-admin" id="nav-help-popover-container" data-userid="2" data-region="popover-region">
+        <a href="../admin/search.php"><div class="popover-region-toggle nav-link" data-region="popover-region-toggle" aria-role="button" aria-controls="popover-region-container-5a254db9cba625a254db9b2d7016" aria-haspopup="true" aria-label="Mostrar janela de mensagens sem as novas mensagens" tabindex="0">
+                    <i class="icon fa fa-cog fa-fw " aria-hidden="true" title="Administração" aria-label="Administração"></i>
         </div></a></div>';
     }
 

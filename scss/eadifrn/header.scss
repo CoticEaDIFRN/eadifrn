@@ -6,6 +6,7 @@
 $header-background: #5BC166;
 $header-searchbox: #71CC78;
 $header-searchbox-text: #369530;
+$header-searchbox-text-focus: #778073;
 $header-icons: #FFFFFF;
 $header-onlineuser-indicator: #81FD6C;
 
@@ -28,6 +29,10 @@ $header-onlineuser-indicator: #81FD6C;
 .navbar-light {
     background-color: $header-background !important;
     border-bottom: 1px solid $header-background;
+}
+
+.navbar-light .navbar-nav {
+    text-align: center;
 }
 
 /* Botão do menu hamburguer */
@@ -70,9 +75,20 @@ $header-onlineuser-indicator: #81FD6C;
 }
 
 #header-searchbox {
-    position: absolute;
-    width: 95%;
+    width: 375px;
+    height: 32px;
     text-align: center;
+    background-color: $header-searchbox;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    color: $header-searchbox-text;
+    margin-top: 2px;
+    margin-right: -260px;
+    display: inline-block;
+}
+
+#header-searchbox i {
+    margin-left: 5px;
 }
 
 #header-searchbox input {
@@ -80,22 +96,28 @@ $header-onlineuser-indicator: #81FD6C;
     height: 32px;
     width: 350px;
     background-color: $header-searchbox;
-    padding-left: 20px;
+    padding-left: 10px;
     color: $header-searchbox-text;
     font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
     font-style: normal;
     font-weight: normal;
     text-decoration: inherit;
-    margin-top: 2px;
-    border-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
 }
 
 #header-searchbox input::placeholder {
     color: $header-searchbox-text;
 }
 
+#header-searchbox input:focus::placeholder {
+    color: $header-searchbox-text-focus;
+}
+
 #header-searchbox input:focus {
     border-color: $header-searchbox-text;
+    background-color: $header-icons;
+    color: $header-searchbox-text-focus;
 }
 
 /* Ícones de notificações da barra */
@@ -104,11 +126,20 @@ $header-onlineuser-indicator: #81FD6C;
     font-size: 20px;
 }
 
+.navbar-nav .nav-link {
+    padding-top: .3rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    margin: 0 15px;
+}
+
 /* Nome do usuário */
 .navbar-light .usertext {
     font-size: 12px;
     color: $header-icons;
     line-height: 40px;
+    margin-left: 10px;
 }
 
 /* Avatar modificado para a esquerda do nome de usuário */
