@@ -2,13 +2,13 @@
 /*====================== Cores =====================*/
 /*==================================================*/
 
-/* Header */ 
 $header-background: #5BC166;
 $header-searchbox: #71CC78;
 $header-searchbox-text: #369530;
 $header-searchbox-text-focus: #778073;
 $header-icons: #FFFFFF;
 $header-onlineuser-indicator: #81FD6C;
+$header-message-popover-background: #274333;
 
 /*==================================================*/
 /*===================== NavBar =====================*/
@@ -74,6 +74,7 @@ $header-onlineuser-indicator: #81FD6C;
     background-color: #39B34A;
 }
 
+/* SearchBox */ 
 #header-searchbox {
     width: 375px;
     height: 32px;
@@ -87,10 +88,12 @@ $header-onlineuser-indicator: #81FD6C;
     display: inline-block;
 }
 
+/* Ícone de pesquisa */ 
 #header-searchbox i {
     margin-left: 5px;
 }
 
+/* Configurações do input do SearchBox */ 
 #header-searchbox input {
     border-style: none;
     height: 32px;
@@ -106,30 +109,35 @@ $header-onlineuser-indicator: #81FD6C;
     border-top-right-radius: 4px;
 }
 
+/* Placeholder do input do SearchBox */ 
 #header-searchbox input::placeholder {
     color: $header-searchbox-text;
 }
 
+/* Configuração do placeholder quando esta em foco */ 
 #header-searchbox input:focus::placeholder {
     color: $header-searchbox-text-focus;
 }
 
+/* Configuração do input no foco */ 
 #header-searchbox input:focus {
     border-color: $header-searchbox-text;
     background-color: $header-icons;
     color: $header-searchbox-text-focus;
 }
 
-/* Ícones de notificações da barra */
+/* Ícones da barra */
 .navbar-light .icon {
     color: $header-icons;
     font-size: 20px;
 }
 
+/* Padding nos ícones */ 
 .navbar-nav .nav-link {
     padding-top: .3rem;
 }
 
+/* Margin entre os ícones */ 
 .navbar-light .navbar-nav .nav-link {
     margin: 0 15px;
 }
@@ -146,3 +154,34 @@ $header-onlineuser-indicator: #81FD6C;
 .navbar-light .avatars {
     float: left;
 }
+
+/* Dropdown menu do usuário */ 
+.navbar-static-top .dropdown .dropdown-menu {
+    background: #F2F2F2;
+    width: 300px;
+    margin-top: 29px;
+    border: none;
+    left: -175px;
+}
+
+/* Itens do menu do usuário */ 
+.navbar-light .dropdown-menu .dropdown-item {
+    color: #344537;
+    border: none;
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+/* Ícones dos itens do menu do usuário */
+.navbar-light .dropdown-menu .dropdown-item i {
+    color: #344537;
+    font-size: 14px;
+}
+
+/* Popover das mensagens */
+.navbar .popover-region-container {
+    background: $header-message-popover-background;
+    margin-top: 22px;
+    left: -51px;
+    width: 300px;
+} 
