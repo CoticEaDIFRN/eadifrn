@@ -126,6 +126,12 @@ $header-message-popover-background: #274333;
     color: $header-searchbox-text-focus;
 }
 
+#header-searchbox:focus-within {
+    border-color: $header-searchbox-text;
+    background-color: $header-icons;
+    color: $header-searchbox-text-focus;
+}
+
 /* Ícones da barra */
 .navbar-light .icon {
     color: $header-icons;
