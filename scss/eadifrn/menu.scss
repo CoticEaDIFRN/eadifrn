@@ -46,6 +46,15 @@ $menu-divisor-background: #F2F2F2;
     font-weight: normal;
 }
 
+#nav-drawer [data-key="calendar"] {
+    position: absolute;
+    margin-top: 290px;
+    width: 285px;
+    background: #f0f0f0;
+    border-bottom: 2px solid #cad9cb;
+    border-top: 2px solid #cad9cb;
+}
+
 /* Itens do menu sem border radius */
 #nav-drawer .list-group-item:first-child {
     border-top-right-radius: 0;

@@ -51,5 +51,9 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
 
+$calendar = $PAGE->flatnav->get("calendar");
+
+$PAGE->flatnav->remove("sitesettings");
+
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 echo $OUTPUT->render_from_template('theme_boost_eadifrn/columns2', $templatecontext);
