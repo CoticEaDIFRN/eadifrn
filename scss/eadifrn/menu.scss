@@ -46,6 +46,7 @@ $menu-divisor-background: #F2F2F2;
     font-weight: normal;
 }
 
+/* Calendário modificado */ 
 #nav-drawer [data-key="calendar"] {
     position: absolute;
     margin-top: 290px;
@@ -54,6 +55,30 @@ $menu-divisor-background: #F2F2F2;
     border-bottom: 2px solid #cad9cb;
     border-top: 2px solid #cad9cb;
 }
+
+/* Ícone do Painel */
+[data-key="myhome"]:before {
+    font-family: FontAwesome;
+    content: "\f0db";
+    float: left;
+    margin-right: 15px;
+} 
+
+/* Ícone Meus Cursos */
+[data-key="mycourses"]:before {
+    font-family: FontAwesome;
+    content: "\f19d";
+    float: left;
+    margin-right: 8px;
+}
+
+/* Ícone Calendário */
+[data-key="calendar"]:before {
+    font-family: FontAwesome;
+    content: "\f073";
+    float: left;
+    margin-right: 12px;
+}  
 
 /* Itens do menu sem border radius */
 #nav-drawer .list-group-item:first-child {

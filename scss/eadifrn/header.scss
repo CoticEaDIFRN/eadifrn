@@ -136,6 +136,7 @@ $header-message-popover-background: #274333;
 .navbar-light .icon {
     color: $header-icons;
     font-size: 20px;
+    margin-right: -0.5rem;
 }
 
 /* Padding nos ícones */ 
@@ -147,6 +148,16 @@ $header-message-popover-background: #274333;
 .navbar-light .navbar-nav .nav-link {
     margin: 0 15px;
 }
+
+/* Notificação ícones */
+.navbar .count-container {
+    border-radius: 10px;
+    background-color: #C60C0F;
+    line-height: 12px;
+    width: 15px;
+    height: 15px;
+    font-weight: bold;
+} 
 
 /* Nome do usuário */
 .navbar-light .usertext {

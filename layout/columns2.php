@@ -53,6 +53,8 @@ $templatecontext = [
 
 $calendar = $PAGE->flatnav->get("calendar");
 
+$PAGE->flatnav->remove("home");
+$PAGE->flatnav->remove("privatefiles");
 $PAGE->flatnav->remove("sitesettings");
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
