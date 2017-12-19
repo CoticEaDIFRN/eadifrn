@@ -9,6 +9,8 @@ $header-searchbox-text-focus: #778073;
 $header-icons: #FFFFFF;
 $header-onlineuser-indicator: #81FD6C;
 $header-message-popover-background: #274333;
+$header-message-popover-background-hover: #39794F;
+$header-message-popover-text: #CACACA;
 
 /*==================================================*/
 /*===================== NavBar =====================*/
@@ -202,3 +204,32 @@ $header-message-popover-background: #274333;
     left: -51px;
     width: 300px;
 } 
+
+/* Header do popover de mensagens*/
+.navbar .popover-region-header-container{
+    border: none;
+    margin-bottom: 30px;
+} 
+
+/* Div de cada mensagem */
+.navbar .content-item-container {
+    background: $header-message-popover-background !important;
+    color: $header-message-popover-text;
+    border: none;
+    padding-top: 20px;
+}
+
+/* [Hover] Div de cada mensagem */
+.navbar .content-item-container:hover {
+    background: $header-message-popover-background-hover !important;
+    color: #FFFFFF;
+}
+
+/* Retira a palavra "Mensagens" do Popover */ 
+.navbar .popover-region-header-text {
+    display: none;
+}
+
+.content-item-body {
+    text-align: left;
+}
