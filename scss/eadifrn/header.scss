@@ -204,6 +204,7 @@ $header-message-popover-text: #CACACA;
     margin-top: 22px;
     left: -51px;
     width: 300px;
+    border: none;
 } 
 
 /* Header do popover de mensagens*/
@@ -237,4 +238,27 @@ $header-message-popover-text: #CACACA;
 
 .popover-region-notifications .empty-message {
     color: $header-message-popover-text;
+}
+
+.popover-region-toggle::before {
+    content: "";
+    display: inline-block;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #274333;
+    position: absolute;
+    bottom: -21px;
+    right: 7px;
+}
+
+.popover-region-toggle::after {
+    content: "";
+    display: inline-block;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #274333;
+    position: absolute;
+    bottom: -21px;
+    right: 8px;
+    z-index: 2;
 }
