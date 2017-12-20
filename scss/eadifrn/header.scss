@@ -87,7 +87,8 @@ $header-message-popover-text: #CACACA;
     color: $header-searchbox-text;
     margin-top: 2px;
     margin-right: -260px;
-    display: inline-block;
+    // display: inline-block;
+    display: none;
 }
 
 /* Ícone de pesquisa */ 
@@ -232,4 +233,8 @@ $header-message-popover-text: #CACACA;
 
 .content-item-body {
     text-align: left;
+}
+
+.popover-region-notifications .empty-message {
+    color: $header-message-popover-text;
 }
