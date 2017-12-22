@@ -215,6 +215,7 @@ $header-message-popover-text: #CACACA;
     left: -51px;
     width: 300px;
     border: none;
+    height: calc(100vh - 100px);
 } 
 
 /* Header do popover de mensagens*/
