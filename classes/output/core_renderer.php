@@ -102,7 +102,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         //     return $output;
         // }
         $output .= $this->header_messsage();
-        $output .= $this->header_help();
+        // $output .= $this->header_help();
         $output .= $this->header_notification();
         $output .= $this->header_admin();
         return $output;
@@ -224,7 +224,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $html .= $this->context_header();
         $html .= html_writer::end_div();
         $pageheadingbutton = $this->page_heading_button();
-       $html .= html_writer::tag('div', $this->course_header(), array('id' => 'course-header'));
+        $html .= html_writer::tag('div', $this->course_header(), array('id' => 'course-header'));
         $html .= html_writer::end_div();
         $html .= html_writer::end_div();
         $html .= html_writer::end_div();
