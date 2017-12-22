@@ -105,6 +105,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         // $output .= $this->header_help();
         $output .= $this->header_notification();
         $output .= $this->header_admin();
+        $output .= $this->header_pagetitle();
         return $output;
     }
         
@@ -463,6 +464,19 @@ class core_renderer extends \theme_boost\output\core_renderer {
     //     }
     //     return $skipped;
     // }
+
+    protected function header_pagetitle() {
+        global $PAGE;
+        $pagetitle = $PAGE->title;
+
+        if($pagetitle === "Painel") {
+            $pagetitle = "Mural";
+        } elseif ($PAGE->pagelayout == 'course') {
+            $pagetitle = "Sala de aula";
+        }
+
+        return '<p id="navbar_pagetitle">'. $pagetitle .'</p>';
+    }
 
     protected function header_help() {
         return '<div class="popover-region collapsed popover-region-help" id="nav-help-popover-container" data-userid="2" data-region="popover-region">
