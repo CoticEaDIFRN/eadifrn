@@ -475,7 +475,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $pagetitle = "Sala de aula";
         }
 
-        return '<p id="navbar_pagetitle">'. $pagetitle .'</p>';
+        return '<p id="navbar_pagetitle" class="hidden-sm-down">'. $pagetitle .'</p>';
     }
 
     protected function header_help() {
