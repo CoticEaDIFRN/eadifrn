@@ -469,10 +469,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
         global $PAGE;
         $pagetitle = $PAGE->title;
 
-        if($pagetitle === "Painel") {
+        if($PAGE->pagelayout == 'frontpage' || $PAGE->pagelayout == 'mydashboard') {
             $pagetitle = "Mural";
-        } elseif ($PAGE->pagelayout == 'course') {
+        } elseif ($PAGE->pagelayout == 'course' || $PAGE->pagelayout == 'incourse') {
             $pagetitle = "Sala de aula";
+        } elseif ($PAGE->pagelayout == 'admin') {
+            $pagetitle = "Administração";
         }
 
         return '<p id="navbar_pagetitle" class="hidden-sm-down">'. $pagetitle .'</p>';
