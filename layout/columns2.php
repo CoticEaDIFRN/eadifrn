@@ -26,6 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
+global $PAGE;
 
 if (isloggedin()) {
     $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
@@ -52,6 +53,19 @@ $templatecontext = [
 ];
 
 $calendar = $PAGE->flatnav->get("calendar");
+//$PAGE->navbar->add($strcalendar, $viewcalendarurl);
+//$event = $PAGE->event->get("event");
+echo "<pre>";
+var_dump($PAGE->pagelayout);
+echo "</pre>";
+
+//In Course
+if ($PAGE->pagelayout == "course") {
+
+  $PAGE->flatnav->remove("participants");
+  $PAGE->flatnav->remove("badgesview");
+  $PAGE->flatnav->remove("competencies");
+}
 
 $PAGE->flatnav->remove("home");
 $PAGE->flatnav->remove("privatefiles");

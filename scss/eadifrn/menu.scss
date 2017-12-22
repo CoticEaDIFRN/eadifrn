@@ -46,11 +46,11 @@ $menu-divisor-background: #F2F2F2;
     font-weight: normal;
 }
 
-/* Calendário modificado */ 
+/* Calendário modificado */
 #nav-drawer [data-key="calendar"] {
     position: absolute;
-    margin-top: 290px;
-    width: 285px;
+    margin-top: 215px;
+    width: 283px;
     background: #f0f0f0;
     border-bottom: 2px solid #cad9cb;
     border-top: 2px solid #cad9cb;
@@ -62,7 +62,7 @@ $menu-divisor-background: #F2F2F2;
     content: "\f0db";
     float: left;
     margin-right: 15px;
-} 
+}
 
 /* Ícone Meus Cursos */
 [data-key="mycourses"]:before {
@@ -78,7 +78,7 @@ $menu-divisor-background: #F2F2F2;
     content: "\f073";
     float: left;
     margin-right: 12px;
-}  
+}
 
 /* Itens do menu sem border radius */
 #nav-drawer .list-group-item:first-child {
@@ -90,4 +90,3 @@ $menu-divisor-background: #F2F2F2;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
-  
