@@ -157,6 +157,10 @@ class core_renderer extends \theme_boost\output\core_renderer {
     //     ORIGINAL END. */
     // }
 
+    public function user_menu($user = null, $withlinks = null) {
+        $result = parent::user_menu($user, withlinks);
+        return html_writer::div($result, $usermenuclasses);
+    }
 
     // /**
     //  * Override to dispaly switched role information beneath the course header instead of the user menu.
