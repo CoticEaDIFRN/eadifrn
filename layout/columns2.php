@@ -58,7 +58,6 @@ $calendar = $PAGE->flatnav->get("calendar");
 
 //In Course
 if ($PAGE->pagelayout == "course") {
-
   $PAGE->flatnav->remove("participants");
   $PAGE->flatnav->remove("badgesview");
   $PAGE->flatnav->remove("competencies");
