@@ -55,9 +55,6 @@ $templatecontext = [
 $calendar = $PAGE->flatnav->get("calendar");
 //$PAGE->navbar->add($strcalendar, $viewcalendarurl);
 //$event = $PAGE->event->get("event");
-echo "<pre>";
-var_dump($PAGE->pagelayout);
-echo "</pre>";
 
 //In Course
 if ($PAGE->pagelayout == "course") {
