@@ -177,6 +177,7 @@ $header-message-popover-text: #CACACA;
     color: $header-icons;
     line-height: 40px;
     margin-left: 10px;
+    float: right;
 }
 
 /* Avatar modificado para a esquerda do nome de usuário */
@@ -185,9 +186,9 @@ $header-message-popover-text: #CACACA;
 }
 
 /* Setinha para baixo do lado do nome */
-#dropdown-1 {
-    color: #FFFFFF;
-} 
+.dropdown-toggle::after {
+    display: none;
+}    
 
 /* Dropdown menu do usuário */ 
 .navbar-static-top .dropdown .dropdown-menu {
