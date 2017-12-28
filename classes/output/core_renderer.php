@@ -474,7 +474,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $pagetitle = $PAGE->title;
 
         if($PAGE->pagelayout == 'frontpage' || $PAGE->pagelayout == 'mydashboard') {
-            $pagetitle = "Mural";
+            $pagetitle = "Salas de aula";
         } elseif ($PAGE->pagelayout == 'course' || $PAGE->pagelayout == 'incourse') {
             $pagetitle = "Sala de aula";
         } elseif ($PAGE->pagelayout == 'admin') {
@@ -494,7 +494,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
     protected function header_admin() {
         if (is_siteadmin()) {
             return '<div class="popover-region collapsed popover-region-admin" id="nav-help-popover-container" data-userid="2" data-region="popover-region">
-            <a href="../admin/search.php"><div class="popover-region-toggle nav-link" data-region="popover-region-toggle" aria-role="button" aria-controls="popover-region-container-5a254db9cba625a254db9b2d7016" aria-haspopup="true" aria-label="Mostrar janela de mensagens sem as novas mensagens" tabindex="0">
+            <a href="'. (new moodle_url('/admin/search.php'))->out() .'"><div class="popover-region-toggle nav-link" data-region="popover-region-toggle" aria-role="button" aria-controls="popover-region-container-5a254db9cba625a254db9b2d7016" aria-haspopup="true" aria-label="Mostrar janela de mensagens sem as novas mensagens" tabindex="0">
                 <i class="icon fa fa-cog fa-fw " aria-hidden="true" title="Administração" aria-label="Administração"></i>
             </div></a></div>';
         }

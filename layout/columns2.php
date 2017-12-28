@@ -24,8 +24,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+function dump(...$params) { echo '<pre>'; var_dump(func_get_args()); echo '</pre>'; }
+function dumpd(...$params) { echo '<pre>'; var_dump(func_get_args()); echo '</pre>'; }
+
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
+require_once($CFG->dirroot.'/calendar/lib.php');
+
 global $PAGE;
 
 if (isloggedin()) {
@@ -52,42 +57,74 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
 
-$calendar = $PAGE->flatnav->get("calendar");
+//dumpd($calendar);
 //$PAGE->navbar->add($strcalendar, $viewcalendarurl);
 //$event = $PAGE->event->get("event");
 
-//In Course
-//  echo '<pre>'; var_dump($PAGE->flatnav->get_key_list());
+//dump($PAGE->flatnav->get_key_list());
 
-$PAGE->flatnav->remove("sitesettings");
+
 if ($PAGE->pagelayout == "course") {
-  $PAGE->flatnav->remove("participants");
-  $PAGE->flatnav->remove("badgesview");
-  $PAGE->flatnav->remove("competencies");
-  $PAGE->flatnav->remove("home");
-  $PAGE->flatnav->remove("privatefiles");
-//   var_dump(get_class_methods($PAGE->flatnav->get('mycourses')));
-  foreach ($PAGE->flatnav as $key => $value) {
-    //   var_dump($key);
-      if ($key != 'grades') {
-        //   var_dump($value);
-      }
-  }
-} else {
-    $PAGE->flatnav->remove("home");
-    $PAGE->flatnav->remove("privatefiles");
     $PAGE->flatnav->remove("sitesettings");
-    // var_dump($PAGE->flatnav->get('mycourses')->get_children()); 
-    foreach ($PAGE->flatnav->get('mycourses')->get_children_key_list() as $child_key) {
-        $PAGE->flatnav->remove($child_key);
+    $PAGE->flatnav->remove("home");
+    $PAGE->flatnav->remove("participants");
+    $PAGE->flatnav->remove("badgesview");
+    $PAGE->flatnav->remove("competencies");
+    $PAGE->flatnav->remove("privatefiles");
+    $PAGE->flatnav->remove("calendar");
+    dump($PAGE->flatnav->get_key_list());
+    foreach ($PAGE->flatnav as $child_key) {
+        dumpd($child_key);
+        // dumpd($child_key->key, 
+        //       $child_key->text, 
+        //       $child_key->title, 
+        //       $child_key->action, 
+        //       $child_key->icon, 
+        //       $child_key->type, 
+        //       $child_key->nodetype, 
+        //       $child_key->children, 
+        //       $child_key->isactive, 
+        //       $child_key->hidden, 
+        //       $child_key->display
+        //     );
     }
-    $PAGE->flatnav->remove("mycourses");
+    die();
+    $templatecontext['flatnavigation'] = $PAGE->flatnav;
+} else {
+    // $PAGE->flatnav->remove("privatefiles");
+    // $PAGE->flatnav->remove("sitesettings");
+    // if (!empty($PAGE->flatnav->get('mycourses'))) {
+    //    foreach ($PAGE->flatnav->get('mycourses')->get_children_key_list() as $child_key) {
+    //        $PAGE->flatnav->remove($child_key);
+    //    }
+    // }
+    // $PAGE->flatnav->remove("mycourses");
 }
 
-//$PAGE->flatnav->get_children_key_list();
-//var_dump($PAGE->flatnav);
+//dumpd($PAGE->flatnav);
+//dumpd($PAGE->flatnav->get_key_list());
 
-//  var_dump($PAGE->flatnav->get_key_list()); die();
+function get_nosso_calendario() {
+    global $CFG, $COURSE;
+    $calendar = \calendar_information::create(time(), $COURSE->id, $COURSE->category);
+    list($data, $template) = calendar_get_view($calendar, 'upcoming_mini');
+    $result = [];
+    foreach ($data->events as $key => $value) {
+        $shortdate = date('d M', $value->timestart);
+        if (!array_key_exists($shortdate, $result)) {
+            $result[$shortdate] = new stdClass();
+            $result[$shortdate]->shortdate = $shortdate;
+            $result[$shortdate]->viewurl = $value->viewurl;
+            $result[$shortdate]->events = [];
+        }
+        $result[$shortdate]->events[] = $value;
+    }
+    return new ArrayIterator($result);
+}
 
-$templatecontext['flatnavigation'] = $PAGE->flatnav;
+
+$templatecontext['in_course_page'] = $PAGE->pagelayout == "course";
+$templatecontext['nosso_calendario'] = get_nosso_calendario();
+//dumpd($templatecontext['nosso_calendario']);
+
 echo $OUTPUT->render_from_template('theme_boost_eadifrn/columns2', $templatecontext);

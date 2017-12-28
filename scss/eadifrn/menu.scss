@@ -48,29 +48,38 @@ $menu-divisor-background: #F2F2F2;
 
 /* Calendário modificado */
 #nav-drawer [data-key="calendar"] {
-    position: absolute;
-    margin-top: 215px;
+    // position: absolute;
+    margin-top: 50px;
     width: 283px;
     background: #f0f0f0;
     border-bottom: 2px solid #cad9cb;
     border-top: 2px solid #cad9cb;
 }
 
-/* Ícone do Painel */
-[data-key="myhome"]:before {
+/* Ícone do Salas de aulas */
+[data-key="salas"]:before {
     font-family: FontAwesome;
-    content: "\f0db";
+    content: "\f19d";
     float: left;
     margin-right: 15px;
 }
 
-/* Ícone Meus Cursos */
-[data-key="mycourses"]:before {
+/* Ícone da secretaria sem resposta*/
+[data-key="secretaria-sem-resposta"]:before {
     font-family: FontAwesome;
-    content: "\f19d";
+    content: "\f016";
     float: left;
-    margin-right: 8px;
+    margin-right: 15px;
 }
+
+/* Ícone da secretaria com resposta */
+[data-key="secretaria-com-resposta"]:before {
+    font-family: FontAwesome;
+    content: "\f016";
+    float: left;
+    margin-right: 15px;
+}
+
 
 /* Ícone Calendário */
 [data-key="calendar"]:before {
