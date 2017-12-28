@@ -55,7 +55,7 @@ $header-message-popover-text: #CACACA;
 /* Tipo da página */ 
 #navbar_pagetitle {
     font-size: 24px;
-    color: #FFFFFF;
+    color: $header-icons;
     text-align: left;
     line-height: 1.6;
     margin-left: 270px;
@@ -241,7 +241,7 @@ $header-message-popover-text: #CACACA;
 /* [Hover] Div de cada mensagem */
 .navbar .content-item-container:hover {
     background: $header-message-popover-background-hover !important;
-    color: #FFFFFF;
+    color: $header-icons;
 }
 
 /* Retira a palavra "Mensagens" do Popover */ 
@@ -262,7 +262,7 @@ $header-message-popover-text: #CACACA;
     display: inline-block;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-bottom: 15px solid #274333;
+    border-bottom: 15px solid $header-message-popover-background;
     position: absolute;
     bottom: -21px;
     right: 7px;
@@ -273,7 +273,7 @@ $header-message-popover-text: #CACACA;
     display: inline-block;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-bottom: 15px solid #274333;
+    border-bottom: 15px solid $header-message-popover-background;
     position: absolute;
     bottom: -21px;
     right: 8px;

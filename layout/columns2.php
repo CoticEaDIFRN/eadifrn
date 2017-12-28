@@ -57,15 +57,37 @@ $calendar = $PAGE->flatnav->get("calendar");
 //$event = $PAGE->event->get("event");
 
 //In Course
+//  echo '<pre>'; var_dump($PAGE->flatnav->get_key_list());
+
+$PAGE->flatnav->remove("sitesettings");
 if ($PAGE->pagelayout == "course") {
   $PAGE->flatnav->remove("participants");
   $PAGE->flatnav->remove("badgesview");
   $PAGE->flatnav->remove("competencies");
+  $PAGE->flatnav->remove("home");
+  $PAGE->flatnav->remove("privatefiles");
+//   var_dump(get_class_methods($PAGE->flatnav->get('mycourses')));
+  foreach ($PAGE->flatnav as $key => $value) {
+    //   var_dump($key);
+      if ($key != 'grades') {
+        //   var_dump($value);
+      }
+  }
+} else {
+    $PAGE->flatnav->remove("home");
+    $PAGE->flatnav->remove("privatefiles");
+    $PAGE->flatnav->remove("sitesettings");
+    // var_dump($PAGE->flatnav->get('mycourses')->get_children()); 
+    foreach ($PAGE->flatnav->get('mycourses')->get_children_key_list() as $child_key) {
+        $PAGE->flatnav->remove($child_key);
+    }
+    $PAGE->flatnav->remove("mycourses");
 }
 
-$PAGE->flatnav->remove("home");
-$PAGE->flatnav->remove("privatefiles");
-$PAGE->flatnav->remove("sitesettings");
+//$PAGE->flatnav->get_children_key_list();
+//var_dump($PAGE->flatnav);
+
+//  var_dump($PAGE->flatnav->get_key_list()); die();
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 echo $OUTPUT->render_from_template('theme_boost_eadifrn/columns2', $templatecontext);
