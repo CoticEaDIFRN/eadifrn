@@ -1,31 +1,8 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
-/**
- * A two column layout for the boost theme.
- *
- * @package   theme_boost
- * @copyright 2016 Damyon Wiese
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
 defined('MOODLE_INTERNAL') || die();
 
 function dump(...$params) { echo '<pre>'; var_dump(func_get_args()); echo '</pre>'; }
-function dumpd(...$params) { echo '<pre>'; var_dump(func_get_args()); echo '</pre>'; }
+function dumpd(...$params) { echo '<pre>'; var_dump(func_get_args()); echo '</pre>'; die(); }
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
@@ -57,52 +34,16 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
 ];
 
-//dumpd($calendar);
-//$PAGE->navbar->add($strcalendar, $viewcalendarurl);
-//$event = $PAGE->event->get("event");
-
-//dump($PAGE->flatnav->get_key_list());
-
-
 if ($PAGE->pagelayout == "course") {
-    $PAGE->flatnav->remove("sitesettings");
-    $PAGE->flatnav->remove("home");
-    $PAGE->flatnav->remove("participants");
-    $PAGE->flatnav->remove("badgesview");
-    $PAGE->flatnav->remove("competencies");
-    $PAGE->flatnav->remove("privatefiles");
-    $PAGE->flatnav->remove("calendar");
-    dump($PAGE->flatnav->get_key_list());
+    $flatnav = [];
     foreach ($PAGE->flatnav as $child_key) {
-        dumpd($child_key);
-        // dumpd($child_key->key, 
-        //       $child_key->text, 
-        //       $child_key->title, 
-        //       $child_key->action, 
-        //       $child_key->icon, 
-        //       $child_key->type, 
-        //       $child_key->nodetype, 
-        //       $child_key->children, 
-        //       $child_key->isactive, 
-        //       $child_key->hidden, 
-        //       $child_key->display
-        //     );
+        if ($child_key->type == 30) {
+            $flatnav[] = $child_key;
+        }
     }
-    die();
-    $templatecontext['flatnavigation'] = $PAGE->flatnav;
-} else {
-    // $PAGE->flatnav->remove("privatefiles");
-    // $PAGE->flatnav->remove("sitesettings");
-    // if (!empty($PAGE->flatnav->get('mycourses'))) {
-    //    foreach ($PAGE->flatnav->get('mycourses')->get_children_key_list() as $child_key) {
-    //        $PAGE->flatnav->remove($child_key);
-    //    }
-    // }
-    // $PAGE->flatnav->remove("mycourses");
+    $templatecontext['flatnavigation'] = new ArrayIterator($flatnav);
+    $templatecontext['course'] = $COURSE;
 }
-
-//dumpd($PAGE->flatnav);
-//dumpd($PAGE->flatnav->get_key_list());
 
 function get_nosso_calendario() {
     global $CFG, $COURSE;
@@ -125,6 +66,5 @@ function get_nosso_calendario() {
 
 $templatecontext['in_course_page'] = $PAGE->pagelayout == "course";
 $templatecontext['nosso_calendario'] = get_nosso_calendario();
-//dumpd($templatecontext['nosso_calendario']);
 
 echo $OUTPUT->render_from_template('theme_boost_eadifrn/columns2', $templatecontext);

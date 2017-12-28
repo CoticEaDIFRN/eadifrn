@@ -1,18 +1,18 @@
-<nav class="list-group">
-    {{#in_course_page}}
-        {{# flatnavigation }}
-            {{#showdivider}}
-        </nav>
-        <nav class="list-group m-t-1">
-            {{/showdivider}}
-            {{#action}}
+{{#in_course_page}}
+    <nav class="list-group">
+        {{#course}}
+            <h4>{{fullname}}</h4>
+            <i>{{shortname}}</i>
+        {{/course}}
+    </nav>
+    {{# flatnavigation }}
+    <nav class="list-group m-t-1">
+        {{#action}}
             <a class="list-group-item list-group-item-action {{#isactive}}font-weight-bold{{/isactive}}" href="{{{action}}}" data-key="{{key}}" data-isexpandable="{{isexpandable}}" data-indent="{{get_indent}}" data-showdivider="{{showdivider}}" data-type="{{type}}" data-nodetype="{{nodetype}}" data-collapse="{{collapse}}" data-forceopen="{{forceopen}}" data-isactive="{{isactive}}" data-hidden="{{hidden}}" data-preceedwithhr="{{preceedwithhr}}" {{#parent.key}}data-parent-key="{{.}}"{{/parent.key}}>
                 <div class="m-l-{{get_indent}}">
                     {{#is_section}}
                         <div class="media">
-                            <span class="media-left">
-                                {{#pix}}i/folder{{/pix}}
-                            </span>
+                            <span class="media-left">{{#pix}}i/folder{{/pix}}</span>
                             <span class="media-body">{{{text}}}</span>
                         </div>
                     {{/is_section}}
@@ -31,19 +31,27 @@
                     {{{text}}}
                 </div>
             </div>
-            {{/action}}
-        {{/ flatnavigation }}
-    {{/in_course_page}}
-    {{^in_course_page}}
+        {{/action}}
+    {{/flatnavigation }}
+{{/in_course_page}}
+
+{{^in_course_page}}
+    <nav class="list-group">
+        <a class="list-group-item list-group-item-action font-weight-bold" href="http://localhost/academico/mural/" data-isactive="0" data-key='myhome'>
+            <div class="m-l-0">Mural</div>
+        </a>
+
         <a class="list-group-item list-group-item-action font-weight-bold" href="http://localhost/academico/my/" data-isactive="1" data-key='salas'>
             <div class="m-l-0">Salas de aula</div>
         </a>
 
-        <a class="list-group-item list-group-item-action font-weight-bold" href="http://localhost/academico/my/" data-isactive="0" data-key='secretaria-sem-resposta'>
+        <a class="list-group-item list-group-item-action font-weight-bold" href="http://localhost/academico/secretaria/" data-isactive="0" data-key='secretaria-sem-resposta'>
             <div class="m-l-0">Secretaria</div>
         </a>
-    {{/in_course_page}}
+    </nav>
+{{/in_course_page}}
 
+<nav class="list-group">
     <a class="list-group-item list-group-item-action " href="http://localhost/academico/calendar/view.php?view=month" data-key="calendar" data-type="60" data-isactive="0">
         <div class="m-l-0">Calendário</div>
     </a>
@@ -52,11 +60,7 @@
             {{#nosso_calendario}}
             <dt><a href="{{viewurl}}">{{shortdate}}</a></dt>
             <dd>
-                <ul>
-                    {{#events}}
-                    <li>{{name}}</li>
-                    {{/events}}
-                </ul>
+                <ul>{{#events}}<li>{{name}}</li>{{/events}}</ul>
             </dd>
             {{/nosso_calendario}}
         </dl>
