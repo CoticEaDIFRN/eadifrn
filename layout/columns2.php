@@ -49,6 +49,9 @@ function get_nosso_calendario() {
     global $CFG, $COURSE;
     $calendar = \calendar_information::create(time(), $COURSE->id, $COURSE->category);
     list($data, $template) = calendar_get_view($calendar, 'upcoming_mini');
+    if (sizeof($data->events) == 0) {
+        return false;
+    }
     $result = [];
     foreach ($data->events as $key => $value) {
         $shortdate = date('d M', $value->timestart);
