@@ -55,6 +55,11 @@ function get_nosso_calendario() {
         if (!array_key_exists($shortdate, $result)) {
             $result[$shortdate] = new stdClass();
             $result[$shortdate]->shortdate = $shortdate;
+
+            $data_mes = explode(" ", $shortdate);
+
+            $result[$shortdate]->shortdate_dia = $data_mes[0];
+            $result[$shortdate]->shortdate_mes = $data_mes[1];
             $result[$shortdate]->viewurl = $value->viewurl;
             $result[$shortdate]->events = [];
         }

@@ -58,9 +58,9 @@
     <div>
         <dl class="aside-calendar item">
             {{#nosso_calendario}}
-            <dt><a href="{{viewurl}}">{{shortdate}}</a></dt>
+            <dt><a href="{{viewurl}}">{{shortdate_dia}}<br><span>{{shortdate_mes}}</span></a></dt>
             <dd>
-                <ul>{{#events}}<li>{{name}}</li>{{/events}}</ul>
+                <ul>{{#events}}<li>{{name}}<br><br></li>{{/events}}</ul>
             </dd>
             <hr>
             {{/nosso_calendario}}

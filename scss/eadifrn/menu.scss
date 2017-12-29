@@ -115,7 +115,7 @@ $menu-borders: #CAD9CB;
 }
 
 .aside-calendar dd {
-    margin-left: 70px;
+    margin-left: 50px;
 }
 
 .aside-calendar a {
@@ -123,6 +123,12 @@ $menu-borders: #CAD9CB;
     color: #748073;
     font-weight: normal;
     float: left;
+    text-align: center;
+    line-height: 1;
+}
+
+.aside-calendar a span {
+    font-size: 12px;
 }
 
 .aside-calendar li {
