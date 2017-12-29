@@ -504,7 +504,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         global $USER;
         // Add the notifications popover.
         $enabled = \core_message\api::is_processor_enabled("popup");
-        if ($enabled) {
+        if ($enabled && isloggedin()) {
             $context = [
                 'userid' => $USER->id,
                 'urls' => [
@@ -520,7 +520,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
     protected function header_messsage() {
         global $USER, $CFG;
-        if (!empty($CFG->messaging)) {
+        if (!empty($CFG->messaging) && isloggedin()) {
             $context = [
                 'userid' => $USER->id,
                 'urls' => [
