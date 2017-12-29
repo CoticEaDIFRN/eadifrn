@@ -37,15 +37,15 @@
 
 {{^in_course_page}}
     <nav class="list-group">
-        <a class="list-group-item list-group-item-action font-weight-bold" href="http://localhost/academico/mural/" data-isactive="0" data-key='myhome'>
+        <a class="list-group-item list-group-item-action" href="http://localhost/academico/mural/" data-isactive="0" data-key='myhome'>
             <div class="m-l-0">Mural</div>
         </a>
 
-        <a class="list-group-item list-group-item-action font-weight-bold" href="http://localhost/academico/my/" data-isactive="1" data-key='salas'>
+        <a class="list-group-item list-group-item-action" href="http://localhost/academico/my/" data-isactive="1" data-key='salas'>
             <div class="m-l-0">Salas de aula</div>
         </a>
 
-        <a class="list-group-item list-group-item-action font-weight-bold" href="http://localhost/academico/secretaria/" data-isactive="0" data-key='secretaria-sem-resposta'>
+        <a class="list-group-item list-group-item-action" href="http://localhost/academico/secretaria/" data-isactive="0" data-key='secretaria-sem-resposta'>
             <div class="m-l-0">Secretaria</div>
         </a>
     </nav>
@@ -62,6 +62,7 @@
             <dd>
                 <ul>{{#events}}<li>{{name}}</li>{{/events}}</ul>
             </dd>
+            <hr>
             {{/nosso_calendario}}
         </dl>
     </div>

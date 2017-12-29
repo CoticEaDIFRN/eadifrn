@@ -3,11 +3,12 @@
 /*==================================================*/
 
 // /* Menu */
-$menu-background: $header-icons;
+$menu-background: #FFFFFF;
 $menu-item-font: #748073;
 $menu-selected-item-font: #2F8C47;
 $menu-item-hover: #F0F0F0;
 $menu-divisor-background: #F2F2F2;
+$menu-borders: #CAD9CB;
 
 // /*==================================================*/
 // /*====================== Menu ======================*/
@@ -16,44 +17,51 @@ $menu-divisor-background: #F2F2F2;
 /* Menu background */
 [data-region="drawer"] {
     padding: 20px 0;
-    background-color: #FFFFFF;
-    border-right: 2px solid #CAD9CB;
+    background-color: $menu-background;
+    border-right: 2px solid $menu-borders;
 }
 
 /* Itens do Menu */
 #nav-drawer .list-group-item {
     padding: .75rem 2.25rem;
-    background-color: #fff;
+    background-color: $menu-background;
     border: none;
     font-size: 18px;
-    color: #748073;
+    color: $menu-item-font;
 }
 
 /* [HOVER] Itens do Menu */
 #nav-drawer .list-group-item:hover {
-    background-color: #F0F0F0;
+    background-color: $menu-item-hover;
 }
 
 #nav-drawer [data-type="0"]:hover {
-    background-color: #FFFFFF;
+    background-color: $menu-background;
 }
 
 /* Item do menu ativo */
 #nav-drawer [data-isactive="1"] {
-    border-left: 6px solid #2f8c47;
+    border-left: 6px solid $menu-selected-item-font;
     padding: .75rem 1.8rem;
-    color: #2f8c47;
+    color: $menu-selected-item-font;
     font-weight: normal;
 }
 
 /* Calendário modificado */
 #nav-drawer [data-key="calendar"] {
-    // position: absolute;
     margin-top: 50px;
     width: 283px;
-    background: #f0f0f0;
-    border-bottom: 2px solid #cad9cb;
-    border-top: 2px solid #cad9cb;
+    background: $menu-item-hover;
+    border-bottom: 2px solid $menu-borders;
+    border-top: 2px solid $menu-borders;
+}
+
+/* Ícone do Salas de aulas */
+[data-key="myhome"]:before {
+    font-family: FontAwesome;
+    content: "\f0db";
+    float: left;
+    margin-right: 15px;
 }
 
 /* Ícone do Salas de aulas */
@@ -99,3 +107,25 @@ $menu-divisor-background: #F2F2F2;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
+
+/* Datas do calendário */ 
+.aside-calendar {
+    padding: 20px;
+    height: 100%;
+}
+
+.aside-calendar dd {
+    margin-left: 70px;
+}
+
+.aside-calendar a {
+    font-size: 18px;
+    color: #748073;
+    font-weight: normal;
+    float: left;
+}
+
+.aside-calendar li {
+    font-size: 15px;
+    color: #748073;
+}    
