@@ -211,6 +211,33 @@ img.userpicture {
     border-color: #39B34A;
 }
 
+.initialbar .letter.active {
+    color: #fff;
+    border-color: #5bc166;
+    background-color: #5bc166;
+}
+
+.initialbar .letter {
+    color: #274333;
+}
+
+.initialbar .letter:hover {
+    color: #274333;
+}
+
+.page-item.active .page-link, .page-item.active .page-link:focus, .page-item.active .page-link:hover {
+    background-color: #5bc166;
+    border-color: #5bc166;
+}
+
+.page-link {
+    color: #274333;
+}
+
+.page-link:focus, .page-link:hover {
+    color: #274333;
+}
+
 /* Cards */
 .card {
     border: none;
