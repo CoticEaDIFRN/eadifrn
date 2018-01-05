@@ -31,7 +31,11 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes,
     'navdraweropen' => $navdraweropen,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
-    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
+    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
+    'link_calendar' => (new moodle_url('/calendar/view.php?view=month'))->out(),
+    'link_sala_aula' => (new moodle_url('/my'))->out(),
+    'link_mural' => (new moodle_url('/mural'))->out(),
+    'link_secretaria' => (new moodle_url('/secretaria'))->out(),
 ];
 
 if ($PAGE->pagelayout == "course") {

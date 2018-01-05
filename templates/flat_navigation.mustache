@@ -37,22 +37,22 @@
 
 {{^in_course_page}}
     <nav class="list-group">
-        <!--a class="list-group-item list-group-item-action" href="../mural/" data-isactive="0" data-key='myhome'>
+        <!--a class="list-group-item list-group-item-action" href="{{link_mural}}" data-isactive="0" data-key='myhome'>
             <div class="m-l-0">Mural</div>
         </a-->
 
-        <a class="list-group-item list-group-item-action" href="../my/" data-isactive="1" data-key='salas'>
+        <a class="list-group-item list-group-item-action" href="{{link_sala_aula}}" data-isactive="1" data-key='salas'>
             <div class="m-l-0">Salas de aula</div>
         </a>
 
-        <!--a class="list-group-item list-group-item-action" href="../secretaria/" data-isactive="0" data-key='secretaria-sem-resposta'>
+        <!--a class="list-group-item list-group-item-action" href="{{link_secretaria}}" data-isactive="0" data-key='secretaria-sem-resposta'>
             <div class="m-l-0">Secretaria</div>
         </a-->
     </nav>
 {{/in_course_page}}
 
 <nav class="list-group">
-    <a class="list-group-item list-group-item-action " href="http://localhost/academico/calendar/view.php?view=month" data-key="calendar" data-type="60" data-isactive="0">
+    <a class="list-group-item list-group-item-action " href="{{link_calendar}}" data-key="calendar" data-type="60" data-isactive="0">
         <div class="m-l-0">Calendário</div>
     </a>
     <div>
