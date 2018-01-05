@@ -214,6 +214,10 @@ $header-message-popover-text: #CACACA;
     margin-right: 15px;
 }
 
+span.viewingas {
+    line-height: 0;
+}
+
 /* Popover das mensagens */
 .navbar .popover-region-container {
     background: $header-message-popover-background;
