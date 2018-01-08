@@ -166,3 +166,127 @@ function theme_boost_eadifrn_reset_app_cache() {
     // we also delete the complete theme cache here.
     theme_reset_all_caches();
 }
+
+
+function get_ead_ifrn_commom_moodle_template_context()
+{
+    global $OUTPUT, $PAGE, $COURSE;
+
+    if (isloggedin()) {
+        $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
+    } else {
+        $navdraweropen = false;
+    }
+    $extraclasses = [];
+    if ($navdraweropen) {
+        $extraclasses[] = 'drawer-open-left';
+    }
+    $bodyattributes = $OUTPUT->body_attributes($extraclasses);
+    $blockshtml = $OUTPUT->blocks('side-pre');
+    $hasblocks = strpos($blockshtml, 'data-block=') !== false;
+    $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+    $in_course_page = $PAGE->pagelayout == "course";
+    $course_name = $COURSE->fullname;
+    $course_code = $COURSE->shortname;
+    return [
+        'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
+        'output' => $OUTPUT,
+        'sidepreblocks' => $blockshtml,
+        'hasblocks' => $hasblocks,
+        'bodyattributes' => $bodyattributes,
+        'navdraweropen' => $navdraweropen,
+        'regionmainsettingsmenu' => $regionmainsettingsmenu,
+        'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
+        'link_calendar' => (new moodle_url('/calendar/view.php?view=month'))->out(),
+        'link_sala_aula' => (new moodle_url('/my'))->out(),
+        'link_mural' => (new moodle_url('/mural'))->out(),
+        'link_secretaria' => (new moodle_url('/secretaria'))->out(),
+        'in_course_page' => $in_course_page,
+        'course' => $COURSE,
+        'course_name' => course_name
+    ];
+}
+
+function get_ead_ifrn_calendario() {
+    global $CFG, $COURSE;
+    $calendar = \calendar_information::create(time(), $COURSE->id, $COURSE->category);
+    list($data, $template) = calendar_get_view($calendar, 'upcoming_mini');
+    if (sizeof($data->events) == 0) {
+        return false;
+    }
+    $result = [];
+    foreach ($data->events as $key => $value) {
+        $shortdate = date('d M', $value->timestart);
+        if (!array_key_exists($shortdate, $result)) {
+            $result[$shortdate] = new stdClass();
+            $result[$shortdate]->shortdate = $shortdate;
+
+            $data_mes = explode(" ", $shortdate);
+
+            $result[$shortdate]->shortdate_dia = $data_mes[0];
+            $result[$shortdate]->shortdate_mes = $data_mes[1];
+            $result[$shortdate]->viewurl = $value->viewurl;
+            $result[$shortdate]->events = [];
+        }
+        $result[$shortdate]->events[] = $value;
+    }
+    return new ArrayIterator($result);
+}
+
+function get_ead_ifrn_course_content_actions()
+{
+    global $PAGE, $COURSE;
+    if ($PAGE->pagelayout == "course") {
+        $flatnav = [];
+        foreach ($PAGE->flatnav as $child_key) {
+            if ($child_key->type == 30) {
+                $flatnav[] = $child_key;
+            }
+        }
+        return new ArrayIterator($flatnav);
+    }
+}
+    
+function get_ead_ifrn_course_common_actions() 
+{
+    global $PAGE, $COURSE;
+    if ($PAGE->pagelayout == "course") {
+        $extraflatnav = [];
+    
+        $notas = new stdClass();
+        $notas->action_url = new moodle_url("/grade/report/index.php", ['id'=>$COURSE->id]);
+        $notas->icon = "table";
+        $notas->label = "Notas";
+        $extraflatnav[] = $notas;
+    
+        $emblemas = new stdClass();
+        $emblemas->action_url = new moodle_url("/badges/view.php", ['type'=>2, 'id'=>$COURSE->id]);
+        $emblemas->icon = "shield";
+        $emblemas->label = "Emblemas";
+        $extraflatnav[] = $emblemas;
+    
+        $competencias = new stdClass();
+        $competencias->action_url = new moodle_url("/admin/tool/lp/coursecompetencies.php", ['courseid'=>$COURSE->id]);
+        $competencias->icon = "check-square-o";
+        $competencias->label = "Competências";
+        $extraflatnav[] = $competencias;
+    
+        return new ArrayIterator($extraflatnav);
+    }
+}
+
+
+
+function get_ead_ifrn_template_context()
+{
+    global $PAGE;
+
+    $templatecontext = get_ead_ifrn_commom_moodle_template_context();
+
+    if ($templatecontext['in_course_page']) {
+        $templatecontext['course_content_actions'] = get_ead_ifrn_course_content_actions();
+        $templatecontext['course_common_actions'] = get_ead_ifrn_course_common_actions();
+    }
+    $templatecontext['nosso_calendario'] = get_ead_ifrn_calendario();
+    return $templatecontext;
+};

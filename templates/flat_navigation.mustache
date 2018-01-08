@@ -5,8 +5,8 @@
             <i>{{shortname}}</i>
         {{/course}}
     </nav>
-    {{# flatnavigation }}
     <nav class="list-group m-t-1 conteudo-cursos">
+    {{# course_content_actions }}
         {{#action}}
             <a class="list-group-item list-group-item-action {{#isactive}}font-weight-bold{{/isactive}}" href="{{{action}}}" data-key="{{key}}" data-isexpandable="{{isexpandable}}" data-indent="{{get_indent}}" data-showdivider="{{showdivider}}" data-type="{{type}}" data-nodetype="{{nodetype}}" data-collapse="{{collapse}}" data-forceopen="{{forceopen}}" data-isactive="{{isactive}}" data-hidden="{{hidden}}" data-preceedwithhr="{{preceedwithhr}}" {{#parent.key}}data-parent-key="{{.}}"{{/parent.key}}>
                 <div class="m-l-{{get_indent}}">
@@ -21,8 +21,8 @@
                     {{/is_section}}
                 </div>
             </a>
-            {{/action}}
-            {{^action}}
+        {{/action}}
+        {{^action}}
             <div class="list-group-item" data-key="{{key}}" data-isexpandable="{{isexpandable}}" data-indent="{{get_indent}}" data-showdivider="{{showdivider}}" data-type="{{type}}" data-nodetype="{{nodetype}}" data-collapse="{{collapse}}" data-forceopen="{{forceopen}}" data-isactive="{{isactive}}" data-hidden="{{hidden}}" data-preceedwithhr="{{preceedwithhr}}" {{#parent.key}}data-parent-key="{{.}}"{{/parent.key}}>
                 <div class="m-l-{{get_indent}}">
                     {{#is_section}}
@@ -32,7 +32,19 @@
                 </div>
             </div>
         {{/action}}
-    {{/flatnavigation }}
+    {{/course_content_actions }}
+    </nav>
+    <nav class="list-group m-t-1 conteudo-cursos">
+        {{# course_common_actions }}
+            <a class="list-group-item list-group-item-action" href="{{action_url}}">
+                <div class="m-l-1">
+                    <div class="media">
+                        <i class="icon fa fa-{{icon}} fa-fw navicon" aria-hidden="true" title="{{label}}" aria-label="{{label}}"></i>{{label}}
+                    </div>
+                </div>
+            </a>
+        {{/course_common_actions }}
+    </nav>
 {{/in_course_page}}
 
 {{^in_course_page}}
