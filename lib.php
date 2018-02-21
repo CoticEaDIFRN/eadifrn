@@ -170,7 +170,7 @@ function theme_boost_eadifrn_reset_app_cache() {
 
 function get_ead_ifrn_commom_moodle_template_context()
 {
-    global $OUTPUT, $PAGE, $COURSE;
+    global $OUTPUT, $PAGE, $COURSE, $SITE;
 
     if (isloggedin()) {
         $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
@@ -203,7 +203,7 @@ function get_ead_ifrn_commom_moodle_template_context()
         'link_secretaria' => (new moodle_url('/secretaria'))->out(),
         'in_course_page' => $in_course_page,
         'course' => $COURSE,
-        'course_name' => course_name
+        'course_name' => $course_name
     ];
 }
 
