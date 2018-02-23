@@ -259,7 +259,14 @@ function get_ead_ifrn_course_common_actions()
         $notas->icon = "table";
         $notas->label = "Notas";
         $extraflatnav[] = $notas;
-    
+
+        // Participantes
+        $participantes = new stdClass();
+        $participantes->action_url = new moodle_url("/user/index.php", ['id'=>$COURSE->id]);
+        $participantes->icon = "users";
+        $participantes->label = "Participantes";
+        $extraflatnav[] = $participantes;
+     
         // Emblemas
         $emblemas = new stdClass();
         $emblemas->action_url = new moodle_url("/badges/view.php", ['type'=>2, 'id'=>$COURSE->id]);
@@ -273,14 +280,7 @@ function get_ead_ifrn_course_common_actions()
         $competencias->icon = "check-square-o";
         $competencias->label = "Competências";
         $extraflatnav[] = $competencias;
-
-        // Participantes
-        $participantes = new stdClass();
-        $participantes->action_url = new moodle_url("/user/index.php", ['id'=>$COURSE->id]);
-        $participantes->icon = "users";
-        $participantes->label = "Participantes";
-        $extraflatnav[] = $participantes;
-    
+   
         return new ArrayIterator($extraflatnav);
     }
 }
