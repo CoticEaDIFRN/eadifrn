@@ -274,12 +274,12 @@ function get_ead_ifrn_course_common_actions()
         $emblemas->label = "Emblemas";
         $extraflatnav[] = $emblemas;
     
-        // Competências
-        $competencias = new stdClass();
-        $competencias->action_url = new moodle_url("/admin/tool/lp/coursecompetencies.php", ['courseid'=>$COURSE->id]);
-        $competencias->icon = "check-square-o";
-        $competencias->label = "Competências";
-        $extraflatnav[] = $competencias;
+        //// Competências
+        //$competencias = new stdClass();
+        //$competencias->action_url = new moodle_url("/admin/tool/lp/coursecompetencies.php", ['courseid'=>$COURSE->id]);
+        //$competencias->icon = "check-square-o";
+        //$competencias->label = "Competências";
+        //$extraflatnav[] = $competencias;
    
         return new ArrayIterator($extraflatnav);
     }
