@@ -22,4 +22,13 @@ $content-card-notvisited-icon: #CAD9CB;
 #page {
     margin-top: 70px;
 }
+
+/* Retirada dos blocos laterais */
+[data-region="blocks-column"] {
+    display: none;
+}
+
+#region-main-settings-menu.has-blocks, #region-main.has-blocks {
+    width: 100%;
+}
   
