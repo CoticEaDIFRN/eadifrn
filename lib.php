@@ -188,6 +188,9 @@ function get_ead_ifrn_commom_moodle_template_context()
     $in_course_page = $PAGE->pagelayout == "course";
     $course_name = $COURSE->fullname;
     $course_code = $COURSE->shortname;
+    if (is_siteadmin()){
+      $inte_suap = "show_suap";
+    }
     return [
         'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
         'output' => $OUTPUT,
@@ -199,11 +202,13 @@ function get_ead_ifrn_commom_moodle_template_context()
         'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
         'link_calendar' => (new moodle_url('/calendar/view.php?view=month'))->out(),
         'link_sala_aula' => (new moodle_url('/my'))->out(),
+        'link_suap' => (new moodle_url('/suap'))->out(),
         'link_mural' => (new moodle_url('/mural'))->out(),
         'link_secretaria' => (new moodle_url('/secretaria'))->out(),
         'in_course_page' => $in_course_page,
         'course' => $COURSE,
-        'course_name' => $course_name
+        'course_name' => $course_name,
+        'inte_suap' => $inte_suap
     ];
 }
 

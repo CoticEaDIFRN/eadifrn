@@ -72,6 +72,18 @@ $menu-borders: #CAD9CB;
     margin-right: 15px;
 }
 
+/* Ícone do Integrador SUAP */
+[data-key="int_suap"]:before {
+    font-family: FontAwesome;
+    content: "\f0ec";
+    float: left;
+    margin-right: 15px;
+}
+
+.show_suap{
+  display: inline-block !important;
+}
+
 /* Ícone da secretaria sem resposta*/
 [data-key="secretaria-sem-resposta"]:before {
     font-family: FontAwesome;

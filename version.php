@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'theme_boost_eadifrn';
-$plugin->version = 2017111700;
+$plugin->version = 2018030500;
 $plugin->release = 'v3.2-r6';
 $plugin->requires = 2016120503.05;
 $plugin->maturity = MATURITY_STABLE;
