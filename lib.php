@@ -186,6 +186,9 @@ function get_ead_ifrn_commom_moodle_template_context()
     $hasblocks = strpos($blockshtml, 'data-block=') !== false;
     $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
     $in_course_page = $PAGE->pagelayout == "course";
+    $not_in_course_page = $PAGE->pagelayout != "course";
+    $within_course_page = $PAGE->pagelayout == "incourse";
+    $not_within_course_page = $PAGE->pagelayout != "incourse";
     $course_name = $COURSE->fullname;
     $course_code = $COURSE->shortname;
     if (is_siteadmin()){
@@ -206,7 +209,11 @@ function get_ead_ifrn_commom_moodle_template_context()
         'link_mural' => (new moodle_url('/mural'))->out(),
         'link_secretaria' => (new moodle_url('/secretaria'))->out(),
         'in_course_page' => $in_course_page,
+        'not_in_course_page' => $not_in_course_page,
+        'incourse' => $COURSE,
         'course' => $COURSE,
+        'within_course_page' => $within_course_page,
+        'not_within_course_page' => $not_within_course_page,
         'course_name' => $course_name,
         'inte_suap' => $inte_suap
     ];
@@ -241,7 +248,7 @@ function get_ead_ifrn_calendario() {
 function get_ead_ifrn_course_content_actions()
 {
     global $PAGE, $COURSE;
-    if ($PAGE->pagelayout == "course") {
+    if ($PAGE->pagelayout == "course" || $PAGE->pagelayout == "incourse") {
         $flatnav = [];
         foreach ($PAGE->flatnav as $child_key) {
             if ($child_key->type == 30) {
@@ -255,7 +262,7 @@ function get_ead_ifrn_course_content_actions()
 function get_ead_ifrn_course_common_actions() 
 {
     global $PAGE, $COURSE;
-    if ($PAGE->pagelayout == "course") {
+    if ($PAGE->pagelayout == "course" || $PAGE->pagelayout == "incourse") {
         $extraflatnav = [];
         
         // Notas
@@ -298,7 +305,7 @@ function get_ead_ifrn_template_context()
 
     $templatecontext = get_ead_ifrn_commom_moodle_template_context();
 
-    if ($templatecontext['in_course_page']) {
+    if ($templatecontext['in_course_page'] || $templatecontext['within_course_page']) {
         $templatecontext['course_content_actions'] = get_ead_ifrn_course_content_actions();
         $templatecontext['course_common_actions'] = get_ead_ifrn_course_common_actions();
     }
