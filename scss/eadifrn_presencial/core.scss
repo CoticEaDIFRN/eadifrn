@@ -1,0 +1,268 @@
+/*==================================================*/
+/*====================== Cores =====================*/
+/*==================================================*/
+
+// /* Header */ 
+// $header-background: #5BC166;
+// $header-searchbox: #71CC78;
+// $header-searchbox-text: #369530;
+// $header-icons: #FFFFFF;
+// $header-onlineuser-indicator: #81FD6C;
+
+// /* Menu */
+// $menu-background: $header-icons;
+// $menu-item-font: #748073;
+// $menu-selected-item-font: #2F8C47;
+// $menu-item-hover: #F0F0F0;
+// $menu-divisor-background: #F2F2F2;
+
+// /* Content */
+// $content-background: $menu-divisor-background;
+// $content-title: #000000;
+// $content-card-background: $header-icons;
+// $content-card-title: #274333;
+// $content-card-text: #4D4D4D;
+// $content-card-link: #39B34A;
+// $content-card-arrow-icons: #95989A;
+// $content-card-completed-icon: $content-card-link;
+// $content-card-visited-icon: #EDD15D;
+// $content-card-notvisited-icon: #CAD9CB;
+
+/*
+$verde-botao: #39B34A;{
+    $content-card-link
+}
+
+$verde-claro: #5BC166;{
+    $header-background
+}
+
+$verde-progresso: #CAD9CB;{
+    $content-card-notvisited-icon
+}
+
+$preto-titulo: #274333;{
+    $content-card-title
+}
+
+$corpo-de-texto: #4D4D4D;{
+    $content-card-text
+}
+
+$amarelo: #EDD15D;{
+    $content-card-visited-icon
+}
+
+$cinza: #95989A;{
+    $content-card-arrow-icons
+}
+
+$verde-selecao: #2F8C47;{
+    $menu-selected-item-font
+}
+
+$cinza-menu: #748073;{
+    $menu-font-color
+}
+
+$verde-busca: #71CC78;{
+    $header-searchbox
+}
+
+$busca-2: #369530;{
+    $header-searchbox-text
+}
+
+$bg: #F2F2F2;{
+    $menu-divisor-background
+}
+
+$bg2: #FFFFFF;{
+    $header-icons
+}
+
+$online: #81FD6C;{
+    $header-onlineuser-indicator
+}
+
+$caixa: #F9F9F9;
+
+$borda: #555555;
+
+$selecao: #F0F0F0;{
+    $menu-item-hover
+}
+
+$barra: #E4F2E4;
+
+$barra2: #F9F1E5;
+
+$icones: #5B8E7D;
+
+$link: #2C9946;
+
+$bg-forum: #E2E2E2;
+
+$texto: #848484;
+
+$menu: #226628;
+
+$video: #EE6352;
+
+$documento: #08B2E3;
+
+$forum: #FC9F5B;
+
+$jogo: #525B76;
+
+$questionario: #7DCFB6;
+
+$erro: #F5A524;
+
+$vermelho: #C60C0F;
+
+$contraste: #39794F;
+
+$texto-chat: #CACACA;
+
+$data-chat: #9FB29E;
+
+$barra-chat: #235336;
+
+$balao: #CAD9CB;
+
+$escrever: #C9F5CF;
+
+$sub: #84988C;
+*/
+
+/*==================================================*/
+/*================ Cores (Contraste) ===============*/
+/*==================================================*/
+/*
+$concluido: #40806A;
+$verde: #008000;
+$amarelo-contraste: #AA8F00;
+$online-contraste: #C9F227;
+$selecao-contraste: #708080;
+$video-contraste: #DC143C;
+$documento-contraste: #4B77BE;
+$forum-contraste: #000036;
+$jogo-contraste: #006080;
+$questionario-contraste: #294429;
+$erro-contraste: #9A5F00;
+$ocupado: #E00000;
+$barra-chat-contraste: #000000;
+$balao-contraste: #019875;
+$icones-chat: #7ED07E;
+$bg-chat: #002A15;
+$selecao-de-caixa: #0179D3;
+*/
+
+// /*==================================================*/
+// /*================= Geral - Boost ==================*/
+// /*==================================================*/
+
+/* Body */
+body{
+    background-color: #F2F2F2;
+}
+
+img.userpicture {
+    border-radius: 100%;
+}
+
+/* Botões com bordas arredondadas */
+.btn {
+    border-radius: 25px;
+}
+
+/* Botões de classe btn-primary */
+.btn-primary, .btn-primary:focus {
+    color: #fff;
+    background-color: #39B34A;
+    border-color: #39B34A;
+}
+
+/* [HOVER e ACTIVE] Botões de classe btn-primary */
+.btn-primary:hover, .btn-primary:active {
+    background-color: #235336;
+    border-color: #235336;
+}
+
+/* Botões de classe btn-secondary e btn-default */
+.btn-secondary, .btn-default {
+    color: #39B34A;
+    background-color: #fff;
+    border-color: #39B34A;
+}
+
+/* [HOVER] Botões de classe btn-secondary e btn-default */
+.btn-secondary:hover, .btn-default:hover {
+    color: #235336;
+    background-color: #fff;
+    border-color: #235336;
+}
+
+/* Botões de classe btn-default.active */
+.btn-default.active, .btn-default.active:focus, .btn-default.active:hover{
+    color: #fff;
+    background-color: #39B34A;
+    border-color: #39B34A;
+}
+
+.initialbar .letter.active {
+    color: #fff;
+    border-color: #5bc166;
+    background-color: #5bc166;
+}
+
+.initialbar .letter {
+    color: #274333;
+}
+
+.initialbar .letter:hover {
+    color: #274333;
+}
+
+.page-item.active .page-link, .page-item.active .page-link:focus, .page-item.active .page-link:hover {
+    background-color: #5bc166;
+    border-color: #5bc166;
+}
+
+.page-link {
+    color: #274333;
+}
+
+.page-link:focus, .page-link:hover {
+    color: #274333;
+}
+
+/* Cards */
+.card {
+    border: none;
+}
+
+/* Títulos dos cards */
+.card-title {
+    font-size: 20px !important;
+    color: #274333;
+}
+
+/* links */
+a {
+    color: #39B34A;
+}
+
+a:hover {
+    color: #235336;
+}
+
+.text-primary {
+    color: #39B34A !important;
+}
+
+/* Lista de contatos da área de mensagens */
+.messaging-area-container .messaging-area .contacts-area .contacts .contact {
+    height: 80px;
+} 

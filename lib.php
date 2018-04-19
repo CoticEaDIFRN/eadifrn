@@ -45,6 +45,10 @@ function theme_boost_eadifrn_get_main_scss_content($theme) {
         // We still load the default preset files directly from the boost theme. No sense in duplicating them.
         $scss .= file_get_contents($CFG->dirroot . '/theme/boost_eadifrn/scss/preset/eadifrn.scss');
 
+    } else if ($filename == 'eadifrn_presencial.scss') {
+        // We still load the default preset files directly from the boost theme. No sense in duplicating them.
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_eadifrn/scss/preset/eadifrn_presencial.scss');
+
     } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_boost_eadifrn', 'preset', 0, '/', $filename))) {
         // This preset file was fetched from the file area for theme_boost_eadifrn and not theme_boost (see the line above).
         $scss .= $presetfile->get_content();

@@ -60,6 +60,7 @@ if ($ADMIN->fulltree) {
     $choices['default.scss'] = 'default.scss';
     $choices['plain.scss'] = 'plain.scss';
     $choices['eadifrn.scss'] = 'eadifrn.scss';
+    $choices['eadifrn_presencial.scss'] = 'eadifrn_presencial.scss';
     
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');

@@ -1,0 +1,199 @@
+/*==================================================*/
+/*====================== Cores =====================*/
+/*==================================================*/
+
+// /* Menu */
+$menu-background: #FFFFFF;
+$menu-item-font: #748073;
+$menu-selected-item-font: #3B8FE0;
+$menu-item-hover: #F0F0F0;
+$menu-divisor-background: #F2F2F2;
+$menu-borders: #CAD9CB;
+
+// /*==================================================*/
+// /*====================== Menu ======================*/
+// /*==================================================*/
+
+/* Menu background */
+[data-region="drawer"] {
+    padding: 20px 0;
+    background-color: $menu-background;
+    border-right: 2px solid $menu-borders;
+}
+
+/* Itens do Menu */
+#nav-drawer .list-group-item {
+    padding: .75rem 2.25rem;
+    background-color: $menu-background;
+    border: none;
+    font-size: 18px;
+    color: $menu-item-font;
+}
+
+/* [HOVER] Itens do Menu */
+#nav-drawer .list-group-item:hover {
+    background-color: $menu-item-hover;
+}
+
+#nav-drawer [data-type="0"]:hover {
+    background-color: $menu-background;
+}
+
+/* Item do menu ativo */
+#nav-drawer [data-isactive="1"] {
+    border-left: 6px solid $menu-selected-item-font;
+    padding: .75rem 1.8rem;
+    color: $menu-selected-item-font;
+    font-weight: normal;
+}
+
+/* Calendário modificado */
+#nav-drawer [data-key="calendar"] {
+    margin-top: 50px;
+    width: 283px;
+    background: $menu-item-hover;
+    border-bottom: 2px solid $menu-borders;
+    border-top: 2px solid $menu-borders;
+}
+
+/* Ícone do Salas de aulas */
+[data-key="myhome"]:before {
+    font-family: FontAwesome;
+    content: "\f0db";
+    float: left;
+    margin-right: 15px;
+}
+
+/* Ícone do Salas de aulas */
+[data-key="salas"]:before {
+    font-family: FontAwesome;
+    content: "\f19d";
+    float: left;
+    margin-right: 15px;
+}
+
+/* Ícone do Integrador SUAP */
+[data-key="int_suap"]:before {
+    font-family: FontAwesome;
+    content: "\f0ec";
+    float: left;
+    margin-right: 15px;
+}
+
+.show_suap{
+  display: inline-block !important;
+}
+
+/* Ícone da secretaria sem resposta*/
+[data-key="secretaria-sem-resposta"]:before {
+    font-family: FontAwesome;
+    content: "\f016";
+    float: left;
+    margin-right: 15px;
+}
+
+/* Ícone da secretaria com resposta */
+[data-key="secretaria-com-resposta"]:before {
+    font-family: FontAwesome;
+    content: "\f016";
+    float: left;
+    margin-right: 15px;
+}
+
+
+/* Ícone Calendário */
+[data-key="calendar"]:before {
+    font-family: FontAwesome;
+    content: "\f073";
+    float: left;
+    margin-right: 12px;
+}
+
+/* Itens do menu sem border radius */
+#nav-drawer .list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+#nav-drawer .list-group-item:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Datas do calendário */ 
+.aside-calendar {
+    padding: 20px;
+    height: 100%;
+}
+
+.aside-calendar dd {
+    margin-left: 50px;
+}
+
+.aside-calendar a {
+    font-size: 18px;
+    color: #748073;
+    font-weight: normal;
+    float: left;
+    text-align: center;
+    line-height: 1;
+}
+
+.aside-calendar a span {
+    font-size: 12px;
+}
+
+.aside-calendar li {
+    font-size: 15px;
+    color: #748073;
+}    
+
+#sem-eventos {
+    font-size: 18px;
+    color: #748073;
+    font-weight: bold;
+    text-align: center;
+}
+
+.nomes-cursos {
+    padding: 10px 20px;
+}
+
+.nomes-cursos h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4D4D4D;
+}
+
+.nomes-cursos i {
+    font-size: 15px;
+    color: #4D4D4D;
+}
+
+#nav-drawer .blocos-fixos {
+    border-top: 2px dotted #cad9cb;
+    padding-top: 12px;
+}
+
+#nav-drawer .conteudo-cursos > .list-group-item {
+    padding: .05rem 1.25rem;
+    
+}
+
+@media only screen and (min-width: 768px) {
+    #nav-drawer.closed {
+	left: 0px;
+    }
+
+    body {
+        margin-left: 285px;
+    }
+
+    body.drawer-open-left {
+        margin-left: 285px;
+    }
+
+    body.drawer-ease {
+        margin-left: 285px;
+    }
+} 

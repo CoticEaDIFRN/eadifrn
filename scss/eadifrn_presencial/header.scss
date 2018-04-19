@@ -1,0 +1,289 @@
+/*==================================================*/
+/*====================== Cores =====================*/
+/*==================================================*/
+
+$header-background: #3B8FE0;
+$header-searchbox: #71CC78;
+$header-searchbox-text: #369530;
+$header-searchbox-text-focus: #778073;
+$header-icons: #FFFFFF;
+$header-onlineuser-indicator: #81FD6C;
+$header-message-popover-background: #274333;
+$header-message-popover-background-hover: #39794F;
+$header-message-popover-text: #CACACA;
+
+/*==================================================*/
+/*===================== NavBar =====================*/
+/*==================================================*/
+
+/* Altura da barra */
+.navbar {
+    max-height: 70px;
+    height: 70px;
+}
+
+/* Conteúdo alinhado verticalmente no centro da barra */
+.container-fluid {
+    padding-top: 6px;
+}
+
+/* Barra completa */
+.navbar-light {
+    background-color: $header-background !important;
+    border-bottom: 1px solid $header-background;
+}
+
+.navbar-light .navbar-nav {
+    text-align: center;
+}
+
+/* Botão do menu hamburguer */
+.navbar-light .btn-secondary {
+    color: $header-icons;
+    background-color: $header-background;
+    border-color: $header-background;
+}
+
+/* Área do Logo */
+.navbar-light .navbar-brand {
+    color: $header-icons;
+    background-color: $header-background;
+    font-size: 24px;
+    padding-top: 0px;
+}
+
+/* Tipo da página */ 
+#navbar_pagetitle {
+    font-size: 24px;
+    color: $header-icons;
+    text-align: left;
+    line-height: 1.6;
+    margin-left: 270px;
+}
+
+/* Escolha do idioma */
+.navbar-nav .nav-item {
+    display: none;
+} 
+
+/* Dropdown de escolha do idioma */
+.navbar-light .dropdown-menu {
+    color: $header-icons;
+    background-color: $header-background;
+    border: 1px solid $header-background;
+}
+
+/* Item do dropdown de escolha do idioma */
+.navbar-light .dropdown-menu .dropdown-item {
+    color: $header-icons;
+    border-bottom: 1px solid $header-background;
+}
+
+/* [HOVER] Item do dropdown de escolha do idioma */
+.navbar-light .dropdown-item:focus, .dropdown-item:hover {
+    color: $header-icons;
+    background-color: #39B34A;
+}
+
+/* SearchBox */ 
+#header-searchbox {
+    width: 375px;
+    height: 32px;
+    text-align: center;
+    background-color: $header-searchbox;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    color: $header-searchbox-text;
+    margin-top: 2px;
+    margin-right: -260px;
+    // display: inline-block;
+    display: none;
+}
+
+/* Ícone de pesquisa */ 
+#header-searchbox i {
+    margin-left: 5px;
+}
+
+/* Configurações do input do SearchBox */ 
+#header-searchbox input {
+    border-style: none;
+    height: 32px;
+    width: 350px;
+    background-color: $header-searchbox;
+    padding-left: 10px;
+    color: $header-searchbox-text;
+    font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+/* Placeholder do input do SearchBox */ 
+#header-searchbox input::placeholder {
+    color: $header-searchbox-text;
+}
+
+/* Configuração do placeholder quando esta em foco */ 
+#header-searchbox input:focus::placeholder {
+    color: $header-searchbox-text-focus;
+}
+
+/* Configuração do input no foco */ 
+#header-searchbox input:focus {
+    border-color: $header-searchbox-text;
+    background-color: $header-icons;
+    color: $header-searchbox-text-focus;
+}
+
+#header-searchbox:focus-within {
+    border-color: $header-searchbox-text;
+    background-color: $header-icons;
+    color: $header-searchbox-text-focus;
+}
+
+/* Ícones da barra */
+.navbar-light .icon {
+    color: $header-icons;
+    font-size: 20px;
+    margin-right: -0.5rem;
+}
+
+/* Padding nos ícones */ 
+.navbar-nav .nav-link {
+    padding-top: .3rem;
+}
+
+/* Margin entre os ícones */ 
+.navbar-light .navbar-nav .nav-link {
+    margin: 0 15px;
+}
+
+/* Notificação ícones */
+.navbar .count-container {
+    border-radius: 10px;
+    background-color: #C60C0F;
+    line-height: 12px;
+    width: 15px;
+    height: 15px;
+    font-weight: bold;
+} 
+
+/* Nome do usuário */
+.navbar-light .usertext {
+    font-size: 12px;
+    color: $header-icons;
+    line-height: 40px;
+    margin-left: 10px;
+    float: right;
+}
+
+/* Avatar modificado para a esquerda do nome de usuário */
+.navbar-light .avatars {
+    float: left;
+}
+
+/* Setinha para baixo do lado do nome */
+.dropdown-toggle::after {
+    display: none;
+}    
+
+/* Dropdown menu do usuário */ 
+.navbar-static-top .dropdown .dropdown-menu {
+    background: #F2F2F2;
+    width: 280px;
+    margin-top: 29px;
+    border: none;
+    left: -155px;
+}
+
+/* Itens do menu do usuário */ 
+.navbar-light .dropdown-menu .dropdown-item {
+    color: #344537;
+    border: none;
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+/* Ícones dos itens do menu do usuário */
+.navbar-light .dropdown-menu .dropdown-item i {
+    color: #344537;
+    font-size: 14px;
+    margin-right: 15px;
+}
+
+span.viewingas {
+    line-height: 0;
+}
+
+/* Popover das mensagens */
+.navbar .popover-region-container {
+    background: $header-message-popover-background;
+    margin-top: 22px;
+    left: -63px;
+    width: 300px;
+    border: none;
+    height: calc(100vh - 100px);
+} 
+
+/* Header do popover de mensagens*/
+.navbar .popover-region-header-container{
+    border: none;
+    margin-bottom: 30px;
+} 
+
+/* Div de cada mensagem */
+.navbar .content-item-container {
+    background: $header-message-popover-background !important;
+    color: $header-message-popover-text;
+    border: none;
+    padding-top: 20px;
+}
+
+/* [Hover] Div de cada mensagem */
+.navbar .content-item-container:hover {
+    background: $header-message-popover-background-hover !important;
+    color: $header-icons;
+}
+
+/* Retira a palavra "Mensagens" do Popover */ 
+.navbar .popover-region-header-text {
+    display: none;
+}
+
+.content-item-body {
+    text-align: left;
+}
+
+.popover-region-notifications .empty-message {
+    color: $header-message-popover-text;
+}
+
+.popover-region-toggle::before {
+    content: "";
+    display: inline-block;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid $header-message-popover-background;
+    position: absolute;
+    bottom: -21px;
+    right: 7px;
+}
+
+.popover-region-toggle::after {
+    content: "";
+    display: inline-block;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid $header-message-popover-background;
+    position: absolute;
+    bottom: -21px;
+    right: 8px;
+    z-index: 2;
+}
+
+.breadcrumb {
+    background-color: transparent;
+}
