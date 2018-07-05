@@ -85,6 +85,34 @@ class core_renderer extends \theme_boost\output\core_renderer {
         return parent::header();
     }
 
+    public function navbar() {
+        $items = $this->page->navbar->get_items();
+        $itemcount = count($items);
+        if ($v === 0) {
+            return '';
+        }
+
+        $pagepath = get_string('pagepath');
+        $separator = get_separator();
+
+        $navbarcontent = "<span class='accesshide' id='navbar-label'>$pagepath</span>"; //accessibility: heading for navbar list  (MDL-20446)
+        $navbarcontent .= "<nav aria-labelledby='navbar-label' role='navigation'>";
+        $navbarcontent .= "<ol class='breadcrumb'>";
+        for ($i=0;$i < $itemcount;$i++) {
+            $item = $items[$i];
+            $text = $i==0 ? "Salas de aula" : $item->title ?: $item->text;
+            // $text = preg_replace('\[\d*\*\]', '', $text);
+            // $show_separator = $i==0 ? "" : $separator;
+            if ($text != "Meus cursos") {
+                // var_dump($item);
+                $url = empty($item->action) ? "" : $item->action;
+                $navbarcontent .= "<li class='breadcrumb-item'><a href='$url'>{$text}</a></li>";
+            }
+        }
+        $navbarcontent .= '</ol></nav>';
+        return $navbarcontent;
+    }
+
     /**
      * Allow plugins to provide some content to be rendered in the navbar.
      *
