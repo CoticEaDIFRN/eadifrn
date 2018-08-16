@@ -88,9 +88,9 @@ class core_renderer extends \theme_boost\output\core_renderer {
     public function navbar() {
         $items = $this->page->navbar->get_items();
         $itemcount = count($items);
-        if ($v === 0) {
-            return '';
-        }
+        // if ($v === 0) {
+        //     return '';
+        // }
 
         $pagepath = get_string('pagepath');
         $separator = get_separator();
@@ -133,6 +133,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
         // $output .= $this->header_help();
         $output .= $this->header_notification();
         $output .= $this->header_admin();
+        // $output .= $this->header_pagetitle();
+        return $output;
+    }
+
+    public function navbar_pagetitle_output() {
+        $output = '';
         $output .= $this->header_pagetitle();
         return $output;
     }
@@ -506,7 +512,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $pagetitle = "Administração";
         }
 
-        return '<p id="navbar_pagetitle" class="hidden-sm-down">'. $pagetitle .'</p>';
+        return '<p id="navbar_pagetitle" class="d-none d-sm-none d-md-block">'. $pagetitle .'</p>';
     }
 
     protected function header_help() {
