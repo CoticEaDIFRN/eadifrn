@@ -2,7 +2,7 @@
 /*====================== Cores =====================*/
 /*==================================================*/
 
-$header-background: #3B8FE0;
+$header-background: #5BC166;
 $header-searchbox: #71CC78;
 $header-searchbox-text: #369530;
 $header-searchbox-text-focus: #778073;
@@ -33,9 +33,9 @@ $header-message-popover-text: #CACACA;
     border-bottom: 1px solid $header-background;
 }
 
-.navbar-light .navbar-nav {
-    text-align: center;
-}
+// .navbar-light .navbar-nav {
+//     text-align: center;
+// }
 
 /* Botão do menu hamburguer */
 .navbar-light .btn-secondary {
@@ -50,99 +50,101 @@ $header-message-popover-text: #CACACA;
     background-color: $header-background;
     font-size: 24px;
     padding-top: 0px;
+    margin-left: 10px;
 }
 
 /* Tipo da página */ 
 #navbar_pagetitle {
     font-size: 24px;
-    color: $header-icons;
+    color: #fff;
     text-align: left;
     line-height: 1.6;
-    margin-left: 270px;
+    margin-left: 120px;
+    margin-top: 10px;
 }
 
 /* Escolha do idioma */
-.navbar-nav .nav-item {
+li.dropdown.nav-item {
     display: none;
 } 
 
-/* Dropdown de escolha do idioma */
-.navbar-light .dropdown-menu {
-    color: $header-icons;
-    background-color: $header-background;
-    border: 1px solid $header-background;
-}
+// /* Dropdown de escolha do idioma */
+// .navbar-light .dropdown-menu {
+//     color: $header-icons;
+//     background-color: $header-background;
+//     border: 1px solid $header-background;
+// }
 
-/* Item do dropdown de escolha do idioma */
-.navbar-light .dropdown-menu .dropdown-item {
-    color: $header-icons;
-    border-bottom: 1px solid $header-background;
-}
+// /* Item do dropdown de escolha do idioma */
+// .navbar-light .dropdown-menu .dropdown-item {
+//     color: $header-icons;
+//     border-bottom: 1px solid $header-background;
+// }
 
-/* [HOVER] Item do dropdown de escolha do idioma */
-.navbar-light .dropdown-item:focus, .dropdown-item:hover {
-    color: $header-icons;
-    background-color: #39B34A;
-}
+// /* [HOVER] Item do dropdown de escolha do idioma */
+// .navbar-light .dropdown-item:focus, .dropdown-item:hover {
+//     color: $header-icons;
+//     background-color: #39B34A;
+// }
 
-/* SearchBox */ 
-#header-searchbox {
-    width: 375px;
-    height: 32px;
-    text-align: center;
-    background-color: $header-searchbox;
-    border-bottom-left-radius: 4px;
-    border-top-left-radius: 4px;
-    color: $header-searchbox-text;
-    margin-top: 2px;
-    margin-right: -260px;
-    // display: inline-block;
-    display: none;
-}
+// /* SearchBox */ 
+// #header-searchbox {
+//     width: 375px;
+//     height: 32px;
+//     text-align: center;
+//     background-color: $header-searchbox;
+//     border-bottom-left-radius: 4px;
+//     border-top-left-radius: 4px;
+//     color: $header-searchbox-text;
+//     margin-top: 2px;
+//     margin-right: -260px;
+//     // display: inline-block;
+//     display: none;
+// }
 
-/* Ícone de pesquisa */ 
-#header-searchbox i {
-    margin-left: 5px;
-}
+// /* Ícone de pesquisa */ 
+// #header-searchbox i {
+//     margin-left: 5px;
+// }
 
-/* Configurações do input do SearchBox */ 
-#header-searchbox input {
-    border-style: none;
-    height: 32px;
-    width: 350px;
-    background-color: $header-searchbox;
-    padding-left: 10px;
-    color: $header-searchbox-text;
-    font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: inherit;
-    border-bottom-right-radius: 4px;
-    border-top-right-radius: 4px;
-}
+// /* Configurações do input do SearchBox */ 
+// #header-searchbox input {
+//     border-style: none;
+//     height: 32px;
+//     width: 350px;
+//     background-color: $header-searchbox;
+//     padding-left: 10px;
+//     color: $header-searchbox-text;
+//     font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+//     font-style: normal;
+//     font-weight: normal;
+//     text-decoration: inherit;
+//     border-bottom-right-radius: 4px;
+//     border-top-right-radius: 4px;
+// }
 
-/* Placeholder do input do SearchBox */ 
-#header-searchbox input::placeholder {
-    color: $header-searchbox-text;
-}
+// /* Placeholder do input do SearchBox */ 
+// #header-searchbox input::placeholder {
+//     color: $header-searchbox-text;
+// }
 
-/* Configuração do placeholder quando esta em foco */ 
-#header-searchbox input:focus::placeholder {
-    color: $header-searchbox-text-focus;
-}
+// /* Configuração do placeholder quando esta em foco */ 
+// #header-searchbox input:focus::placeholder {
+//     color: $header-searchbox-text-focus;
+// }
 
-/* Configuração do input no foco */ 
-#header-searchbox input:focus {
-    border-color: $header-searchbox-text;
-    background-color: $header-icons;
-    color: $header-searchbox-text-focus;
-}
+// /* Configuração do input no foco */ 
+// #header-searchbox input:focus {
+//     border-color: $header-searchbox-text;
+//     background-color: $header-icons;
+//     color: $header-searchbox-text-focus;
+// }
 
-#header-searchbox:focus-within {
-    border-color: $header-searchbox-text;
-    background-color: $header-icons;
-    color: $header-searchbox-text-focus;
-}
+// #header-searchbox:focus-within {
+//     border-color: $header-searchbox-text;
+//     background-color: $header-icons;
+//     color: $header-searchbox-text-focus;
+// }
 
 /* Ícones da barra */
 .navbar-light .icon {

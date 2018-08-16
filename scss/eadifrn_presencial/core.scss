@@ -241,6 +241,8 @@ img.userpicture {
 /* Cards */
 .card {
     border: none;
+    padding: 20px;
+    margin: 10px;
 }
 
 /* Títulos dos cards */
@@ -256,6 +258,10 @@ a {
 
 a:hover {
     color: #235336;
+}
+
+a .icon {
+    color: #373a3c;
 }
 
 .text-primary {

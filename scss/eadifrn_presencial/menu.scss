@@ -5,7 +5,7 @@
 // /* Menu */
 $menu-background: #FFFFFF;
 $menu-item-font: #748073;
-$menu-selected-item-font: #3B8FE0;
+$menu-selected-item-font: #2F8C47;
 $menu-item-hover: #F0F0F0;
 $menu-divisor-background: #F2F2F2;
 $menu-borders: #CAD9CB;
@@ -19,6 +19,10 @@ $menu-borders: #CAD9CB;
     padding: 20px 0;
     background-color: $menu-background;
     border-right: 2px solid $menu-borders;
+}
+
+#nav-drawer {
+    padding: 40px 0;
 }
 
 /* Itens do Menu */
