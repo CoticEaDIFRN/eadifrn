@@ -21,6 +21,10 @@ $menu-borders: #CAD9CB;
     border-right: 2px solid $menu-borders;
 }
 
+#nav-drawer {
+    padding: 40px 0;
+}
+
 /* Itens do Menu */
 #nav-drawer .list-group-item {
     padding: .75rem 2.25rem;
