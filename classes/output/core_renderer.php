@@ -552,18 +552,20 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
     protected function header_messsage() {
         global $USER, $CFG;
-        if (!empty($CFG->messaging) && isloggedin()) {
+        if (!empty($CFG->messaging)) {
+            $unreadcount = \core_message\api::count_unread_conversations($USER);
             $context = [
                 'userid' => $USER->id,
+                'unreadcount' => $unreadcount,
                 'urls' => [
                     'seeall' => (new moodle_url('/message/index.php'))->out(),
                     'writeamessage' => (new moodle_url('/message/index.php', ['contactsfirst' => 1]))->out(),
                     'preferences' => (new moodle_url('/message/edit.php', ['id' => $USER->id]))->out(),
                 ],
             ];
-            return $this->render_from_template('message_popup/message_popover', $context);
+            $output .= $this->render_from_template('message_popup/message_popover', $context);
         }
-        return '';
+        return $output;
     }      
     
 }
