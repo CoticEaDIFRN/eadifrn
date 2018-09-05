@@ -58,12 +58,11 @@
         ]
     }
 }}
-<!--
-<nav role='navigation'>
-    <ol class='breadcrumb'>
-        {{#get_items}}a
+<nav role="navigation">
+    <ol class="breadcrumb">
+        {{#get_items}}
             {{#has_action}}
-                <li class="breadcrumb-item"><a href="{{{action}}}" {{#get_title}}title="{{get_title}}"{{/get_title}}>AAAA{{{text}}}</a></li>
+                <li class="breadcrumb-item"><a href="{{{action}}}" {{#get_title}}title="{{get_title}}"{{/get_title}}>{{#text}}{{{text}}}{{/text}}</a></li>
             {{/has_action}}
             {{^has_action}}
                 <li class="breadcrumb-item">{{{text}}}</li>
@@ -71,4 +70,3 @@
         {{/get_items}}
     </ol>
 </nav>
--->
