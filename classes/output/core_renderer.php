@@ -86,31 +86,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     public function navbar() {
-        $items = $this->page->navbar->get_items();
-        $itemcount = count($items);
-        // if ($v === 0) {
-        //     return '';
-        // }
-
-        $pagepath = get_string('pagepath');
-        $separator = get_separator();
-
-        $navbarcontent = "<span class='accesshide' id='navbar-label'>$pagepath</span>"; //accessibility: heading for navbar list  (MDL-20446)
-        $navbarcontent .= "<nav aria-labelledby='navbar-label' role='navigation'>";
-        $navbarcontent .= "<ol class='breadcrumb'>";
-        for ($i=0;$i < $itemcount;$i++) {
-            $item = $items[$i];
-            $text = $i==0 ? "Salas de aula" : $item->title ?: $item->text;
-            // $text = preg_replace('\[\d*\*\]', '', $text);
-            // $show_separator = $i==0 ? "" : $separator;
-            if ($text != "Meus cursos") {
-                // var_dump($item);
-                $url = empty($item->action) ? "" : $item->action;
-                $navbarcontent .= "<li class='breadcrumb-item'><a href='$url'>{$text}</a></li>";
-            }
-        }
-        $navbarcontent .= '</ol></nav>';
-        return $navbarcontent;
+        return $this->render_from_template('core/navbar', $this->page->navbar);
     }
 
     /**
@@ -205,99 +181,16 @@ class core_renderer extends \theme_boost\output\core_renderer {
     //  * @return string HTML to display the main header.
     //  */
     public function full_header() {
-        // MODIFICATION START.
-        global $PAGE, $USER, $COURSE;
-        // MODIFICATION END.
+        global $PAGE;
 
-        $html = html_writer::start_tag('header', array('id' => 'page-header', 'class' => 'row'));
-        $html .= html_writer::start_div('col-xs-12 p-a-1');
-        $html .= html_writer::start_div('card');
-        $html .= html_writer::start_div('card-block');
-        // MODIFICATION START:
-        // Only display the core context header menu if the setting "showsettingsincourse" is disabled
-        // or we are viewing the frontpage.
-        if (get_config('theme_boost_eadifrn', 'showsettingsincourse') == 'no' || $PAGE->pagelayout == 'frontpage') {
-            $html .= html_writer::div($this->context_header_settings_menu(), 'pull-xs-right context-header-settings-menu');
-        }
-        // MODIFICATION END.
-        /* ORIGINAL START.
-        $html .= html_writer::div($this->context_header_settings_menu(), 'pull-xs-right context-header-settings-menu');
-        ORIGINAL END. */
-        // MODIFICATION START:
-        // To get the same structure as on the Dashboard, we need to add the page heading buttons here for the profile page.
-        if ($PAGE->pagelayout == 'mypublic') {
-            $html .= html_writer::div($this->page_heading_button(), 'breadcrumb-button pull-xs-right');
-        }
-        // MODIFICATION END.
-        $html .= html_writer::start_div('pull-xs-left');
-        $html .= $this->context_header();
-        $html .= html_writer::end_div();
-
-	$pageheadingbutton = $this->page_heading_button();
-	if (empty($PAGE->layout_options['nonavbar'])) {
-            $html .= html_writer::start_div('clearfix w-100 pull-xs-left', array('id' => 'page-navbar'));
-            $html .= html_writer::tag('div', $this->navbar(), array('class' => 'breadcrumb-nav'));
-            // MODIFICATION START: Add the course context menu to the course page, but not on the profile page.
-            if (get_config('theme_boost_eadifrn', 'showsettingsincourse') == 'yes' && $PAGE->pagelayout != 'mypublic') {
-                $html .= html_writer::div($this->context_header_settings_menu(), 'pull-xs-right context-header-settings-menu m-l-1');
-            }
-            // MODIFICATION END.
-            // MODIFICATION START: Instead of the settings icon, add a button to edit the profile.
-            if ($PAGE->pagelayout == 'mypublic') {
-                $html .= html_writer::start_div('breadcrumb-button breadcrumb-button pull-xs-right');
-                $url = new moodle_url('/user/editadvanced.php', array('id' => $USER->id, 'course' => $COURSE->id, 'returnto' => 'profile'));
-                $html .= $this->single_button($url, get_string('editmyprofile', 'core'));
-                $html .= html_writer::end_div();
-            }
-            // Do not show the page heading buttons on the profile page at this place.
-            // Display them only on other pages.
-            if ($PAGE->pagelayout != 'mypublic') {
-                $html .= html_writer::div($pageheadingbutton, 'breadcrumb-button pull-xs-right');
-            }
-            // MODIFICATION END.
-            $html .= html_writer::end_div();
-        } else if ($pageheadingbutton) {
-            $html .= html_writer::div($pageheadingbutton, 'breadcrumb-button nonavbar pull-xs-right');
-        }
-
-        $html .= html_writer::tag('div', $this->course_header(), array('id' => 'course-header'));
-        $html .= html_writer::end_div();
-        $html .= html_writer::end_div();
-        $html .= html_writer::end_div();
-        $html .= html_writer::end_tag('header');
-
-        // MODIFICATION START.
-        // Only use this if setting 'showswitchedroleincourse' is active.
-        if (get_config('theme_boost_eadifrn', 'showswitchedroleincourse') === 'yes') {
-            // Check if user is logged in.
-            // If not, adding this section would make no sense and, even worse,
-            // user_get_user_navigation_info() will throw an exception due to the missing user object.
-            if (isloggedin()) {
-                $opts = \user_get_user_navigation_info($USER, $this->page);
-                // Role is switched.
-                if (!empty($opts->metadata['asotherrole'])) {
-                    // Get the role name switched to.
-                    $role = $opts->metadata['rolename'];
-                    // Get the URL to switch back (normal role).
-                    $url = new moodle_url('/course/switchrole.php', array('id' => $COURSE->id, 'sesskey' => sesskey(), 'switchrole' => 0, 'returnurl' => $this->page->url->out_as_local_url(false)));
-                    $html .= html_writer::start_tag('div', array('class' => 'switched-role-infobox alert alert-info'));
-                    $html .= html_writer::start_tag('div', array());
-                    $html .= get_string('switchedroleto', 'theme_boost_eadifrn');
-                    // Give this a span to be able to address via CSS.
-                    $html .= html_writer::tag('span', $role, array('class' => 'switched-role'));
-                    $html .= html_writer::end_tag('div');
-                    // Return to normal role link.
-                    $html .= html_writer::start_tag('div', array('class' => 'switched-role-back col-6'));
-                    $html .= html_writer::empty_tag('img', array('src' => $this->pix_url('a/logout', 'moodle')));
-                    $html .= html_writer::tag('a', get_string('switchrolereturn', 'core'), array('class' => 'switched-role-backlink', 'href' => $url));
-                    $html .= html_writer::end_tag('div'); // Return to normal role link: end div.
-                    $html .= html_writer::end_tag('div');
-                }
-            }
-        }
-        // MODIFICATION END.
-        
-        return $html;
+        $header = new stdClass();
+        $header->settingsmenu = $this->context_header_settings_menu();
+        $header->contextheader = $this->context_header();
+        $header->hasnavbar = empty($PAGE->layout_options['nonavbar']);
+        $header->navbar = $this->navbar();
+        $header->pageheadingbutton = $this->page_heading_button();
+        $header->courseheader = $this->course_header();
+        return $this->render_from_template('theme_boost/header', $header);
     }
 
 
@@ -552,6 +445,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
     protected function header_messsage() {
         global $USER, $CFG;
+        $output = '';
         if (!empty($CFG->messaging)) {
             $unreadcount = \core_message\api::count_unread_conversations($USER);
             $context = [
