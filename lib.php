@@ -285,7 +285,7 @@ function get_ead_ifrn_course_common_actions()
      
         // Emblemas
         $emblemas = new stdClass();
-        $emblemas->action_url = new moodle_url("/badges/view.php", ['type'=>2, 'id'=>$COURSE->id]);
+        $emblemas->action_url = new moodle_url("/badges/mybadges.php", ['type'=>2, 'id'=>$COURSE->id]);
         $emblemas->icon = "shield";
         $emblemas->label = "Emblemas";
         $extraflatnav[] = $emblemas;
