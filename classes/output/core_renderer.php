@@ -100,22 +100,22 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * 
      * @return string HTML for the navbar
      */
-    public function navbar_plugin_output() {
+    // public function navbar_plugin_output() {
 
-        $output = '';
-        // // Early bail out conditions.
-        // if (!isloggedin() || isguestuser() || user_not_fully_set_up($USER) || 
-        //     get_user_preferences('auth_forcepasswordchange') || 
-        //     ($CFG->sitepolicy && !$USER->policyagreed && !is_siteadmin())) {
-        //     return $output;
-        // }
-        $output .= $this->header_messsage();
-        // $output .= $this->header_help();
-        $output .= $this->header_notification();
-        $output .= $this->header_admin();
-        // $output .= $this->header_pagetitle();
-        return $output;
-    }
+    //     $output = '';
+    //     // // Early bail out conditions.
+    //     // if (!isloggedin() || isguestuser() || user_not_fully_set_up($USER) || 
+    //     //     get_user_preferences('auth_forcepasswordchange') || 
+    //     //     ($CFG->sitepolicy && !$USER->policyagreed && !is_siteadmin())) {
+    //     //     return $output;
+    //     // }
+    //     $output .= $this->header_messsage();
+    //     // $output .= $this->header_help();
+    //     $output .= $this->header_notification();
+    //     $output .= $this->header_admin();
+    //     // $output .= $this->header_pagetitle();
+    //     return $output;
+    // }
 
     public function navbar_pagetitle_output() {
         $output = '';
