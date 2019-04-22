@@ -44,8 +44,7 @@ if ($ADMIN->fulltree) {
     $name = 'theme_boost_eadifrn/preset';
     $title = get_string('preset', 'theme_boost', null, true);
     $description = get_string('preset_desc', 'theme_boost', null, true);
-    $default = 'default.scss';
-
+    
     // We list files in our own file area to add to the drop down. We will provide our own function to
     // load all the presets from the correct paths.
     $context = context_system::instance();
@@ -62,6 +61,7 @@ if ($ADMIN->fulltree) {
     $choices['eadifrn.scss'] = 'eadifrn.scss';
     $choices['eadifrn_presencial.scss'] = 'eadifrn_presencial.scss';
     
+    $default = 'eadifrn.scss';
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
