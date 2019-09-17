@@ -196,6 +196,7 @@ function get_ead_ifrn_commom_moodle_template_context()
     $course_name = $COURSE->fullname;
     $course_code = $COURSE->shortname;
     $inte_suap = is_siteadmin() ? "show_suap" : "";
+    $inte_admin = is_siteadmin() ? "show_admin" : "";
     return [
         'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
         'output' => $OUTPUT,
@@ -210,6 +211,7 @@ function get_ead_ifrn_commom_moodle_template_context()
         'link_suap' => (new moodle_url('/suap'))->out(),
         'link_mural' => (new moodle_url('/mural'))->out(),
         'link_secretaria' => (new moodle_url('/secretaria'))->out(),
+        'link_admin' => (new moodle_url('/admin/search.php'))->out(),
         'in_course_page' => $in_course_page,
         'not_in_course_page' => $not_in_course_page,
         'incourse' => $COURSE,
@@ -217,7 +219,8 @@ function get_ead_ifrn_commom_moodle_template_context()
         'within_course_page' => $within_course_page,
         'not_within_course_page' => $not_within_course_page,
         'course_name' => $course_name,
-        'inte_suap' => $inte_suap
+        'inte_suap' => $inte_suap,
+        'inte_admin' => $inte_admin
     ];
 }
 
