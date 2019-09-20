@@ -314,6 +314,7 @@ a .icon {
 
 .message-app.drawer {
     top: 65px !important;
+    height: calc(100vh - 85px);
 }
 
 .section.border-0.card.expanded {

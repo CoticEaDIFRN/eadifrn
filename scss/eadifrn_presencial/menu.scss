@@ -1,5 +1,9 @@
 /*==================================================*/
+
+
 /*====================== Cores =====================*/
+
+
 /*==================================================*/
 
 // /* Menu */
@@ -9,12 +13,12 @@ $menu-selected-item-font: #2F8C47;
 $menu-item-hover: #F0F0F0;
 $menu-divisor-background: #F2F2F2;
 $menu-borders: #CAD9CB;
-
 // /*==================================================*/
 // /*====================== Menu ======================*/
 // /*==================================================*/
 
 /* Menu background */
+
 [data-region="drawer"] {
     padding: 20px 0;
     background-color: $menu-background;
@@ -25,7 +29,9 @@ $menu-borders: #CAD9CB;
     padding: 40px 0;
 }
 
+
 /* Itens do Menu */
+
 #nav-drawer .list-group-item {
     padding: .75rem 2.25rem;
     background-color: $menu-background;
@@ -34,7 +40,9 @@ $menu-borders: #CAD9CB;
     color: $menu-item-font;
 }
 
+
 /* [HOVER] Itens do Menu */
+
 #nav-drawer .list-group-item:hover {
     background-color: $menu-item-hover;
 }
@@ -43,7 +51,9 @@ $menu-borders: #CAD9CB;
     background-color: $menu-background;
 }
 
+
 /* Item do menu ativo */
+
 #nav-drawer [data-isactive="1"] {
     border-left: 6px solid $menu-selected-item-font;
     padding: .75rem 1.8rem;
@@ -51,7 +61,9 @@ $menu-borders: #CAD9CB;
     font-weight: normal;
 }
 
+
 /* Calendário modificado */
+
 #nav-drawer [data-key="calendar"] {
     margin-top: 50px;
     width: 283px;
@@ -60,7 +72,9 @@ $menu-borders: #CAD9CB;
     border-top: 2px solid $menu-borders;
 }
 
+
 /* Ícone do Salas de aulas */
+
 [data-key="myhome"]:before {
     font-family: FontAwesome;
     content: "\f0db";
@@ -68,7 +82,9 @@ $menu-borders: #CAD9CB;
     margin-right: 15px;
 }
 
+
 /* Ícone do Salas de aulas */
+
 [data-key="salas"]:before {
     font-family: FontAwesome;
     content: "\f19d";
@@ -76,7 +92,9 @@ $menu-borders: #CAD9CB;
     margin-right: 15px;
 }
 
+
 /* Ícone do Integrador SUAP */
+
 [data-key="int_suap"]:before {
     font-family: FontAwesome;
     content: "\f0ec";
@@ -84,11 +102,13 @@ $menu-borders: #CAD9CB;
     margin-right: 15px;
 }
 
-.show_suap{
-  display: inline-block !important;
+.show_suap {
+    display: inline-block !important;
 }
 
+
 /* Ícone da secretaria sem resposta*/
+
 [data-key="secretaria-sem-resposta"]:before {
     font-family: FontAwesome;
     content: "\f016";
@@ -96,7 +116,9 @@ $menu-borders: #CAD9CB;
     margin-right: 15px;
 }
 
+
 /* Ícone da secretaria com resposta */
+
 [data-key="secretaria-com-resposta"]:before {
     font-family: FontAwesome;
     content: "\f016";
@@ -106,6 +128,7 @@ $menu-borders: #CAD9CB;
 
 
 /* Ícone Calendário */
+
 [data-key="calendar"]:before {
     font-family: FontAwesome;
     content: "\f073";
@@ -113,7 +136,9 @@ $menu-borders: #CAD9CB;
     margin-right: 12px;
 }
 
+
 /* Itens do menu sem border radius */
+
 #nav-drawer .list-group-item:first-child {
     border-top-right-radius: 0;
     border-top-left-radius: 0;
@@ -124,7 +149,9 @@ $menu-borders: #CAD9CB;
     border-bottom-left-radius: 0;
 }
 
-/* Datas do calendário */ 
+
+/* Datas do calendário */
+
 .aside-calendar {
     padding: 20px;
     height: 100%;
@@ -150,7 +177,7 @@ $menu-borders: #CAD9CB;
 .aside-calendar li {
     font-size: 15px;
     color: #748073;
-}    
+}
 
 #sem-eventos {
     font-size: 18px;
@@ -179,25 +206,21 @@ $menu-borders: #CAD9CB;
     padding-top: 12px;
 }
 
-#nav-drawer .conteudo-cursos > .list-group-item {
+#nav-drawer .conteudo-cursos>.list-group-item {
     padding: .05rem 1.25rem;
-    
 }
 
 @media only screen and (min-width: 768px) {
     #nav-drawer.closed {
-	left: 0px;
+        left: 0px;
     }
-
     body {
         margin-left: 285px;
     }
-
     body.drawer-open-left {
         margin-left: 285px;
     }
-
     body.drawer-ease {
         margin-left: 285px;
     }
-} 
+}

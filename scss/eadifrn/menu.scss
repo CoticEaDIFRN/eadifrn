@@ -29,6 +29,19 @@ $menu-borders: #CAD9CB;
     padding: 40px 0;
 }
 
+div#nav-notification-popover-container {
+    margin-right: 8px;
+}
+
+span.usertext.mr-1 {
+    display: none;
+}
+
+.float-right.popover-region.collapsed {
+    margin-left: -16px !important;
+    ;
+}
+
 
 /* Itens do Menu */
 
