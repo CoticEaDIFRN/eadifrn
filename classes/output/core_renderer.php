@@ -172,10 +172,15 @@ class core_renderer extends \theme_boost\output\core_renderer {
     // }
 
     public function user_menu($user = null, $withlinks = null, $usermenuclasses=null) {
-        $result = parent::user_menu($user, $withlinks);
-        return html_writer::div($result, $usermenuclasses);
-    }
 
+        global $PAGE;
+        if ($PAGE->pagelayout == "frontpage") {
+             return '<div class="login"><a class="login_ead" href="'. (new moodle_url('/admin/search.php'))->out() .'">Entrar</a></div>';
+        }else{
+            $result = parent::user_menu($user, $withlinks);
+            return html_writer::div($result, $usermenuclasses);
+        }
+    }
     // /**
     //  * Override to dispaly switched role information beneath the course header instead of the user menu.
     //  * We change this because the switch role function is course related and therefore it should be placed in the course context.
