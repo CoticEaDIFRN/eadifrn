@@ -31,9 +31,20 @@ div#action-menu-1-menu{
 
 .login_ead{
     color: #fff;
-    background-color: #5bc166;
-    font-size: 24px;
+    font-size: 22px;
     padding-top: 0;
+    background-color: #579071;
+    padding: 6px 12px;
+    border-radius: 12px;
+}
+
+.login_ead:hover{
+    color: #fff;
+    padding: 6px 12px;
+    background-color: #35a04d;
+    font-size: 22px;
+    text-decoration:none;
+    border-radius: 12px;
 }
 
 #nav-drawer {
