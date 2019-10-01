@@ -30,21 +30,22 @@ div#action-menu-1-menu{
 }
 
 .login_ead{
+    display: inline-block;
+    width: 75px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background-color: #005F0A;
     color: #fff;
-    font-size: 22px;
-    padding-top: 0;
-    background-color: #579071;
-    padding: 6px 12px;
-    border-radius: 12px;
+    font-family: "Open sans" sans-serif;
+    font-size: 11pt;
+    font-weight: 400;
+    text-align: center;
 }
 
 .login_ead:hover{
-    color: #fff;
-    padding: 6px 12px;
-    background-color: #35a04d;
-    font-size: 22px;
-    text-decoration:none;
-    border-radius: 12px;
+    color: #005F0A;
+    background-color: #fff;
+    text-decoration: none;
 }
 
 #nav-drawer {
