@@ -490,12 +490,14 @@ class core_renderer extends \theme_boost\output\core_renderer {
         global $PAGE;
         $pagetitle = $PAGE->title;
 
-        if($PAGE->pagelayout == 'frontpage' || $PAGE->pagelayout == 'mydashboard') {
-            $pagetitle = "Salas de aula";
-        } elseif ($PAGE->pagelayout == 'course' || $PAGE->pagelayout == 'incourse') {
-            $pagetitle = "Sala de aula";
-        } elseif ($PAGE->pagelayout == 'admin') {
-            $pagetitle = "Administração";
+        if (isloggedin()) {
+            if($PAGE->pagelayout == 'frontpage' || $PAGE->pagelayout == 'mydashboard') {
+                $pagetitle = "Salas de aula";
+            } elseif ($PAGE->pagelayout == 'course' || $PAGE->pagelayout == 'incourse') {
+                $pagetitle = "Sala de aula";
+            } elseif ($PAGE->pagelayout == 'admin') {
+                $pagetitle = "Administração";
+            }
         }
 
         return '<p id="navbar_pagetitle" class="d-none d-sm-none d-md-block">'. $pagetitle .'</p>';
