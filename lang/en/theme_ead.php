@@ -15,21 +15,20 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme Boost eadifrn - Language pack
+ * Theme EaD - Language pack
  *
- * @package    theme_boost_eadifrn
+ * @package    theme_ead
  * @copyright  2017 Kathrin Osswald, Ulm University <kathrin.osswald@uni-ulm.de>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
-
 // GENERAL.
-$string['pluginname'] = 'Boost eadifrn';
-$string['choosereadme'] = 'Theme Boost eadifrn is a child theme to be used on university eadifrnes.';
+$string['pluginname'] = 'EaD';
+$string['choosereadme'] = 'Theme EaD is a child theme of Boost to be used on university IFRN.';
 
 // SETTINGS.
-$string['configtitle'] = 'Boost eadifrn settings';
+$string['configtitle'] = 'Theme EaD settings';
 
 // General settings.
 $string['presetheadingsetting'] = 'Theme presets';

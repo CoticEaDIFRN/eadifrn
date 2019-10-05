@@ -15,21 +15,21 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme Boost eadifrn - Theme config
+ * Theme EaD - Theme config
  *
- * @package    theme_boost_eadifrn
+ * @package    theme_ead
  * @copyright  2017 Kathrin Osswald, Ulm University <kathrin.osswald@uni-ulm.de>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$THEME->name = 'boost_eadifrn';
+$THEME->name = 'ead';
 $THEME->parents = ['boost'];
 // $THEME->sheets = ['main'];
 $THEME->editor_sheets = [];
 $THEME->scss = function($theme) {
-    return theme_boost_eadifrn_get_main_scss_content($theme);
+    return theme_ead_get_main_scss_content($theme);
 };
 
 $THEME->layouts = [
@@ -146,7 +146,7 @@ $THEME->layouts = [
 ];
 
 $THEME->enable_dock = false;
-$THEME->prescsscallback = 'theme_boost_eadifrn_get_pre_scss';
+$THEME->prescsscallback = 'theme_ead_get_pre_scss';
 $THEME->yuicssmodules = array();
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->requiredblocks = ' ';

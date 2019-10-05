@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme Boost eadifrn - Version file
+ * Theme EaD - Version file
  *
- * @package    theme_boost_eadifrn
+ * @package    theme_ead
  * @copyright  2017 Kathrin Osswald, Ulm University <kathrin.osswald@uni-ulm.de>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->version = 2018030500;
 $plugin->requires = 2016120503.05;
-$plugin->component = 'theme_boost_eadifrn';
+$plugin->component = 'theme_ead';
 
 $plugin->release = 'v3.2-r6';
 $plugin->maturity = MATURITY_STABLE;

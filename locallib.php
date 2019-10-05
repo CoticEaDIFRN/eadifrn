@@ -14,9 +14,9 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
- * Theme Boost eadifrn - Locallib file
+ * Theme EaD - Locallib file
  *
- * @package   theme_boost_eadifrn
+ * @package   theme_ead
  * @copyright 2017 Kathrin Osswald, Ulm University kathrin.osswald@uni-ulm.de
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -31,7 +31,7 @@
 //  *
 //  * @return string
 //  */
-// function theme_boost_eadifrn_get_random_loginbackgroundimage_class() {
+// function theme_ead_get_random_loginbackgroundimage_class() {
 //
 //     // Fetch context.
 //     $systemcontext = \context_system::instance();
@@ -40,7 +40,7 @@
 //     $fs = get_file_storage();
 //
 //     // Get all files from filearea.
-//     $files = $fs->get_area_files($systemcontext->id, 'theme_boost_eadifrn', 'loginbackgroundimage', false, 'itemid', false);
+//     $files = $fs->get_area_files($systemcontext->id, 'theme_ead', 'loginbackgroundimage', false, 'itemid', false);
 //
 //     // Get count of array elements.
 //     $filecount = count($files);
@@ -61,7 +61,7 @@
 //  *
 //  * @return string
 //  */
-// function theme_boost_eadifrn_get_loginbackgroundimage_scss() {
+// function theme_ead_get_loginbackgroundimage_scss() {
 //     $count = 0;
 //     $scss = "";
 //
@@ -72,7 +72,7 @@
 //     $fs = get_file_storage();
 //
 //     // Get all files from filearea.
-//     $files = $fs->get_area_files($systemcontext->id, 'theme_boost_eadifrn', 'loginbackgroundimage', false, 'itemid', false);
+//     $files = $fs->get_area_files($systemcontext->id, 'theme_ead', 'loginbackgroundimage', false, 'itemid', false);
 //
 //     // Add URL of uploaded images to eviqualent class.
 //     foreach ($files as $file) {
@@ -93,11 +93,11 @@
 //  *
 //  * @return array
 //  */
-// function theme_boost_eadifrn_get_imageareacontent() {
+// function theme_ead_get_imageareacontent() {
 //     // Get cache.
-//     $themeboosteadifrncache = cache::make('theme_boost_eadifrn', 'imagearea');
+//     $theme_ead_cache = cache::make('theme_ead', 'imagearea');
 //     // If cache is filled, return the cache.
-//     $cachecontent = $themeboosteadifrncache->get('imageareadata');
+//     $cachecontent = $theme_ead_cache->get('imageareadata');
 //     if (!empty($cachecontent)) {
 //         return $cachecontent;
 //     } else { // Create cache.
@@ -106,13 +106,13 @@
 //         // Get filearea.
 //         $fs = get_file_storage();
 //         // Get all files from filearea.
-//         $files = $fs->get_area_files($systemcontext->id, 'theme_boost_eadifrn', 'imageareaitems', false, 'itemid', false);
+//         $files = $fs->get_area_files($systemcontext->id, 'theme_ead', 'imageareaitems', false, 'itemid', false);
 //
 //         // Only continue processing if there are files in the filearea.
 //         if (!empty($files)) {
 //             // Get the content from the setting imageareaitemslink and explode it to an array by the delimiter "new line".
 //             // The string contains: the image identifier (uploaded file name) and the corresponding link URL.
-//             $lines = explode("\n", get_config('theme_boost_eadifrn', 'imageareaitemslink'));
+//             $lines = explode("\n", get_config('theme_ead', 'imageareaitemslink'));
 //             // Parse item settings.
 //             foreach ($lines as $line) {
 //                 $line = trim($line);
@@ -145,11 +145,11 @@
 //                     // Set the file and the corresponding link.
 //                     $imageareacache[] = array('filepath' => $filepath, 'linkpath' => $links[$filename]);
 //                     // Fill the cache.
-//                     $themeboosteadifrncache->set('imageareadata', $imageareacache);
+//                     $theme_ead_cache->set('imageareadata', $imageareacache);
 //                 } else { // Just add the file without a link.
 //                     $imageareacache[] = array('filepath' => $filepath);
 //                     // Fill the cache.
-//                     $themeboosteadifrncache->set('imageareadata', $imageareacache);
+//                     $theme_ead_cache->set('imageareadata', $imageareacache);
 //                 }
 //             }
 //             // Sort array alphabetically ascending to the key "filepath".
@@ -158,7 +158,7 @@
 //             });
 //             return $imageareacache;
 //         } else { // If no images are uploaded, then cache an empty array.
-//             return $themeboosteadifrncache->set('imageareadata', array());
+//             return $theme_ead_cache->set('imageareadata', array());
 //         }
 //     }
 // }
@@ -170,31 +170,31 @@
  * @param flat_navigation $flatnav The flat navigation object.
  * @return flat_navigation.
  */
-function theme_boost_eadifrn_process_flatnav(flat_navigation $flatnav) {
+function theme_ead_process_flatnav(flat_navigation $flatnav) {
     global $USER;
     // If the setting defaulthomepageontop is enabled.
-    if (get_config('theme_boost_eadifrn', 'defaulthomepageontop') == 'yes') {
+    if (get_config('theme_ead', 'defaulthomepageontop') == 'yes') {
         // Only proceed processing if we are in a course context.
         if (($coursehomenode = $flatnav->find('coursehome', global_navigation::TYPE_CUSTOM)) != false) {
             // If the site home is set as the deafult homepage by the admin.
             if (get_config('core', 'defaulthomepage') == HOMEPAGE_SITE) {
                 // Return the modified flat_navigtation.
-                $flatnavreturn = theme_boost_eadifrn_set_node_on_top($flatnav, 'home', $coursehomenode);
+                $flatnavreturn = theme_ead_set_node_on_top($flatnav, 'home', $coursehomenode);
             } else if (get_config('core', 'defaulthomepage') == HOMEPAGE_MY) { // If the dashboard is set as the default homepage
                 // by the admin.
                 // Return the modified flat_navigtation.
-                $flatnavreturn = theme_boost_eadifrn_set_node_on_top($flatnav, 'myhome', $coursehomenode);
+                $flatnavreturn = theme_ead_set_node_on_top($flatnav, 'myhome', $coursehomenode);
             } else if (get_config('core', 'defaulthomepage') == HOMEPAGE_USER) { // If the admin defined that the user can set
                 // the default homepage for himself.
                 // Site home.
                 if (get_user_preferences('user_home_page_preference', $USER) == 0) {
                     // Return the modified flat_navigtation.
-                    $flatnavreturn = theme_boost_eadifrn_set_node_on_top($flatnav, 'home', $coursehomenode);
+                    $flatnavreturn = theme_ead_set_node_on_top($flatnav, 'home', $coursehomenode);
                 } else if (get_user_preferences('user_home_page_preference', $USER) == 1 || // Dashboard.
                     get_user_preferences('user_home_page_preference', $USER) == false) { // If no user preference is set,
                     // use the default value of core setting default homepage (Dashboard).
                     // Return the modified flat_navigtation.
-                    $flatnavreturn = theme_boost_eadifrn_set_node_on_top($flatnav, 'myhome', $coursehomenode);
+                    $flatnavreturn = theme_ead_set_node_on_top($flatnav, 'myhome', $coursehomenode);
                 } else { // Should not happen.
                     // Return the passed flat navigation without changes.
                     $flatnavreturn = $flatnav;
@@ -222,7 +222,7 @@ function theme_boost_eadifrn_process_flatnav(flat_navigation $flatnav) {
  * @param navigation_node $beforenode The node before which the to be modified node shall be added.
  * @return flat_navigation.
  */
-function theme_boost_eadifrn_set_node_on_top(flat_navigation $flatnav, $nodename, $beforenode) {
+function theme_ead_set_node_on_top(flat_navigation $flatnav, $nodename, $beforenode) {
     // Get the node for which the sorting shall be changed.
     $pageflatnav = $flatnav->find($nodename, global_navigation::TYPE_SYSTEM);
     // Set the showdivider of the new top node to false that no empty nav-element will be created.
@@ -244,12 +244,12 @@ function theme_boost_eadifrn_set_node_on_top(flat_navigation $flatnav, $nodename
  *
  * @return navigation_node.
  */
-function theme_boost_eadifrn_get_incourse_settings() {
+function theme_ead_get_incourse_settings() {
     global $COURSE, $PAGE;
     // Initialize the node with false to prevent problems on pages that do not have a courseadmin node.
     $node = false;
     // If setting showsettingsincourse is enabled.
-    if (get_config('theme_boost_eadifrn', 'showsettingsincourse') == 'yes') {
+    if (get_config('theme_ead', 'showsettingsincourse') == 'yes') {
         // Only search for the courseadmin node if we are within a course or a module context.
         if ($PAGE->context->contextlevel == CONTEXT_COURSE || $PAGE->context->contextlevel == CONTEXT_MODULE) {
             // Get the courseadmin node for the current page.
@@ -257,14 +257,14 @@ function theme_boost_eadifrn_get_incourse_settings() {
             // Check if $node is not empty for other pages like for example the langauge customization page.
             if (!empty($node)) {
                 // If the setting 'incoursesettingsswitchtorole' is enabled add these to the $node.
-                if (get_config('theme_boost_eadifrn', 'incoursesettingsswitchtorole') == 'yes' && !is_role_switched($COURSE->id)) {
+                if (get_config('theme_ead', 'incoursesettingsswitchtorole') == 'yes' && !is_role_switched($COURSE->id)) {
                     // Build switch role link
                     // We could only access the existing menu item by creating the user menu and traversing it.
                     // So we decided to create this node from scratch with the values copied from Moodle core.
                     $roles = get_switchable_roles($PAGE->context);
                     if (is_array($roles) && (count($roles) > 0)) {
                         // Define the properties for a new tab.
-                        $properties = array('text' => get_string('switchroleto', 'theme_boost_eadifrn'),
+                        $properties = array('text' => get_string('switchroleto', 'theme_ead'),
                                             'type' => navigation_node::TYPE_CONTAINER,
                                             'key'  => 'switchroletotab');
                         // Create the node.
@@ -295,12 +295,12 @@ function theme_boost_eadifrn_get_incourse_settings() {
  *
  * @return navigation_node.
  */
-function theme_boost_eadifrn_get_incourse_activity_settings() {
+function theme_ead_get_incourse_activity_settings() {
     global $PAGE;
     $context = $PAGE->context;
     $node = false;
     // If setting showsettingsincourse is enabled.
-    if (get_config('theme_boost_eadifrn', 'showsettingsincourse') == 'yes') {
+    if (get_config('theme_ead', 'showsettingsincourse') == 'yes') {
         // Settings belonging to activity or resources.
         if ($context->contextlevel == CONTEXT_MODULE) {
             $node = $PAGE->settingsnav->find('modulesettings', navigation_node::TYPE_SETTING);

@@ -10,4 +10,4 @@ require_once($CFG->dirroot.'/calendar/lib.php');
 
 
 $OUTPUT->doctype();
-echo $OUTPUT->render_from_template('theme_boost_eadifrn/columns2', get_ead_ifrn_template_context());
+echo $OUTPUT->render_from_template('theme_ead/columns2', get_ead_template_context());

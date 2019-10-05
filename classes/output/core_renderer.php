@@ -27,15 +27,15 @@
  * PHP Version 7
  * 
  * @category  MoodleTheme
- * @package   Theme_Boost_EadIfrn.Classes.Output
+ * @package   Theme_Ead.Classes.Output
  * @author    Sueldo Sales <sueldosales@gmail.com>
  * @author    Kelson C. Medeiros <kelsoncm@gmail.com>
  * @copyright 2017 IFRN
  * @license   MIT https://opensource.org/licenses/MIT    
- * @link      https://github.com/CoticEaDIFRN/eadifrn
+ * @link      https://github.com/CoticEaDIFRN/moodle_theme_ead
  */
 
-namespace theme_boost_eadifrn\output;
+namespace theme_ead\output;
 
 use coding_exception;
 use html_writer;
@@ -67,12 +67,12 @@ defined('MOODLE_INTERNAL') || die;
  * lib/outputrenderers.php --> core_renderer
  * 
  * @category  Renderer
- * @package   Theme_Boost_EadIfrn.Classes.Output
+ * @package   Theme_Ead.Classes.Output
  * @author    Sueldo Sales <sueldosales@gmail.com>
  * @author    Kelson C. Medeiros <kelsoncm@gmail.com>
  * @copyright 2017 IFRN
  * @license   MIT https://opensource.org/licenses/MIT    
- * @link      https://github.com/CoticEaDIFRN/eadifrn
+ * @link      https://github.com/CoticEaDIFRN/moodle_theme_ead
  */
 class core_renderer extends \theme_boost\output\core_renderer {
 
@@ -133,7 +133,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
     //  */
     // public function body_attributes($additionalclasses = array()) {
     //     global $PAGE, $CFG;
-    //     require_once($CFG->dirroot . '/theme/boost_eadifrn/locallib.php');
+    //     require_once($CFG->dirroot . '/theme/ead/locallib.php');
 
     //     if (!is_array($additionalclasses)) {
     //         $additionalclasses = explode(' ', $additionalclasses);
@@ -144,7 +144,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
     //     // if ($PAGE->bodyid == 'page-login-index') {
     //     //     $additionalclasses[] = 'loginbackgroundimage';
     //     //     // Generating a random class for displaying a random image for the login page.
-    //     //     $additionalclasses[] = theme_boost_eadifrn_get_random_loginbackgroundimage_class();
+    //     //     $additionalclasses[] = theme_ead_get_random_loginbackgroundimage_class();
     //     // }
     //     // MODIFICATION END.
 
@@ -201,7 +201,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         // MODIFICATION START:
         // Only display the core context header menu if the setting "showsettingsincourse" is disabled
         // or we are viewing the frontpage.
-        if (get_config('theme_boost_eadifrn', 'showsettingsincourse') == 'no' || $PAGE->pagelayout == 'frontpage') {
+        if (get_config('theme_ead', 'showsettingsincourse') == 'no' || $PAGE->pagelayout == 'frontpage') {
             $html .= html_writer::div($this->context_header_settings_menu(), 'pull-xs-right context-header-settings-menu');
         }
         // MODIFICATION END.
@@ -224,7 +224,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $html .= html_writer::tag('div', $this->navbar(), array('class' => 'breadcrumb-nav'));
              
             // MODIFICATION START: Add the course context menu to the course page, but not on the profile page.
-            if (get_config('theme_boost_eadifrn', 'showsettingsincourse') == 'yes' && $PAGE->pagelayout != 'mypublic') {
+            if (get_config('theme_ead', 'showsettingsincourse') == 'yes' && $PAGE->pagelayout != 'mypublic') {
                 $html .= html_writer::div($this->context_header_settings_menu(), 'pull-xs-right context-header-settings-menu m-l-1');
             }
             // MODIFICATION END.
@@ -254,7 +254,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         // MODIFICATION START.
         // Only use this if setting 'showswitchedroleincourse' is active.
-        if (get_config('theme_boost_eadifrn', 'showswitchedroleincourse') === 'yes') {
+        if (get_config('theme_ead', 'showswitchedroleincourse') === 'yes') {
             // Check if user is logged in.
             // If not, adding this section would make no sense and, even worse,
             // user_get_user_navigation_info() will throw an exception due to the missing user object.
@@ -268,7 +268,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
                     $url = new moodle_url('/course/switchrole.php', array('id' => $COURSE->id, 'sesskey' => sesskey(), 'switchrole' => 0, 'returnurl' => $this->page->url->out_as_local_url(false)));
                     $html .= html_writer::start_tag('div', array('class' => 'switched-role-infobox alert alert-info'));
                     $html .= html_writer::start_tag('div', array());
-                    $html .= get_string('switchedroleto', 'theme_boost_eadifrn');
+                    $html .= get_string('switchedroleto', 'theme_ead');
                     // Give this a span to be able to address via CSS.
                     $html .= html_writer::tag('span', $role, array('class' => 'switched-role'));
                     $html .= html_writer::end_tag('div');
@@ -396,7 +396,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
     // }
 
     // /**
-    //  * Override to use theme_boost_eadifrn login template renders the login form.
+    //  * Override to use theme_ead login template renders the login form.
     //  *
     //  * @param \core_auth\output\login $form The renderable.
     //  * 
@@ -419,8 +419,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
     //         ['context' => context_course::instance(SITEID), "escape" => false]);
     //     // MODIFICATION START.
     //     // Only if setting "loginform" is checked, then call own login.mustache.
-    //     if (get_config('theme_boost_eadifrn', 'loginform') == 'yes') {
-    //         return $this->render_from_template('theme_boost_eadifrn/loginform', $context);
+    //     if (get_config('theme_ead', 'loginform') == 'yes') {
+    //         return $this->render_from_template('theme_ead/loginform', $context);
     //     } else {
     //         return $this->render_from_template('core/login', $context);
     //     }

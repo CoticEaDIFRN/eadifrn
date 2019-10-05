@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme Boost eadifrn - Library
+ * Theme EaD - Library
  *
- * @package    theme_boost_eadifrn
+ * @package    theme_ead
  * @copyright  2017 Kathrin Osswald, Ulm University <kathrin.osswald@uni-ulm.de>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_boost_eadifrn_get_main_scss_content($theme) {
+function theme_ead_get_main_scss_content($theme) {
     global $CFG;
 
     $scss = '';
@@ -38,19 +38,20 @@ function theme_boost_eadifrn_get_main_scss_content($theme) {
     $fs = get_file_storage();
     
     $context = context_system::instance();
-    if ($filename == 'plain.scss') {
+    // if ($filename == 'plain.scss') {
+    //     // We still load the default preset files directly from the boost theme. No sense in duplicating them.
+    //     $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/plain.scss');
+    // } else 
+    if ($filename == 'default.scss') {
         // We still load the default preset files directly from the boost theme. No sense in duplicating them.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/plain.scss');
-    } else if ($filename == 'eadifrn.scss') {
-        // We still load the default preset files directly from the boost theme. No sense in duplicating them.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_eadifrn/scss/preset/eadifrn.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/ead/scss/preset/default.scss');
 
-    } else if ($filename == 'eadifrn_presencial.scss') {
+    } else if ($filename == 'presencial.scss') {
         // We still load the default preset files directly from the boost theme. No sense in duplicating them.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_eadifrn/scss/preset/eadifrn_presencial.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/ead/scss/preset/presencial.scss');
 
-    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_boost_eadifrn', 'preset', 0, '/', $filename))) {
-        // This preset file was fetched from the file area for theme_boost_eadifrn and not theme_boost (see the line above).
+    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_ead', 'preset', 0, '/', $filename))) {
+        // This preset file was fetched from the file area for theme_ead and not theme_boost (see the line above).
         $scss .= $presetfile->get_content();
     } else {
         // Safety fallback - maybe new installs etc.
@@ -58,9 +59,9 @@ function theme_boost_eadifrn_get_main_scss_content($theme) {
     }
 
     // Pre CSS - this is loaded AFTER any prescss from the setting but before the main scss.
-    // $pre = file_get_contents($CFG->dirroot . '/theme/boost_eadifrn/scss/pre.scss');
+    // $pre = file_get_contents($CFG->dirroot . '/theme/ead/scss/pre.scss');
     // Post CSS - this is loaded AFTER the main scss but before the extra scss from the setting.
-    // $post = file_get_contents($CFG->dirroot . '/theme/boost_eadifrn/scss/post.scss');
+    // $post = file_get_contents($CFG->dirroot . '/theme/ead/scss/post.scss');
 
     // Combine them together.
     return $scss;
@@ -74,10 +75,10 @@ function theme_boost_eadifrn_get_main_scss_content($theme) {
  * @param theme_config $theme The theme config object.
  * @return array
  */
-function theme_boost_eadifrn_get_pre_scss($theme) {
+function theme_ead_get_pre_scss($theme) {
     global $CFG;
     // MODIFICATION START.
-    require_once($CFG->dirroot . '/theme/boost_eadifrn/locallib.php');
+    require_once($CFG->dirroot . '/theme/ead/locallib.php');
     // MODIFICATION END.
 
     $scss = '';
@@ -116,7 +117,7 @@ function theme_boost_eadifrn_get_pre_scss($theme) {
     }
 
     // MODIFICATION START: Add login background images that are uploaded to the setting 'loginbackgroundimage' to CSS.
-    // $scss .= theme_boost_eadifrn_get_loginbackgroundimage_scss();
+    // $scss .= theme_ead_get_loginbackgroundimage_scss();
     // MODIFICATION END.
 
     // Prepend pre-scss.
@@ -139,9 +140,9 @@ function theme_boost_eadifrn_get_pre_scss($theme) {
  * @param array $options additional options affecting the file serving
  * @return bool
  */
-function theme_boost_eadifrn_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+function theme_ead_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
     if ($context->contextlevel == CONTEXT_SYSTEM) {
-        $theme = theme_config::load('boost_eadifrn');
+        $theme = theme_config::load('ead');
         if ($filearea === 'favicon') {
             return $theme->setting_file_serve('favicon', $args, $forcedownload, $options);
         } else if ($filearea === 'loginbackgroundimage') {
@@ -159,20 +160,20 @@ function theme_boost_eadifrn_pluginfile($course, $cm, $context, $filearea, $args
 }
 
 /**
- * If setting is updated, use this callback to clear the theme_boost_eadifrn' own application cache.
+ * If setting is updated, use this callback to clear the theme_ead' own application cache.
  */
-function theme_boost_eadifrn_reset_app_cache() {
+function theme_ead_reset_app_cache() {
     // Get the cache from area.
-    $themeboosteadifrncache = cache::make('theme_boost_eadifrn', 'imagearea');
+    $theme_ead_cache = cache::make('theme_ead', 'imagearea');
     // Delete the cache for the imagearea.
-    $themeboosteadifrncache->delete('imageareadata');
+    $theme_ead_cache->delete('imageareadata');
     // To be safe and because there can only be one callback function added to a plugin setting,
     // we also delete the complete theme cache here.
     theme_reset_all_caches();
 }
 
 
-function get_ead_ifrn_commom_moodle_template_context()
+function get_ead_commom_moodle_template_context()
 {
     global $OUTPUT, $PAGE, $COURSE, $SITE;
 
@@ -224,7 +225,7 @@ function get_ead_ifrn_commom_moodle_template_context()
     ];
 }
 
-function get_ead_ifrn_calendario() {
+function get_ead_calendario() {
     global $CFG, $COURSE;
     $calendar = \calendar_information::create(time(), $COURSE->id, $COURSE->category);
     list($data, $template) = calendar_get_view($calendar, 'upcoming_mini');
@@ -250,7 +251,7 @@ function get_ead_ifrn_calendario() {
     return new ArrayIterator($result);
 }
 
-function get_ead_ifrn_course_content_actions()
+function get_ead_course_content_actions()
 {
     global $PAGE, $COURSE;
     if ($PAGE->pagelayout == "course" || $PAGE->pagelayout == "incourse") {
@@ -264,7 +265,7 @@ function get_ead_ifrn_course_content_actions()
     }
 }
     
-function get_ead_ifrn_course_common_actions() 
+function get_ead_course_common_actions() 
 {
     global $PAGE, $COURSE;
     if ($PAGE->pagelayout == "course" || $PAGE->pagelayout == "incourse") {
@@ -304,16 +305,16 @@ function get_ead_ifrn_course_common_actions()
 
 
 
-function get_ead_ifrn_template_context()
+function get_ead_template_context()
 {
     global $PAGE;
 
-    $templatecontext = get_ead_ifrn_commom_moodle_template_context();
+    $templatecontext = get_ead_commom_moodle_template_context();
 
     if ($templatecontext['in_course_page'] || $templatecontext['within_course_page']) {
-        $templatecontext['course_content_actions'] = get_ead_ifrn_course_content_actions();
-        $templatecontext['course_common_actions'] = get_ead_ifrn_course_common_actions();
+        $templatecontext['course_content_actions'] = get_ead_course_content_actions();
+        $templatecontext['course_common_actions'] = get_ead_course_common_actions();
     }
-    $templatecontext['nosso_calendario'] = get_ead_ifrn_calendario();
+    $templatecontext['nosso_calendario'] = get_ead_calendario();
     return $templatecontext;
 };
