@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 // GENERAL.
 $string['pluginname'] = 'EaD';
-$string['choosereadme'] = 'Theme EaD is a child theme of Boost to be used on university IFRN.';
+$string['choosereadme'] = 'Theme EaD is a child theme of Boost to be used on IFRN.';
 
 // SETTINGS.
 $string['configtitle'] = 'Theme EaD settings';

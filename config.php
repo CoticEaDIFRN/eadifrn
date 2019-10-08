@@ -79,14 +79,14 @@ $THEME->layouts = [
     ),
     // My dashboard page.
     'mydashboard' => array(
-        'file' => 'columns2.php',
+        'file' => 'columns1.php',
         'regions' => array('side-pre', 'footer-left', 'footer-middle', 'footer-right'),
         'defaultregion' => 'side-pre',
         'options' => array('nonavbar' => true, 'langmenu' => true),
     ),
     // My public page.
     'mypublic' => array(
-        'file' => 'columns2.php',
+        'file' => 'columns1.php',
         'regions' => array('side-pre', 'footer-left', 'footer-middle', 'footer-right'),
         'defaultregion' => 'side-pre',
     ),

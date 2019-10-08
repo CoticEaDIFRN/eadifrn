@@ -24,6 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+if (!function_exists('dump')) {function dump(...$params) { echo '<pre>'; var_dump(func_get_args()); echo '</pre>'; }}
+if (!function_exists('dumpd')) {function dumpd(...$params) { echo '<pre>'; var_dump(func_get_args()); echo '</pre>'; die(); }}
+
 /**
  * Returns the main SCSS content.
  *
@@ -42,9 +45,9 @@ function theme_ead_get_main_scss_content($theme) {
     //     // We still load the default preset files directly from the boost theme. No sense in duplicating them.
     //     $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/plain.scss');
     // } else 
-    if ($filename == 'default.scss') {
+    if ($filename == 'padrao.scss') {
         // We still load the default preset files directly from the boost theme. No sense in duplicating them.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/ead/scss/preset/default.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/ead/scss/preset/padrao.scss');
 
     } else if ($filename == 'presencial.scss') {
         // We still load the default preset files directly from the boost theme. No sense in duplicating them.
@@ -55,7 +58,7 @@ function theme_ead_get_main_scss_content($theme) {
         $scss .= $presetfile->get_content();
     } else {
         // Safety fallback - maybe new installs etc.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
+        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/padrao.scss');
     }
 
     // Pre CSS - this is loaded AFTER any prescss from the setting but before the main scss.
@@ -198,6 +201,7 @@ function get_ead_commom_moodle_template_context()
     $course_code = $COURSE->shortname;
     $inte_suap = is_siteadmin() ? "show_suap" : "";
     $inte_admin = is_siteadmin() ? "show_admin" : "";
+    // dump($result);
     return [
         'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
         'output' => $OUTPUT,

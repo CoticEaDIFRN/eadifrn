@@ -56,10 +56,10 @@ if ($ADMIN->fulltree) {
         $choices[$file->get_filename()] = $file->get_filename();
     }
     // These are the built in presets from Boost.
-    $choices['ead.scss'] = 'EaD';
-    $choices['ead_presencial.scss'] = 'Presencial';
+    $choices['padrao.scss'] = 'Padrão';
+    $choices['presencial.scss'] = 'Presencial';
     
-    $default = 'ead.scss';
+    $default = 'padrao.scss';
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);

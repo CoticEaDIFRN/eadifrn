@@ -1,0 +1,15 @@
+// Import FontAwesome.
+@import "fontawesome";
+
+// Import All of Bootstrap.
+@import "bootstrap";
+
+// Import Core moodle CSS.
+@import "moodle";
+
+@import "default/core";
+@import "default/header";
+@import "default/menu";
+@import "default/content";
+@import "default/chat";
+@import "default/footer";
