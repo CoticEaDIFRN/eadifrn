@@ -53,7 +53,9 @@ defined('MOODLE_INTERNAL') || die;
 class theme_ead_core_course_renderer extends \core_course_renderer {
 
     public function frontpage() {
-        return "caracas, moodle";
+        global $OUTPUT;
+        return $OUTPUT->render_from_template('block_myoverview/main', get_ead_template_context());
+
     }
 
     public function frontpage_my_courses() {

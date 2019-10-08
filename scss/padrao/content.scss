@@ -1,7 +1,3 @@
-/*==================================================*/
-/*====================== Cores =====================*/
-/*==================================================*/
-
 // /* Content */
 $content-background: $menu-divisor-background;
 $content-title: #000000;
@@ -14,30 +10,7 @@ $content-card-completed-icon: $content-card-link;
 $content-card-visited-icon: #EDD15D;
 $content-card-notvisited-icon: #CAD9CB;
 
-// /*==================================================*/
-// /*================ Página principal ================*/
-// /*==================================================*/
-
-/* Altura da margem do topo */
-#page {
-    margin-top: 0px;
-}
-
-/* Retirada dos blocos laterais */
-[data-region="blocks-column"] {
-    display: none;
-}
-
-#region-main-settings-menu.has-blocks, #region-main.has-blocks {
-    width: 100%;
-}
-
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
     background-color: #344537;
 }
-
-[data-region="courses-view"] .pagination {
-    display: none;
-}
-  
