@@ -1,0 +1,169 @@
+.pagelayout-frontpage {
+    margin-left: 0;
+}
+
+.pagelayout-frontpage #maincontent {
+    display: none;
+}
+
+//  MBus
+#mbus_header_filter {
+    padding: 0 40px;
+    height: 50px;
+    background-color: #fff;
+}
+#mbus_filter_menu {
+    list-style: none;
+    float: left;
+    padding-left: 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: calc(100% - 80px);
+    height: 50px;
+    white-space: nowrap;
+}
+#mbus_filter_menu a, #mbus_filter_menu a:visited {
+    line-height: 50px;
+    padding-right: 20px;
+    text-decoration: none;
+}
+#mbus_filter_menu a:active, #mbus_filter_menu a:hover {
+    text-decoration: underline;
+}
+#mbus_filter_search_btn {
+    float: right; 
+    line-height: 50px; 
+    border-left: 1px solid #EDEDED; 
+    padding-left: 20px;
+}
+.mbus_category {
+    padding: 17px 40px;
+    color: #000;
+    font-size: 9pt;
+}
+.mbus_category:first-child {
+    color: #fff;
+    background: #484848;
+    margin: 0 0 17px 0;
+}
+.mbus_category_title {
+    text-transform: uppercase;
+    margin-bottom: 17px;
+}
+.mbus_category_title a, .mbus_category_title a:visited {
+    color: #6a6a6a;
+    text-decoration: none;
+    line-height: 22px;
+    font-weight: 500;
+}
+.mbus_category_title a:hover {
+    color: #5bc166;
+    text-decoration: underline;
+}
+.mbus_category:first-child .mbus_category_title a, .mbus_category:first-child .mbus_category_title a:visited {
+    color: #fff !important;
+}
+.mbus_category:first-child .mbus_category_title a:hover {
+    color: #5bc166 !important;
+    text-decoration: underline;
+}
+.mbus_category_title i {
+    font-size: 10pt;
+    margin-left: 10px;
+}
+.mbus_courses_cards {
+    height: 221px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+}
+.mbus_courses_cards_inner {
+    transition: 450ms -webkit-transform;
+    transition: 450ms transform;
+    transition: 450ms transform, 450ms -webkit-transform;
+    font-size: 0;
+    white-space: nowrap;
+    padding-bottom: 10px;
+}
+.mbus_course_card {
+    width: 212px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 26px;
+    box-shadow: 3px 3px 3px 0 rgba(0,0,0,.27);
+    white-space: normal;
+}
+.mbus_category:first-child .mbus_course_card {
+    box-shadow: 3px 3px 3px 0 rgba(255,255,255,.27);
+}
+.mbus_course_card img {
+    width: 212px;
+    height: 120px;
+    border-radius: 4px 4px 0 0;
+}
+.mbus_course_info {
+    background-color: #fff;
+    padding: 8px 10px;
+    border-radius: 0 0 4px 4px;
+}
+.mbus_course_title {
+    height: 66px;
+    overflow: scroll;
+}
+.mbus_course_title a, .mbus_course_title a:visited {
+    font-size: 12pt;
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+}
+.mbus_course_title a:hover {
+    color: #5bc166;
+    text-decoration: underline;
+}
+.mbus_course_footer {
+    margin: 0 0 -3px 0;
+}
+.mbus_course_duration {
+    width: 49%;
+    color: #959595;
+    font-size: 7pt;
+    display: inline-block;
+}
+.mbus_course_enrol {
+    display: inline-block;
+    width: 49%;
+    text-align: right;
+    font-size: 8pt;
+    text-transform: uppercase;
+}
+.mbus_course_enrol a, .mbus_course_enrol a:visited {
+    text-decoration: none;
+    color: #5bc166;
+    font-size: 8pt;
+}
+.mbus_course_enrol a:hover {
+    text-decoration: underline;
+}
+
+.pagelayout-frontpage .login_ead {
+    display: inline-block;
+    width: 75px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background-color: #005f0a;
+    color: #fff;
+    font-size: 11pt;
+    font-weight: 400;
+    text-align: center;
+}
+
+.pagelayout-frontpage .login_ead:hover {
+    background-color: #fff;
+    color: #005f0a;
+    text-decoration: none;
+}
+
+
+[data-region="courses-view"] .pagination {
+    display: none;
+}

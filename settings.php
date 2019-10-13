@@ -47,19 +47,18 @@ if ($ADMIN->fulltree) {
     
     // We list files in our own file area to add to the drop down. We will provide our own function to
     // load all the presets from the correct paths.
-    $context = context_system::instance();
-    $fs = get_file_storage();
-    $files = $fs->get_area_files($context->id, 'theme_ead', 'preset', 0, 'itemid, filepath, filename', false);
+    $default = 'abacate.scss';
+    $choices['abacate.scss'] = 'Verde - Abacate';
+    $choices['alface.scss'] = 'Verde - Alface';
+    $choices['oliva.scss'] = 'Verde - Oliva';
+    $choices['alto-contraste-claro.scss'] = 'Alto contrate - claro';
+    $choices['alto-contraste-escuro.scss'] = 'Alto contrate - escuro';
+    $choices['anil.scss'] = 'Azul - Anil';
+    $choices['safira.scss'] = 'Azul - Safira';
+    $choices['ipe.scss'] = 'Vívido - Ipê';
+    $choices['jerimum.scss'] = 'Vívido - Jerimum';
+    $choices['solar.scss'] = 'Vívido - Solar';
 
-    $choices = [];
-    foreach ($files as $file) {
-        $choices[$file->get_filename()] = $file->get_filename();
-    }
-    // These are the built in presets from Boost.
-    $choices['padrao.scss'] = 'Padrão';
-    $choices['presencial.scss'] = 'Presencial';
-    
-    $default = 'padrao.scss';
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);

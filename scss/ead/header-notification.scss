@@ -1,0 +1,37 @@
+/*==================================================*/
+/*================= Notification ===================*/
+/*==================================================*/
+#nav-notification-popover-container .popover-region-toggle::before {
+    display: none;
+}
+
+#nav-notification-popover-container .popover-region-toggle::after {
+    content: "";
+    // display: inline-block;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-bottom: 18px solid $header-notification-bg;
+    position: absolute;
+    bottom: -27px;
+    right: 1px;
+    z-index: 2;
+}
+
+#nav-notification-popover-container .popover-region-container {
+    color: $header-notification-fg;
+    background-color: $header-notification-bg;
+    top: 50px;
+}
+
+#nav-notification-popover-container .empty-message {
+    color: $header-notification-empty-fg;
+}
+
+#nav-notification-popover-container .icon {
+    color: $header-notification-fg;
+}
+
+#nav-notification-popover-container .see-all-link {
+    color: $header-notification-fg;
+    background-color: $header-notification-bg;
+}

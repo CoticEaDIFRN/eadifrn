@@ -34,40 +34,24 @@ if (!function_exists('dumpd')) {function dumpd(...$params) { echo '<pre>'; var_d
  * @return string
  */
 function theme_ead_get_main_scss_content($theme) {
-    global $CFG;
-
-    $scss = '';
-    $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;
-    $fs = get_file_storage();
+    $choices = [];
+    $choices['abacate.scss'] = 'Verde - Abacate';
+    $choices['alface.scss'] = 'Verde - Alface';
+    $choices['oliva.scss'] = 'Verde - Oliva';
+    $choices['alto-contraste-claro.scss'] = 'Alto contrate - claro';
+    $choices['alto-contraste-escuro.scss'] = 'Alto contrate - escuro';
+    $choices['anil.scss'] = 'Azul - Anil';
+    $choices['safira.scss'] = 'Azul - Safira';
+    $choices['ipe.scss'] = 'Vívido - Ipê';
+    $choices['jerimum.scss'] = 'Vívido - Jerimum';
+    $choices['solar.scss'] = 'Vívido - Solar';
     
-    $context = context_system::instance();
-    // if ($filename == 'plain.scss') {
-    //     // We still load the default preset files directly from the boost theme. No sense in duplicating them.
-    //     $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/plain.scss');
-    // } else 
-    if ($filename == 'padrao.scss') {
-        // We still load the default preset files directly from the boost theme. No sense in duplicating them.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/ead/scss/preset/padrao.scss');
-
-    } else if ($filename == 'presencial.scss') {
-        // We still load the default preset files directly from the boost theme. No sense in duplicating them.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/ead/scss/preset/presencial.scss');
-
-    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_ead', 'preset', 0, '/', $filename))) {
-        // This preset file was fetched from the file area for theme_ead and not theme_boost (see the line above).
-        $scss .= $presetfile->get_content();
+    $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;
+    if (array_key_exists($filename, $choices)) {
+        return file_get_contents(__DIR__ . "/scss/preset/$filename");
     } else {
-        // Safety fallback - maybe new installs etc.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/padrao.scss');
+        return file_get_contents(__DIR__ . "/scss/ead.scss");
     }
-
-    // Pre CSS - this is loaded AFTER any prescss from the setting but before the main scss.
-    // $pre = file_get_contents($CFG->dirroot . '/theme/ead/scss/pre.scss');
-    // Post CSS - this is loaded AFTER the main scss but before the extra scss from the setting.
-    // $post = file_get_contents($CFG->dirroot . '/theme/ead/scss/post.scss');
-
-    // Combine them together.
-    return $scss;
 }
 
 /**
@@ -201,7 +185,6 @@ function get_ead_commom_moodle_template_context()
     $course_code = $COURSE->shortname;
     $inte_suap = is_siteadmin() ? "show_suap" : "";
     $inte_admin = is_siteadmin() ? "show_admin" : "";
-    // dump($result);
     return [
         'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
         'output' => $OUTPUT,

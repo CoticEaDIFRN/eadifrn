@@ -1,0 +1,43 @@
+/*==================================================*/
+/*====================== Cores =====================*/
+/*==================================================*/
+
+$header-background: $ead-destaque;
+$header-searchbox: $ead-destaque-hover;
+$header-searchbox-text: $ead-destaque-hover-font;
+$header-searchbox-text-focus: $ead-destaque-hover-font;
+$header-icons: $ead-destaque-font;
+$header-onlineuser-indicator: #81FD6C;
+$header-message-popover-background: #274333;
+$header-message-popover-background-hover: #39794F;
+$header-message-popover-text: #CACACA;
+$header-count-background: #C60C0F;
+$header-count-color: #fff;
+$header-dropdown-menu-background: #F2F2F2;
+$header-dropdown-menuitem-color: #344537;
+$header-dropdown-menuitem-icon-color: #344537;
+
+
+// cores do tema
+$ead-nocolor: #fff;
+$ead-body-bg: #E3E5E0;
+$ead-counter: #5676AD;
+$ead-counter-font: $ead-nocolor;
+
+$ead-destaque: #5BC266;
+$ead-destaque-font: $ead-nocolor;
+$ead-destaque-hover: #6E9BDB;
+$ead-destaque-hover-font: $ead-destaque;
+$ead-extradestaque: #39567F;
+$ead-extradestaque-font: $ead-nocolor;
+$ead-extradestaque-hover: $ead-destaque-hover;
+$ead-extradestaque-hover-font: $ead-extradestaque;
+$ead-body-anchor-fg: $ead-destaque;
+
+$ead-chat-popover-bg: #162533;
+$ead-chat-popover-font: #6E9BDB;
+
+$ead-chat-message-bg: #5D81C1;
+$ead-chat-message-font: $ead-nocolor;
+
+@import "ead";

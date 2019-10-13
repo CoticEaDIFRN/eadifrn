@@ -1,5 +1,7 @@
-var mhub = new Vue({
-    el: '#mhub',
+console.log("chegou");
+var mbus = new Vue({
+    el: '#mbus',
+    delimiters: ["[[", "]]"],
     data: {
         home_url: '/ava/', 
         logo_url: 'https://ead.ifrn.edu.br/ava/aberto/theme/boost_eadifrn/pix/eadifrn_zl_logo.svg',
@@ -138,3 +140,4 @@ var mhub = new Vue({
         ]
     }
 });
+console.log("saiu");
