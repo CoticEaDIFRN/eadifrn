@@ -1,39 +1,35 @@
-<div id="mhub">
-<header>
-    <div id='header_filter'>
-        <ul id='filter_menu'>
-            <li><a href=''>Todos</a></li>
-            <li v-for="category in categories"><a :href='category.url'>{{ category.description }}</a></li>
-        </ul>
-        <div>
+<div id="mbus">
+    <aside id="mbus_header_filter">
+        <div id='mbus_filter_menu'>
+            <a href=''>Todos</a>
+            <a v-for="category in categories" :href='category.url'>[[ category.description ]]</a>
         </div>
-        <div id='filter_search_btn'><i class='fa fa-search' aria-hidden='true'></i></div>
-    </div>
-</header>
+        <div id='mbus_filter_search_btn'><i class='fa fa-search' aria-hidden='true'></i></div>
+    </aside>
 
-<aside>
-    <div class='category' v-for="category in categories">
-        <div class='category_title'><a :href='category.url'>{{ category.description }}<i class='fa fa-arrow-right' aria-hidden='true'></i></a></div>
-        <div class='courses_cards'>
-            <div class='courses_cards_inner'>
-                <div class='course_card' v-for='course in category.courses'>
-                    <a :href='course.see'><img :src='course.thumbnail' /></a>
-                    <div class='course_info'>
-                        <div class='course_title'>
-                            <a :href='course.see'>{{ course.title}}</a>
-                        </div>
-                        <div class='course_footer'>
-                            <div class='course_duration'>
-                                Duração: <span>[{{ course.duration }}]</span>
+    <aside>
+        <div class='mbus_category' v-for="category in categories">
+            <div class='mbus_category_title'><a :href='category.url'>[[ category.description ]]<i class='fa fa-arrow-right' aria-hidden='true'></i></a></div>
+            <div class='mbus_courses_cards'>
+                <div class='mbus_courses_cards_inner'>
+                    <div class='mbus_course_card' v-for='course in category.courses'>
+                        <a :href='course.see'><img :src='course.thumbnail' /></a>
+                        <div class='mbus_course_info'>
+                            <div class='mbus_course_title'>
+                                <a :href='course.see'>[[ course.title ]]</a>
                             </div>
-                            <div class='course_enrol'><a :href='course.enrol'>Inscreva-se</a></div>
+                            <div class='mbus_course_footer'>
+                                <div class='mbus_course_duration'>
+                                    Duração: <span>[[ course.duration ]]</span>
+                                </div>
+                                <div class='mbus_course_enrol'><a :href='course.enrol'>Inscreva-se</a></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</aside>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    </aside>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
-<script src="/teste/theme/ead/js/mhub.js"></script>
+<script src="/teste/theme/ead/js/mbus.js"></script>
