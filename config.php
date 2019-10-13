@@ -24,14 +24,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$THEME->name = 'ead';
-$THEME->parents = ['boost'];
-// $THEME->sheets = ['main'];
-$THEME->editor_sheets = [];
-$THEME->scss = function($theme) {
-    return theme_ead_get_main_scss_content($theme);
-};
-
 $THEME->layouts = [
     // Most backwards compatible layout without the blocks - this is the layout used by default.
     'base' => array(
@@ -145,6 +137,11 @@ $THEME->layouts = [
     )
 ];
 
+$THEME->name = 'ead';
+$THEME->parents = ['boost'];
+$THEME->sheets = ['main'];
+$THEME->editor_sheets = [];
+$THEME->scss = function($theme) { return theme_ead_get_main_scss_content($theme); };
 $THEME->enable_dock = false;
 $THEME->prescsscallback = 'theme_ead_get_pre_scss';
 $THEME->yuicssmodules = array();
