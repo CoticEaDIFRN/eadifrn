@@ -50,7 +50,7 @@ function theme_ead_get_main_scss_content($theme) {
     if (array_key_exists($filename, $choices)) {
         return file_get_contents(__DIR__ . "/scss/preset/$filename");
     } else {
-        return file_get_contents(__DIR__ . "/scss/ead.scss");
+        return file_get_contents(__DIR__ . "/scss/preset/abacate.scss");
     }
 }
 
