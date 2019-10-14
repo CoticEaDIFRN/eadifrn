@@ -3,7 +3,7 @@
 //==================================================
 $core-body-bg : #f2f2f2;
 
-$core-btn-primary-fg: #ffffff;
+$core-btn-primary-fg: #000;
 $core-btn-primary-bg: #fff155;
 $core-btn-primary-bc: #fff155;
 $core-btn-primary-hover-fg: #fff;
@@ -13,15 +13,15 @@ $core-btn-primary-hover-bc: #fcbc01;
 $core-btn-secondary-fg: #fcbc00;
 $core-btn-secondary-bg: #fff;
 $core-btn-secondary-bc: #fcbc00;
-$core-btn-secondary-hover-fg: #fcbc01;
-$core-btn-secondary-hover-bg: #fff;
+$core-btn-secondary-hover-fg: #fff;
+$core-btn-secondary-hover-bg: #fcbc01;
 $core-btn-secondary-hover-bc: #fcbc01;
 
 $core-btn-default-fg: #fcbc00;
 $core-btn-default-bg: #fff;
 $core-btn-default-bc: #fcbc00;
-$core-btn-default-hover-fg: #fcbc01;
-$core-btn-default-hover-bg: #fff;
+$core-btn-default-hover-fg: #fff;
+$core-btn-default-hover-bg: #fcbc01;
 $core-btn-default-hover-bc: #fcbc01;
 
 $core-link-fg: #fcbc00;
@@ -105,5 +105,39 @@ $page-link-hover-bc: #fcbc01;
 // $ead-chat-message-font: #9e9e93;
 // $ead-chat-message-hover: #fbf2a0;
 // $ead-chat-message-hover-font: #373735;
+
+//==================================================
+//================== Frontpage =====================
+//==================================================
+$frontpage-filter-bg: #fff;
+
+$frontpage-category-fg: #6a6a6a;
+$frontpage-category-first-fg: #fff;
+$frontpage-category-first-bg: #484848;
+$frontpage-category-first-title-fg: #fff;
+$frontpage-category-first-title-hover-fg: #fcbc00;
+$frontpage-category-card-first-shadow: rgba(255,255,255,.27);
+
+$frontpage-category-title-fg: #6a6a6a;
+$frontpage-category-title-hover-fg: #fcbc00;
+$frontpage-category-card-shadow: rgba(0,0,0,.27);
+
+$frontpage-course-info-bg: #fff;
+$frontpage-course-title-fg: #000;
+$frontpage-course-title-hover-fg: #fcbc00;
+$frontpage-course-duration-fg: #959595;
+$frontpage-course-enrol-fg: #fcbc00;
+
+$frontpage-filter-search-btn-fg: #fff;
+$frontpage-filter-search-btn-bg: #fcbc00;
+$frontpage-filter-search-btn-bc: transparent;
+
+$frontpage-login-fg: #000;
+$frontpage-login-bg: #fcbc00;
+$frontpage-login-hover-fg: #fcbc00;
+$frontpage-login-hover-bg: #fff;
+
+$core-card-title-fg: #212529;
+$core-card-title-bg: #fff155;
 
 @import "ead";

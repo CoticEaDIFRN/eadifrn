@@ -100,15 +100,17 @@ img.userpicture {
 //     color: #274333;
 // }
 
-// // cards 
+
+//==================================================
+//=================== Card =========================
+//==================================================
+.card-header {
+    color: $core-card-title-fg;
+    background: $core-card-title-bg;
+}
+
 // .card {
 //     border: none;
 //     padding: 20px;
 //     margin: 10px;
-// }
-
-// // títulos dos cards 
-// .card-title {
-//     font-size: 20px !important;
-//     color: #274333;
 // }
