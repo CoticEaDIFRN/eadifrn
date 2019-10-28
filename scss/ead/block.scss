@@ -8,3 +8,18 @@
 #region-main-settings-menu.has-blocks, #region-main.has-blocks {
     width: 100%;
 }
+
+.card {
+    border: 3px solid $core-card-block-bc;
+    border-radius: 5px;
+}
+
+.card.card-block {
+    background: transparent;
+    border: none;
+}
+
+[role=main] .block-region .block {
+    border: 1px solid #fff;
+    border-radius: 5px;
+}

@@ -1,39 +1,97 @@
 <?php
-/**
- * MIT License
- * 
- * Copyright 2017 IFRN
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a 
- * copy of this software and associated documentation files (the "Software"),
- * to deal in the Software without restriction, including without limitation
- * the rights to use, copy, modify, merge, publish, distribute, sublicense,
- * and/or sell copies of the Software, and to permit persons to whom the 
- * Software is furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
- * IN THE SOFTWARE.
- * 
- * Renderers to align Moodle's HTML with that expected by Bootstrap
- * 
- * PHP Version 7
- * 
- * @category  MoodleTheme
- * @package   Theme_Ead.Classes.Output
- * @author    Sueldo Sales <sueldosales@gmail.com>
- * @author    Kelson C. Medeiros <kelsoncm@gmail.com>
- * @copyright 2017 IFRN
- * @license   MIT https://opensource.org/licenses/MIT    
- * @link      https://github.com/CoticEaDIFRN/moodle_theme_ead
- */
+// MIT License
+// 
+// Copyright 2017 IFRN
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a 
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the 
+// Software is furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+// IN THE SOFTWARE.
+// 
+// Renderers to align Moodle's HTML with that expected by Bootstrap
+
+// PHP Version 7
+// 
+// @category  MoodleTheme
+// @package   Theme_Ead.Classes.Output
+// @author    Sueldo Sales <sueldosales@gmail.com>
+// @author    Kelson C. Medeiros <kelsoncm@gmail.com>
+// @copyright 2017 IFRN
+// @license   MIT https://opensource.org/licenses/MIT    
+// @link      https://github.com/CoticEaDIFRN/moodle_theme_ead
+
+// PAGE LAYOUTS:
+//  admin
+//  mypage
+//  base
+//  course
+//  coursecategory
+//  embedded
+//  frametop
+//  frontpage
+//  incourse
+//  login
+//  maintenance
+//  mydashboard
+//  mypublic
+//  popup
+//  print
+//  redirect
+//  type
+//  report
+//  secure
+//  standard
+
+// PAGE TYPES:
+//  admin-{$PAGE->pagetype}
+//  admin-auth-{$auth}
+//  admin-portfolio-{$plugin}
+//  admin-repository-{$plugin}
+//  admin-repository-{$repository}
+//  admin-setting-{$category}
+//  admin-setting-{$section}
+//  bogus-page
+//  course-index-category 
+//  course-view 
+//  course-view-{$course->format}
+//  maintenance-message 
+//  mod-{$cm->modname}-delete 
+//  mod-$mod-view 
+//  mod-assign-{$action}
+//  mod-data-field-{$newtype}
+//  mod-forum-view 
+//  mod-lesson-view 
+//    branchtable
+//    cluster
+//    endofbranch
+//    endofcluster
+//    essay
+//    matching
+//    multichoice
+//    numerical
+//    shortanswer
+//    truefalse
+//  mod-quiz-edit 
+//  my-index 
+//  page-type
+//  question-type{$question->qtype}
+//  site-index 
+//  user-files 
+//  user-preferences 
+//  user-profile 
 
 namespace theme_ead\output;
 
@@ -181,111 +239,32 @@ class core_renderer extends \theme_boost\output\core_renderer {
             return html_writer::div($result, $usermenuclasses);
         }
     }
-    // /**
-    //  * Override to dispaly switched role information beneath the course header instead of the user menu.
-    //  * We change this because the switch role function is course related and therefore it should be placed in the course context.
-    //  *
-    //  * Wrapper for header elements.
-    //  *
-    //  * @return string HTML to display the main header.
-    //  */
-    // public function full_header() {
-    //     // MODIFICATION START.
-    //     global $PAGE, $USER, $COURSE;
-        
-    //     // MODIFICATION END.
-    //     $html = html_writer::start_tag('header', array('id' => 'page-header', 'class' => 'row'));
-    //     $html .= html_writer::start_div('col-xs-12 p-a-1');
-    //     $html .= html_writer::start_div('card');
-    //     $html .= html_writer::start_div('card-block');
-    //     // MODIFICATION START:
-    //     // Only display the core context header menu if the setting "showsettingsincourse" is disabled
-    //     // or we are viewing the frontpage.
-    //     if (get_config('theme_ead', 'showsettingsincourse') == 'no' || $PAGE->pagelayout == 'frontpage') {
-    //         $html .= html_writer::div($this->context_header_settings_menu(), 'pull-xs-right context-header-settings-menu');
-    //     }
-    //     // MODIFICATION END.
-    //     /* ORIGINAL START.
-    //     $html .= html_writer::div($this->context_header_settings_menu(), 'pull-xs-right context-header-settings-menu');
-    //     ORIGINAL END. */
-    //     // MODIFICATION START:
-    //     // To get the same structure as on the Dashboard, we need to add the page heading buttons here for the profile page.
-    //     if ($PAGE->pagelayout == 'mypublic') {
-    //         $html .= html_writer::div($this->page_heading_button(), 'breadcrumb-button pull-xs-right');
-    //     }
-    //     // MODIFICATION END.
-    //     $html .= html_writer::start_div('pull-xs-left');
-    //     $html .= $this->context_header();
-    //     $html .= html_writer::end_div();
 
-	// $pageheadingbutton = $this->page_heading_button();
-	// if (empty($PAGE->layout_options['nonavbar'])) {
-    //         $html .= html_writer::start_div('clearfix w-100 pull-xs-left', array('id' => 'page-navbar'));
-    //         $html .= html_writer::tag('div', $this->navbar(), array('class' => 'breadcrumb-nav'));
-             
-    //         // MODIFICATION START: Add the course context menu to the course page, but not on the profile page.
-    //         if (get_config('theme_ead', 'showsettingsincourse') == 'yes' && $PAGE->pagelayout != 'mypublic') {
-    //             $html .= html_writer::div($this->context_header_settings_menu(), 'pull-xs-right context-header-settings-menu m-l-1');
-    //         }
-    //         // MODIFICATION END.
-    //         // MODIFICATION START: Instead of the settings icon, add a button to edit the profile.
-    //         if ($PAGE->pagelayout == 'mypublic') {
-    //             $html .= html_writer::start_div('breadcrumb-button breadcrumb-button pull-xs-right');
-    //             $url = new moodle_url('/user/editadvanced.php', array('id' => $USER->id, 'course' => $COURSE->id, 'returnto' => 'profile'));
-    //             $html .= $this->single_button($url, get_string('editmyprofile', 'core'));
-    //             $html .= html_writer::end_div();
-    //         }
-    //         // Do not show the page heading buttons on the profile page at this place.
-    //         // Display them only on other pages.
-    //         if ($PAGE->pagelayout != 'mypublic') {
-    //             $html .= html_writer::div($pageheadingbutton, 'breadcrumb-button pull-xs-right');
-    //         }
-    //         // MODIFICATION END.
-    //         $html .= html_writer::end_div();
-    //     } else if ($pageheadingbutton) {
-    //         $html .= html_writer::div($pageheadingbutton, 'breadcrumb-button nonavbar pull-xs-right');
-    //     }
+    public function full_header() {
+        global $PAGE;
+        $header = new stdClass();
+        $header->settingsmenu = $this->context_header_settings_menu();
+        $header->contextheader = $this->context_header();
+        $header->hasnavbar = empty($PAGE->layout_options['nonavbar']);
+        $header->navbar = $this->navbar();
+        $header->pageheadingbutton = $this->page_heading_button();
+        $header->courseheader = $this->course_header();
+        return $this->render_from_template('core/full_header', $header);
+    }
 
-    //     $html .= html_writer::tag('div', $this->course_header(), array('id' => 'course-header'));
-    //     $html .= html_writer::end_div();
-    //     $html .= html_writer::end_div();
-    //     $html .= html_writer::end_div();
-    //     $html .= html_writer::end_tag('header');
-
-    //     // MODIFICATION START.
-    //     // Only use this if setting 'showswitchedroleincourse' is active.
-    //     if (get_config('theme_ead', 'showswitchedroleincourse') === 'yes') {
-    //         // Check if user is logged in.
-    //         // If not, adding this section would make no sense and, even worse,
-    //         // user_get_user_navigation_info() will throw an exception due to the missing user object.
-    //         if (isloggedin()) {
-    //             $opts = \user_get_user_navigation_info($USER, $this->page);
-    //             // Role is switched.
-    //             if (!empty($opts->metadata['asotherrole'])) {
-    //                 // Get the role name switched to.
-    //                 $role = $opts->metadata['rolename'];
-    //                 // Get the URL to switch back (normal role).
-    //                 $url = new moodle_url('/course/switchrole.php', array('id' => $COURSE->id, 'sesskey' => sesskey(), 'switchrole' => 0, 'returnurl' => $this->page->url->out_as_local_url(false)));
-    //                 $html .= html_writer::start_tag('div', array('class' => 'switched-role-infobox alert alert-info'));
-    //                 $html .= html_writer::start_tag('div', array());
-    //                 $html .= get_string('switchedroleto', 'theme_ead');
-    //                 // Give this a span to be able to address via CSS.
-    //                 $html .= html_writer::tag('span', $role, array('class' => 'switched-role'));
-    //                 $html .= html_writer::end_tag('div');
-    //                 // Return to normal role link.
-    //                 $html .= html_writer::start_tag('div', array('class' => 'switched-role-back col-6'));
-    //                 $html .= html_writer::empty_tag('img', array('src' => $this->pix_url('a/logout', 'moodle')));
-    //                 $html .= html_writer::tag('a', get_string('switchrolereturn', 'core'), array('class' => 'switched-role-backlink', 'href' => $url));
-    //                 $html .= html_writer::end_tag('div'); // Return to normal role link: end div.
-    //                 $html .= html_writer::end_tag('div');
-    //             }
-    //         }
-    //     }
-    //     // MODIFICATION END.
-        
-    //     return $html;
-    // }
-
+    public function page_heading_button() {
+        $btn = $this->page->button;
+        $icon = '<i class="icon fa %s" style="font-size: 24px; margin: 0 4px 0 0;" title="%s"></i>';
+        if (!empty($btn)) {
+            $btn = str_replace(get_string('blocksediton'), sprintf($icon, 'fa-pencil-square-o', get_string('blocksediton')), $btn);
+            $btn = str_replace(get_string('blockseditoff'), sprintf($icon, 'fa-pencil-square', get_string('blockseditoff')), $btn);
+            $btn = str_replace(get_string('updatemymoodleon'), sprintf($icon, 'fa-pencil-square-o', get_string('updatemymoodleon')), $btn);
+            $btn = str_replace(get_string('updatemymoodleoff'), sprintf($icon, 'fa-pencil-square', get_string('updatemymoodleoff')), $btn);
+            $btn = str_replace(get_string('resetpage', 'my'), sprintf($icon, 'fa-retweet', get_string('resetpage', 'my')), $btn);
+            // $btn = str_replace(, $icon, $btn);
+        }
+        return $btn;
+    }
 
     // /**
     //  * Override to display course settings on every course site for permanent access

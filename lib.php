@@ -159,59 +159,6 @@ function theme_ead_reset_app_cache() {
     theme_reset_all_caches();
 }
 
-
-function get_ead_commom_moodle_template_context()
-{
-    global $OUTPUT, $PAGE, $COURSE, $SITE;
-
-    if (isloggedin()) {
-        $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
-    } else {
-        $navdraweropen = false;
-    }
-    $extraclasses = [];
-    if ($navdraweropen) {
-        $extraclasses[] = 'drawer-open-left';
-    }
-    $bodyattributes = $OUTPUT->body_attributes($extraclasses);
-    $blockshtml = $OUTPUT->blocks('side-pre');
-    $hasblocks = strpos($blockshtml, 'data-block=') !== false;
-    $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
-    $in_course_page = $PAGE->pagelayout == "course";
-    $not_in_course_page = $PAGE->pagelayout != "course";
-    $within_course_page = $PAGE->pagelayout == "incourse";
-    $not_within_course_page = $PAGE->pagelayout != "incourse";
-    $course_name = $COURSE->fullname;
-    $course_code = $COURSE->shortname;
-    $inte_suap = is_siteadmin() ? "show_suap" : "";
-    $inte_admin = is_siteadmin() ? "show_admin" : "";
-    return [
-        'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
-        'output' => $OUTPUT,
-        'sidepreblocks' => $blockshtml,
-        'hasblocks' => $hasblocks,
-        'bodyattributes' => $bodyattributes,
-        'navdraweropen' => $navdraweropen,
-        'regionmainsettingsmenu' => $regionmainsettingsmenu,
-        'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-        'link_calendar' => (new moodle_url('/calendar/view.php?view=month'))->out(),
-        'link_sala_aula' => (new moodle_url('/my'))->out(),
-        'link_suap' => (new moodle_url('/suap'))->out(),
-        'link_mural' => (new moodle_url('/mural'))->out(),
-        'link_secretaria' => (new moodle_url('/secretaria'))->out(),
-        'link_admin' => (new moodle_url('/admin/search.php'))->out(),
-        'in_course_page' => $in_course_page,
-        'not_in_course_page' => $not_in_course_page,
-        'incourse' => $COURSE,
-        'course' => $COURSE,
-        'within_course_page' => $within_course_page,
-        'not_within_course_page' => $not_within_course_page,
-        'course_name' => $course_name,
-        'inte_suap' => $inte_suap,
-        'inte_admin' => $inte_admin
-    ];
-}
-
 function get_ead_calendario() {
     global $CFG, $COURSE;
     $calendar = \calendar_information::create(time(), $COURSE->id, $COURSE->category);
@@ -294,14 +241,61 @@ function get_ead_course_common_actions()
 
 function get_ead_template_context()
 {
-    global $PAGE;
+    global $OUTPUT, $PAGE, $COURSE, $SITE;
 
-    $templatecontext = get_ead_commom_moodle_template_context();
-
-    if ($templatecontext['in_course_page'] || $templatecontext['within_course_page']) {
-        $templatecontext['course_content_actions'] = get_ead_course_content_actions();
-        $templatecontext['course_common_actions'] = get_ead_course_common_actions();
+    if (isloggedin()) {
+        $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
+    } else {
+        $navdraweropen = false;
     }
-    $templatecontext['nosso_calendario'] = get_ead_calendario();
-    return $templatecontext;
+    $extraclasses = [];
+    if ($navdraweropen) {
+        $extraclasses[] = 'drawer-open-left';
+    }
+    $bodyattributes = $OUTPUT->body_attributes($extraclasses);
+    $blockshtml = $OUTPUT->blocks('side-pre');
+    $hasblocks = strpos($blockshtml, 'data-block=') !== false;
+    $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+    $in_course_page = $PAGE->pagelayout == "course";
+    $not_in_course_page = $PAGE->pagelayout != "course";
+    $within_course_page = $PAGE->pagelayout == "incourse";
+    $not_within_course_page = $PAGE->pagelayout != "incourse";
+    $course_name = $COURSE->fullname;
+    $course_code = $COURSE->shortname;
+    $is_siteadmin = is_siteadmin();
+    $inte_suap = $is_siteadmin ? "show_suap" : "";
+    $inte_admin = $is_siteadmin ? "show_admin" : "";
+    $course_content_actions = ($in_course_page || $within_course_page) ? get_ead_course_content_actions() : [];
+    $course_common_actions = ($in_course_page || $within_course_page) ? get_ead_course_common_actions() : [];
+
+    return [
+        'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
+        'output' => $OUTPUT,
+        'sidepreblocks' => $blockshtml,
+        'hasblocks' => $hasblocks,
+        'bodyattributes' => $bodyattributes,
+        'navdraweropen' => $navdraweropen,
+        'regionmainsettingsmenu' => $regionmainsettingsmenu,
+        'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
+        'link_calendar' => (new moodle_url('/calendar/view.php?view=month'))->out(),
+        'link_sala_aula' => (new moodle_url('/my'))->out(),
+        'link_suap' => (new moodle_url('/suap'))->out(),
+        'link_mural' => (new moodle_url('/mural'))->out(),
+        'link_secretaria' => (new moodle_url('/secretaria'))->out(),
+        'link_admin' => (new moodle_url('/admin/search.php'))->out(),
+        'in_course_page' => $in_course_page,
+        'not_in_course_page' => $not_in_course_page,
+        'incourse' => $COURSE,
+        'course' => $COURSE,
+        'within_course_page' => $within_course_page,
+        'not_within_course_page' => $not_within_course_page,
+        'show_button' => "$not_in_course_page && $not_within_course_page",
+        'course_name' => $course_name,
+        'inte_suap' => $inte_suap,
+        'inte_admin' => $inte_admin,
+        'is_siteadmin' => $is_siteadmin,
+        'nosso_calendario' => get_ead_calendario(),
+        'course_content_actions' => $course_content_actions,
+        'course_common_actions' => $course_common_actions,
+    ];
 };

@@ -1,33 +1,33 @@
 //==================================================
 //===================== Core =======================
 //==================================================
-$core-body-bg : #f2f2f2;
+$core-body-bg : #ebeced;
 
 $core-btn-primary-fg: #000;
-$core-btn-primary-bg: #fff155;
-$core-btn-primary-bc: #fff155;
+$core-btn-primary-bg: #2F8C47;
+$core-btn-primary-bc: #2F8C47;
 $core-btn-primary-hover-fg: #fff;
-$core-btn-primary-hover-bg: #fcbc01;
-$core-btn-primary-hover-bc: #fcbc01;
+$core-btn-primary-hover-bg: #2F8C47;
+$core-btn-primary-hover-bc: #274333;
 
-$core-btn-secondary-fg: #fcbc00;
+$core-btn-secondary-fg: #274333;
 $core-btn-secondary-bg: #fff;
-$core-btn-secondary-bc: #fcbc00;
+$core-btn-secondary-bc: #274333;
 $core-btn-secondary-hover-fg: #fff;
-$core-btn-secondary-hover-bg: #fcbc01;
-$core-btn-secondary-hover-bc: #fcbc01;
+$core-btn-secondary-hover-bg: #2F8C47;
+$core-btn-secondary-hover-bc: #2F8C47;
 
-$core-btn-default-fg: #fcbc00;
+$core-btn-default-fg: #274333;
 $core-btn-default-bg: #fff;
-$core-btn-default-bc: #fcbc00;
+$core-btn-default-bc: #274333;
 $core-btn-default-hover-fg: #fff;
-$core-btn-default-hover-bg: #fcbc01;
-$core-btn-default-hover-bc: #fcbc01;
+$core-btn-default-hover-bg: #2F8C47;
+$core-btn-default-hover-bc: #2F8C47;
 
-$core-link-fg: #fcbc00;
-$core-link-hover-fg: #fcbc01;
-$core-link-icon-fg: #fcbc00;
-$core-text-primary-fg: #fcbc00 !important;
+$core-link-fg: #274333;
+$core-link-hover-fg: #274333;
+$core-link-icon-fg: #274333;
+$core-text-primary-fg: #274333 !important;
 
 
 //==================================================
@@ -35,7 +35,7 @@ $core-text-primary-fg: #fcbc00 !important;
 //==================================================
 // header
 $header-bg: #5bc166;
-$header-fg: #333333;
+$header-fg: #fff;
 $header-count-bg: #c60c0f;
 $header-count-fg: #fff;
 
@@ -88,6 +88,13 @@ $page-link-hover-fg: #fcbc01;
 $page-link-hover-bg: #fff;
 $page-link-hover-bc: #fcbc01;
 
+$page-header-btn-fg: #274333;
+$page-header-btn-bg: transparent;
+$page-header-btn-bc: transparent;
+$page-header-btn-hover-fg: #2F8C47;
+$page-header-btn-hover-bg: transparent;
+$page-header-btn-hover-bc: transparent;
+
 
 // $ead-body-bg: #ebeced;
 // $ead-nocolor: #fff;
@@ -139,5 +146,7 @@ $frontpage-login-hover-bg: #fff;
 
 $core-card-title-fg: #212529;
 $core-card-title-bg: #fff155;
+
+$core-card-block-bc: #fff;
 
 @import "ead";

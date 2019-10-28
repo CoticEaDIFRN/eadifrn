@@ -1,7 +1,7 @@
 //==================================================
 //===================== Core =======================
 //==================================================
-$core-body-bg : #f2f2f2;
+$core-body-bg : #ebeced;
 
 $core-btn-primary-fg: #000;
 $core-btn-primary-bg: #fff155;
@@ -88,6 +88,13 @@ $page-link-hover-fg: #fcbc01;
 $page-link-hover-bg: #fff;
 $page-link-hover-bc: #fcbc01;
 
+$page-header-btn-fg: #fcbc00;
+$page-header-btn-bg: transparent;
+$page-header-btn-bc: transparent;
+$page-header-btn-hover-fg: #fcf599;
+$page-header-btn-hover-bg: transparent;
+$page-header-btn-hover-bc: transparent;
+
 
 // $ead-body-bg: #ebeced;
 // $ead-nocolor: #fff;
@@ -139,5 +146,7 @@ $frontpage-login-hover-bg: #fff;
 
 $core-card-title-fg: #212529;
 $core-card-title-bg: #fff155;
+
+$core-card-block-bc: #fff;
 
 @import "ead";
