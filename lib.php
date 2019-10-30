@@ -2,13 +2,13 @@
 /**
  * Theme EaD - Library
  *
- * @category  MoodleTheme
- * @author    Sueldo Sales <sueldosales@gmail.com>
- * @author    Kelson C. Medeiros <kelsoncm@gmail.com>
+ * @category   MoodleTheme
+ * @author     Sueldo Sales <sueldosales@gmail.com>
+ * @author     Kelson C. Medeiros <kelsoncm@gmail.com>
  * @package    theme_ead
- * @copyright 2017 IFRN <https://ifrn.edu.br>
+ * @copyright  2017 IFRN <https://ifrn.edu.br>
  * @license    MIT https://opensource.org/licenses/MIT
- * @link      https://github.com/CoticEaDIFRN/moodle_theme_ead
+ * @link       https://github.com/CoticEaDIFRN/moodle_theme_ead
  */
 
 
