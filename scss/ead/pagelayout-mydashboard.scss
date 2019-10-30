@@ -1,0 +1,15 @@
+//==================================================
+//========== Page layout: My dashboard =============
+//==================================================
+
+.pagelayout-mydashboard {
+    margin-left: 0 !important;
+}
+
+.pagelayout-mydashboard #nav-drawer {
+    display: none !important;
+}
+
+.pagelayout-mydashboard [data-region=drawer-toggle] {
+    display: none !important;
+}

@@ -1,9 +1,13 @@
+//==================================================
+//============ Page layout: frontpage ==============
+//==================================================
+
 .pagelayout-frontpage {
-    margin-left: 0;
+    margin-left: 0 !important;
 }
 
 .pagelayout-frontpage #maincontent {
-    display: none;
+    display: none !important;
 }
 
 //  MBus
@@ -169,4 +173,8 @@
     color: $frontpage-login-hover-fg;
     background-color: $frontpage-login-hover-bg;
     text-decoration: none;
+}
+
+.pagelayout-frontpage [data-region=drawer-toggle] {
+    display: none !important;
 }

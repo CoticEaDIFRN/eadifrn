@@ -1,0 +1,15 @@
+//==================================================
+//============== Page layout: admin ================
+//==================================================
+
+.pagelayout-admin {
+    margin-left: 0!important;
+}
+
+.pagelayout-admin  #nav-drawer{
+    display: none !important;
+}
+
+.pagelayout-admin [data-region=drawer-toggle] {
+    display: none !important;
+}
