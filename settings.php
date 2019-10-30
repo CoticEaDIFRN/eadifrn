@@ -48,15 +48,16 @@ if ($ADMIN->fulltree) {
     // We list files in our own file area to add to the drop down. We will provide our own function to
     // load all the presets from the correct paths.
     $default = 'abacate.scss';
+    $choices = [];
     $choices['abacate.scss'] = 'Verde - Abacate';
-    $choices['alface.scss'] = 'Verde - Alface';
-    $choices['oliva.scss'] = 'Verde - Oliva';
-    $choices['alto-contraste-claro.scss'] = 'Alto contrate - claro';
-    $choices['alto-contraste-escuro.scss'] = 'Alto contrate - escuro';
-    $choices['anil.scss'] = 'Azul - Anil';
-    $choices['safira.scss'] = 'Azul - Safira';
-    $choices['ipe.scss'] = 'Vívido - Ipê';
-    $choices['jerimum.scss'] = 'Vívido - Jerimum';
+    // $choices['alface.scss'] = 'Verde - Alface';
+    // $choices['oliva.scss'] = 'Verde - Oliva';
+    // $choices['alto-contraste-claro.scss'] = 'Alto contrate - claro';
+    // $choices['alto-contraste-escuro.scss'] = 'Alto contrate - escuro';
+    // $choices['anil.scss'] = 'Azul - Anil';
+    // $choices['safira.scss'] = 'Azul - Safira';
+    // $choices['ipe.scss'] = 'Vívido - Ipê';
+    // $choices['jerimum.scss'] = 'Vívido - Jerimum';
     $choices['solar.scss'] = 'Vívido - Solar';
 
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
