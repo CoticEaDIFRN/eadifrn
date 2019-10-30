@@ -1,30 +1,19 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Theme EaD - Version file
  *
  * @package    theme_ead
- * @copyright  2017 Kathrin Osswald, Ulm University <kathrin.osswald@uni-ulm.de>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author     Sueldo Sales <sueldosales@gmail.com>
+ * @author     Kelson C. Medeiros <kelsoncm@gmail.com>
+ * @package    theme_ead
+ * @copyright  2017 IFRN <https://ifrn.edu.br>
+ * @license    MIT https://opensource.org/licenses/MIT
+ * @link       https://github.com/CoticEaDIFRN/moodle_theme_ead
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2018030500;
+$plugin->version = 2019103003;
 $plugin->requires = 2019051100;
 $plugin->component = 'theme_ead';
 
