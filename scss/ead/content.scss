@@ -15,3 +15,17 @@
     background-color: $page-link-hover-bg;
     border-color: $page-link-hover-bc;
 }
+
+.course-content ul li.section.main {
+    border-bottom: none;
+}
+
+#region-main {
+    border: none;
+    border-radius: 0;
+    padding: .5rem;
+}
+
+#region-main .card.card-block {
+    border: none;    
+}
