@@ -1,98 +1,74 @@
 <?php
-// MIT License
-// 
-// Copyright 2017 IFRN
-// 
-// Permission is hereby granted, free of charge, to any person obtaining a 
-// copy of this software and associated documentation files (the "Software"),
-// to deal in the Software without restriction, including without limitation
-// the rights to use, copy, modify, merge, publish, distribute, sublicense,
-// and/or sell copies of the Software, and to permit persons to whom the 
-// Software is furnished to do so, subject to the following conditions:
-// 
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-// 
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
-// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-// IN THE SOFTWARE.
-// 
-// Renderers to align Moodle's HTML with that expected by Bootstrap
-
-// PHP Version 7
-// 
-// @category  MoodleTheme
-// @package   Theme_Ead.Classes.Output
-// @author    Sueldo Sales <sueldosales@gmail.com>
-// @author    Kelson C. Medeiros <kelsoncm@gmail.com>
-// @copyright 2017 IFRN
-// @license   MIT https://opensource.org/licenses/MIT    
-// @link      https://github.com/CoticEaDIFRN/moodle_theme_ead
-
-// PAGE LAYOUTS:
-//  admin
-//  mypage
-//  base
-//  course
-//  coursecategory
-//  embedded
-//  frametop
-//  frontpage
-//  incourse
-//  login
-//  maintenance
-//  mydashboard
-//  mypublic
-//  popup
-//  print
-//  redirect
-//  type
-//  report
-//  secure
-//  standard
-
-// PAGE TYPES:
-//  admin-{$PAGE->pagetype}
-//  admin-auth-{$auth}
-//  admin-portfolio-{$plugin}
-//  admin-repository-{$plugin}
-//  admin-repository-{$repository}
-//  admin-setting-{$category}
-//  admin-setting-{$section}
-//  bogus-page
-//  course-index-category 
-//  course-view 
-//  course-view-{$course->format}
-//  maintenance-message 
-//  mod-{$cm->modname}-delete 
-//  mod-$mod-view 
-//  mod-assign-{$action}
-//  mod-data-field-{$newtype}
-//  mod-forum-view 
-//  mod-lesson-view 
-//    branchtable
-//    cluster
-//    endofbranch
-//    endofcluster
-//    essay
-//    matching
-//    multichoice
-//    numerical
-//    shortanswer
-//    truefalse
-//  mod-quiz-edit 
-//  my-index 
-//  page-type
-//  question-type{$question->qtype}
-//  site-index 
-//  user-files 
-//  user-preferences 
-//  user-profile 
-
+/**
+ * Override core renderer
+ * 
+ * PAGE LAYOUTS: 
+ *  mypage
+ *  cbase
+ *  course
+ *  coursecategory
+ *  embedded
+ *  frametop
+ *  frontpage
+ *  incourse
+ *  login
+ *  maintenance
+ *  mydashboard
+ *  mypublic
+ *  popup
+ *  print
+ *  redirect
+ *  type
+ *  report
+ *  secure
+ *  standard
+ * 
+ * PAGE TYPES:
+ *  admin-{$PAGE->pagetype}
+ *  admin-auth-{$auth}
+ *  admin-portfolio-{$plugin}
+ *  admin-repository-{$plugin}
+ *  admin-repository-{$repository}
+ *  admin-setting-{$category}
+ *  admin-setting-{$section}
+ *  bogus-page
+ *  course-index-category
+ *  course-view
+ *  course-view-{$course->format}
+ *  maintenance-message
+ *  mod-{$cm->modname}-delete
+ *  mod-$mod-view
+ *  mod-assign-{$action}
+ *  mod-data-field-{$newtype}
+ *  mod-forum-view 
+ *  mod-lesson-view 
+ *    branchtable
+ *    cluster
+ *    endofbranch
+ *    endofcluster
+ *    essay
+ *    matching
+ *    multichoice
+ *    numerical
+ *    shortanswer
+ *    truefalse
+ *  mod-quiz-edit
+ *  my-index 
+ *  page-type
+ *  question-type{$question->qtype}
+ *  site-index 
+ *  user-files 
+ *  user-preferences
+ *  user-profile 
+ * 
+ * @category  MoodleTheme
+ * @package   Theme_Ead.Classes.Output
+ * @author    Sueldo Sales <sueldosales@gmail.com>
+ * @author    Kelson C. Medeiros <kelsoncm@gmail.com>
+ * @copyright 2017 IFRN
+ * @license   MIT https://opensource.org/licenses/MIT
+ * @link      https://github.com/CoticEaDIFRN/moodle_theme_ead
+ */
 namespace theme_ead\output;
 
 use coding_exception;
@@ -254,6 +230,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
     public function page_heading_button() {
         $btn = $this->page->button;
+        //<i class="icon fa fa-plus"></i>
         $icon = '<i class="icon fa %s" style="font-size: 24px; margin: 0 4px 0 0;" title="%s"></i>';
         if (!empty($btn)) {
             $btn = str_replace(get_string('blocksediton'), sprintf($icon, 'fa-pencil-square-o', get_string('blocksediton')), $btn);
@@ -261,6 +238,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $btn = str_replace(get_string('updatemymoodleon'), sprintf($icon, 'fa-pencil-square-o', get_string('updatemymoodleon')), $btn);
             $btn = str_replace(get_string('updatemymoodleoff'), sprintf($icon, 'fa-pencil-square', get_string('updatemymoodleoff')), $btn);
             $btn = str_replace(get_string('resetpage', 'my'), sprintf($icon, 'fa-retweet', get_string('resetpage', 'my')), $btn);
+            $btn = str_replace(get_string('reseteveryonesdashboard', 'my'), sprintf($icon, 'fa-retweet', get_string('reseteveryonesdashboard', 'my')), $btn);
+            $btn = str_replace(get_string('reseteveryonesprofile', 'my'), sprintf($icon, 'fa-retweet', get_string('reseteveryonesprofile', 'my')), $btn);
             // $btn = str_replace(, $icon, $btn);
         }
         return $btn;
