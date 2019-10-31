@@ -4,11 +4,23 @@
 
 .pagelayout-frontpage {
     margin-left: 0 !important;
+
+    & #nav-drawer{
+        display: none !important;
+    }
+    & #maincontent {
+        display: none !important;
+    }
+    & #page {
+        padding: 0;
+        margin: 0;
+    }
+    & #region-main {
+        padding: 0;
+        margin: 0;
+    }    
 }
 
-.pagelayout-frontpage #maincontent {
-    display: none !important;
-}
 
 //  MBus
 #mbus_header_filter {

@@ -206,13 +206,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
     // }
 
     public function user_menu($user = null, $withlinks = null, $usermenuclasses=null) {
-
         global $PAGE;
-        if ($PAGE->pagelayout == "frontpage") {
-             return '<div class="login"><a class="login_ead" href="'. (new moodle_url('/admin/search.php'))->out() .'">Entrar</a></div>';
+        if ( ($PAGE->pagelayout == "frontpage") && (!isloggedin()))  {
+             return '<div class="login"><a class="login_ead" href="'. (new moodle_url('/login/index.php'))->out() .'">Entrar</a></div>';
         }else{
-            $result = parent::user_menu($user, $withlinks);
-            return html_writer::div($result, $usermenuclasses);
+            return html_writer::div(parent::user_menu($user, $withlinks), $usermenuclasses);
         }
     }
 

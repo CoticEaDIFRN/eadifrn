@@ -50,7 +50,7 @@ $THEME->layouts = [
         'file' => 'columns2.php',
         'regions' => ['side-pre', 'footer-left', 'footer-middle', 'footer-right'],
         'defaultregion' => 'side-pre',
-        'options' => [],
+        'options' => ['nonavbar' => true],
     ],
     // Server administration scripts.
     'admin' => [
