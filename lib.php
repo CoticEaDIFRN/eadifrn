@@ -16,6 +16,20 @@ defined('MOODLE_INTERNAL') || die();
 
 if (!function_exists('dump')) {function dump(...$params) { echo '<pre>'; var_dump(func_get_args()); echo '</pre>'; }}
 if (!function_exists('dumpd')) {function dumpd(...$params) { echo '<pre>'; var_dump(func_get_args()); echo '</pre>'; die(); }}
+function get_ead_theme_skins() {
+    return [
+        'abacate.scss' => 'Verde - Abacate',
+        // 'alface.scss' => 'Verde - Alface',
+        // 'oliva.scss' => 'Verde - Oliva',
+        // 'alto-contraste-claro.scss' => 'Alto contrate - claro',
+        // 'alto-contraste-escuro.scss' => 'Alto contrate - escuro',
+        // 'anil.scss' => 'Azul - Anil',
+        // 'safira.scss' => 'Azul - Safira',
+        // 'ipe.scss' => 'Vívido - Ipê',
+        // 'jerimum.scss' => 'Vívido - Jerimum',
+        'solar.scss' => 'Vívido - Solar',
+        ];
+}
 
 /**
  * Returns the main SCSS content.
@@ -37,7 +51,7 @@ function theme_ead_get_main_scss_content($theme) {
     $choices['solar.scss'] = 'Vívido - Solar';
     
     $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;
-    if (array_key_exists($filename, $choices)) {
+    if (array_key_exists($filename, get_ead_theme_skins())) {
         return file_get_contents(__DIR__ . "/scss/preset/$filename");
     } else {
         return file_get_contents(__DIR__ . "/scss/preset/abacate.scss");

@@ -8,6 +8,7 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
+require_once __DIR__ . '/lib.php';
 
 if ($ADMIN->fulltree) {
 
@@ -19,28 +20,12 @@ if ($ADMIN->fulltree) {
     $page = new admin_settingpage('theme_ead_general', get_string('generalsettings', 'theme_boost', null, true));
 
     // SKIN GROUP
-    $page->add(new admin_setting_heading('theme_ead/skinheading', 
-                                         get_string('skinheadingsetting', 
-                                         'theme_ead'),
-                                         null));
-
-    $choices = [];
-    $choices['abacate.scss'] = 'Verde - Abacate';
-    // $choices['alface.scss'] = 'Verde - Alface';
-    // $choices['oliva.scss'] = 'Verde - Oliva';
-    // $choices['alto-contraste-claro.scss'] = 'Alto contrate - claro';
-    // $choices['alto-contraste-escuro.scss'] = 'Alto contrate - escuro';
-    // $choices['anil.scss'] = 'Azul - Anil';
-    // $choices['safira.scss'] = 'Azul - Safira';
-    // $choices['ipe.scss'] = 'Vívido - Ipê';
-    // $choices['jerimum.scss'] = 'Vívido - Jerimum';
-    $choices['solar.scss'] = 'Vívido - Solar';
-
+    $page->add(new admin_setting_heading('theme_ead/skinheading', get_string('skinheadingsetting', 'theme_ead'), null));
     $setting = new admin_setting_configselect('theme_ead/skin', 
                                               get_string('skin', 'theme_ead'), 
                                               get_string('skin_desc', 'theme_ead'),
                                               'abacate.scss',
-                                              $choices);
+                                              get_ead_theme_skins());
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -82,14 +67,15 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_heading($name, $title, null);
     $page->add($setting);
 
-    // Favicon upload.
-    $name = 'theme_ead/favicon';
-    $title = get_string('faviconsetting', 'theme_ead', null, true);
-    $description = get_string('faviconsetting_desc', 'theme_ead', null, true);
-    $setting = new admin_setting_configstoredfile($name, $title, $description, 'favicon', 0,
-        array('maxfiles' => 1, 'accepted_types' => array('.ico', '.png')));
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
+    // // Favicon upload.
+    // $setting = new admin_setting_configstoredfile('theme_ead/favicon', 
+    //                                               get_string('faviconsetting', 'theme_ead'), 
+    //                                               get_string('faviconsetting_desc', 'theme_ead', 
+    //                                               'favicon', 
+    //                                               0,
+    //                                               ['maxfiles' => 1, 'accepted_types' => ['.ico', '.png']]));
+    // $setting->set_updatedcallback('theme_reset_all_caches');
+    // $page->add($setting);
 
 
     // Add tab to settings page.
