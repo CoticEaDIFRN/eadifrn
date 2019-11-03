@@ -1,16 +1,19 @@
-<div id="mbus">
+<div style=""><div class="mbus_loader"></div></div>
+<div id="mbus" class="hide">
     <aside id="mbus_header_filter">
         <div id='mbus_filter_menu'>
-            <a href=''>Todos</a>
+            {{! <a href=''>Todos</a> }}
             <a v-for="category in categories" :href='category.url'>[[ category.description ]]</a>
         </div>
         <div id='mbus_filter_search_btn'><i class='fa fa-search' aria-hidden='true'></i></div>
     </aside>
     <aside>
+        <div class='mbus_category' v-if="!categories.length">Não há cursos disponíveis para mostrar na página principal</div>
         <div class='mbus_category' v-for="category in categories">
             <div class='mbus_category_title'><a :href='category.url'>[[ category.description ]]<i class='fa fa-arrow-right' aria-hidden='true'></i></a></div>
             <div class='mbus_courses_cards'>
                 <div class='mbus_courses_cards_inner'>
+                    <div class='mbus_category' v-if="!category.courses.length">Não há cursos disponíveis para mostrar nesta categoria</div>
                     <div class='mbus_course_card' v-for='course in category.courses'>
                         <a :href='course.see'><img :src='course.thumbnail' /></a>
                         <div class='mbus_course_info'>
@@ -21,7 +24,7 @@
                                 <div class='mbus_course_duration'>
                                     Duração: <span>[[ course.duration ]]</span>
                                 </div>
-                                <div class='mbus_course_enrol'><a :href='course.enrol'>Inscreva-se</a></div>
+                                <div class='mbus_course_enrol'><a :href='course.enrol' v-if='course.enrol'>Inscreva-se</a></div>
                             </div>
                         </div>
                     </div>
@@ -29,7 +32,6 @@
             </div>
         </div>
     </aside>
-
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
 <script src="/37/theme/ead/js/mbus.js"></script>
