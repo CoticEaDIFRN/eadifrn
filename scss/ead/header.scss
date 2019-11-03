@@ -40,23 +40,41 @@
 // Tipo da página  
 #navbar_pagetitle {
     font-size: 24px;
-    color: $header-fg;
+    color: $header-count-fg;
     text-align: left;
     line-height: 1.6;
-    margin-left: 75px;
+    margin-left: 120px;
     margin-top: 10px;
 }
 
 // Ícones da barra 
 .navbar-light .icon {
-    color: $header-fg;
+    color: $chat-navbar-light-icon-bg;
     font-size: 24px;
+}
+
+img.userpicture:hover{
+    box-shadow: 0 0 0 0.2rem rgb(255, 255, 255);
+ }
+
+ .navbar-light .icon:hover {
+    color: $chat-navbar-light-icon-bg-hover-bg;
+    font-size: 24px;
+}
+
+// Botão tipo de linguagem 
+li.dropdown.nav-item {
+    display: none;
 }
 
 // Margin entre os ícones  
 .navbar-light .navbar-nav .nav-link {
-    margin: 0 15px 0 0px;
+    margin: 0 15px 0 -7px;
     height: 24px;
+}
+
+.navbar .popover-region-toggle {
+    width: 30px; 
 }
 
 // Icones - Counter
