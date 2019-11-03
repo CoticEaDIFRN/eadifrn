@@ -33,5 +33,13 @@
         </div>
     </aside>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
-<script src="/37/theme/ead/js/mbus.js"></script>
+{{#js}}
+    require.config(
+        {
+            enforceDefine: false, 
+            paths: {
+                "vue": M.cfg.wwwroot + "/theme/ead/amd/build/vue.min"
+            }
+        }
+    );
+{{/js}}
