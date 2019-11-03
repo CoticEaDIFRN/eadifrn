@@ -5,22 +5,30 @@
 .pagelayout-frontpage {
     margin-left: 0 !important;
 
-    & #nav-drawer{
-        display: none !important;
+    & #nav-drawer{ display: none !important; }
+    & #maincontent { display: none !important; }
+    & #page { padding: 0; margin: 0; }
+    & #page-content { margin: 0; padding: 0; }
+    & #region-main-box { margin: 0; padding: 0; }
+    & #region-main { padding: 0; margin: 0; }    
+    & [data-region=drawer-toggle] { display: none !important; }
+    & .login_ead {
+        display: inline-block;
+        width: 75px;
+        padding: 4px 8px;
+        border-radius: 6px;
+        color: $frontpage-login-fg;
+        background-color: $frontpage-login-bg;
+        font-size: 11pt;
+        font-weight: 400;
+        text-align: center;
     }
-    & #maincontent {
-        display: none !important;
+    &:hover {
+        color: $frontpage-login-hover-fg;
+        background-color: $frontpage-login-hover-bg;
+        text-decoration: none;
     }
-    & #page {
-        padding: 0;
-        margin: 0;
-    }
-    & #region-main {
-        padding: 0;
-        margin: 0;
-    }    
 }
-
 
 //  MBus
 #mbus_header_filter {
@@ -169,24 +177,27 @@
     display: none;
 }
 
-.pagelayout-frontpage .login_ead {
-    display: inline-block;
-    width: 75px;
-    padding: 4px 8px;
-    border-radius: 6px;
-    color: $frontpage-login-fg;
-    background-color: $frontpage-login-bg;
-    font-size: 11pt;
-    font-weight: 400;
-    text-align: center;
+
+.mbus_loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    margin-left: calc(50% - 60px);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+  
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
 }
 
-.pagelayout-frontpage .login_ead:hover {
-    color: $frontpage-login-hover-fg;
-    background-color: $frontpage-login-hover-bg;
-    text-decoration: none;
-}
-
-.pagelayout-frontpage [data-region=drawer-toggle] {
-    display: none !important;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
