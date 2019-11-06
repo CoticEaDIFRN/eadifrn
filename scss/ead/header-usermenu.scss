@@ -26,6 +26,10 @@
     left: -155px;
 }
 
+.navbar.fixed-top .dropdown .dropdown-menu{
+    margin-top: 28px;
+}
+
 /* Itens do menu do usuário */ 
 .navbar-light .dropdown-menu .dropdown-item {
     color: $header-dropdown-menuitem-fg;
