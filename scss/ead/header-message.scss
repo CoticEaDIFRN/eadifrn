@@ -6,7 +6,7 @@
 // ================= Parece ser parte do mensagem ===
 // ==================================================
 
-// /* lista de contatos da área de mensagens */
-// .messaging-area-container .messaging-area .contacts-area .contacts .contact {
-//     height: 80px;
-// } 
+/* lista de contatos da área de mensagens */
+[data-region=right-hand-drawer].drawer{
+    margin-top: 20px;
+}

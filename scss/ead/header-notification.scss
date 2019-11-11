@@ -12,19 +12,28 @@
     border-right: 18px solid transparent;
     border-bottom: 18px solid $header-notification-bg;
     position: absolute;
-    bottom: -27px;
-    right: 1px;
+    bottom: -28px;
+    right: 7px;
     z-index: 2;
 }
 
+.popover-region-container{
+    border: 1px solid $header-notification-bg;
+}
+
 #nav-notification-popover-container .popover-region-container {
-    color: $header-notification-fg;
+    color: $header-bg;
     background-color: $header-notification-bg;
-    top: 50px;
+    top: 51px;
+    right: -95px;
+}
+
+.popover-region-header-container{
+    border-bottom: 1px solid $header-notification-popover-region;
 }
 
 #nav-notification-popover-container .empty-message {
-    color: $header-notification-empty-fg;
+    color: $header-bg
 }
 
 #nav-notification-popover-container .popover-region-header-container .icon {
