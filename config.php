@@ -50,7 +50,7 @@ $THEME->layouts = [
         'file' => 'columns2.php',
         'regions' => ['side-pre', 'footer-left', 'footer-middle', 'footer-right'],
         'defaultregion' => 'side-pre',
-        'options' => ['nonavbar' => true],
+        'options' => ['nobreadcrumb' => true],
     ],
     // Server administration scripts.
     'admin' => [
@@ -81,7 +81,7 @@ $THEME->layouts = [
     'popup' => [
         'file' => 'columns1.php',
         'regions' => [],
-        'options' => ['nofooter' => true, 'nonavbar' => true],
+        'options' => ['nofooter' => true, 'nobreadcrumb' => true],
     ],
     // No blocks and minimal footer - used for legacy frame layouts only!
     'frametop' => [
@@ -105,7 +105,7 @@ $THEME->layouts = [
     'print' => [
         'file' => 'columns1.php',
         'regions' => [],
-        'options' => ['nofooter' => true, 'nonavbar' => false],
+        'options' => ['nofooter' => true, 'nobreadcrumb' => false],
     ],
     // The pagelayout used when a redirection is occuring.
     'redirect' => [

@@ -35,12 +35,5 @@ class theme_ead_core_course_renderer extends \core_course_renderer {
         return $OUTPUT->render_from_template('block_myoverview/main', get_ead_template_context());
 
     }
-
-    public function frontpage_my_courses() {
-        return "este é um my_courses";
-    }
-    public function frontpage_available_courses() {
-        return "frontpage_available_courses";
-    }
    
 }

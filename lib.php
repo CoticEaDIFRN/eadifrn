@@ -88,7 +88,6 @@ function theme_ead_get_pre_scss($theme) {
         'brandinfocolor' => ['brand-info'],
         'brandwarningcolor' => ['brand-warning'],
         'branddangercolor' => ['brand-danger'],
-        'darknavbar' => ['darknavbar'],
         'footerblocks' => ['footerblocks'],
         'imageareaitemsmaxheight' => ['imageareaitemsmaxheight'],
         'showsettingsincourse' => ['showsettingsincourse'],
@@ -192,15 +191,16 @@ function get_ead_calendario() {
 function get_ead_course_content_actions()
 {
     global $PAGE, $COURSE;
-    if ($PAGE->pagelayout == "course" || $PAGE->pagelayout == "incourse") {
-        $flatnav = [];
-        foreach ($PAGE->flatnav as $child_key) {
-            if ($child_key->type == 30) {
-                $flatnav[] = $child_key;
-            }
-        }
-        return new ArrayIterator($flatnav);
-    }
+    // if ($PAGE->pagelayout == "course" || $PAGE->pagelayout == "incourse") {
+    //     $flatnav = [];
+    //     foreach ($PAGE->flatnav as $child_key) {
+    //         if ($child_key->type == 30) {
+    //             $flatnav[] = $child_key;
+    //         }
+    //     }
+    //     return new ArrayIterator($flatnav);
+    // }
+    return new ArrayIterator($PAGE->flatnav);
 }
     
 function get_ead_course_common_actions() 
@@ -239,6 +239,7 @@ function get_ead_course_common_actions()
    
         return new ArrayIterator($extraflatnav);
     }
+    return new ArrayIterator([]);
 }
 
 function get_ead_template_context()
@@ -267,8 +268,8 @@ function get_ead_template_context()
     $is_siteadmin = is_siteadmin();
     $inte_suap = $is_siteadmin ? "show_suap" : "";
     $inte_admin = $is_siteadmin ? "show_admin" : "";
-    $course_content_actions = ($in_course_page || $within_course_page) ? get_ead_course_content_actions() : [];
-    $course_common_actions = ($in_course_page || $within_course_page) ? get_ead_course_common_actions() : [];
+    $course_content_actions = get_ead_course_content_actions();
+    $course_common_actions = get_ead_course_common_actions();
 
     return [
         'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
