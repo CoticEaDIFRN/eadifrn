@@ -37,8 +37,8 @@ body{
 
 // botões de classe btn-secondary e btn-default 
 .btn-secondary {
-    color: $core-btn-secondary-fg;
-    background-color: $core-btn-secondary-bg;
+    color: $core-btn-secondary-bg;
+    background-color: $core-btn-secondary-fg;
     border-color: $core-btn-secondary-bc;
 }
 
@@ -78,6 +78,17 @@ a .icon {
 
 .text-primary {
     color: $core-text-primary-fg;
+}
+
+[data-action="cancel"]{
+    color: $ead-primary;
+    background-color: $ead-font;
+    border-color: $ead-primary;
+}
+
+[data-action="cancel"]:hover{
+    background-color: $ead-danger;
+    border-color: $ead-danger-hover;
 }
 
 

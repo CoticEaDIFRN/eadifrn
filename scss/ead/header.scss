@@ -90,6 +90,20 @@ li.dropdown.nav-item {
     padding: 1px 0;
 }
 
+.fa-info-circle:before{
+    color: $ead-info;    
+}
+
+.fa-trash:before{
+    color: $ead-warning;
+}
+
+.fa-pencil:before{
+    color: $ead-success;
+}
+.fa-times:before{
+    color: $ead-danger;
+}
 @import "ead/header-notification";
 @import "ead/header-usermenu";
 @import "ead/header-message";

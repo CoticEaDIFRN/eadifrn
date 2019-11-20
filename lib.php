@@ -19,7 +19,7 @@ if (!function_exists('dumpd')) {function dumpd(...$params) { echo "<pre>\n"; pri
 function get_ead_theme_skins() {
     return [
         'abacate.scss' => 'Verde - Abacate',
-        // 'alface.scss' => 'Verde - Alface',
+        //'alface.scss' => 'Verde - Alface',
         // 'oliva.scss' => 'Verde - Oliva',
         // 'alto-contraste-claro.scss' => 'Alto contrate - claro',
         // 'alto-contraste-escuro.scss' => 'Alto contrate - escuro',
