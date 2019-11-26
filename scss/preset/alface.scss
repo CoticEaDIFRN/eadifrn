@@ -23,15 +23,17 @@
 // @import "_set_colors/_all";
 
 $ead-primary: #058235;
-$ead-secundary: #282b2e;
+$ead-secundary: #5bc166;
 $ead-tertiary: #123535;
 $ead-font: #fff;
 $ead-hover: #5bc166;
+$ead-hover-bg:#d2e4d0;
 $ead-info: #138496;
 $ead-success: #007bff;
 $ead-warning: #ffc107;
 $ead-danger: #c82333;
 $ead-danger-hover: #c82333;
+$ead-icon: #282b2e;
 
 //==================================================
 //===================== core =======================
@@ -82,7 +84,7 @@ $header-searchbox-hover-bg: $header-searchbox-fg;
 
 
 // header - user drawer
-$header-onlineuser-indicator: #d2e4d0;
+$header-onlineuser-indicator: $ead-hover-bg;
 $header-dropdown-menu-bg: #f2f2f2;
 $header-dropdown-menuitem-fg: #344537;
 $header-dropdown-menuitem-icon-fg: #344537;
