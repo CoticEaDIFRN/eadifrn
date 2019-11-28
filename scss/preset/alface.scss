@@ -24,16 +24,18 @@
 
 $ead-primary: #058235;
 $ead-secundary: #5bc166;
-$ead-tertiary: #123535;
-$ead-font: #fff;
 $ead-hover: #5bc166;
 $ead-hover-bg:#d2e4d0;
+$ead-font: #fff;
+$ead-tertiary: #123535;
 $ead-info: #138496;
 $ead-success: #007bff;
 $ead-warning: #ffc107;
 $ead-danger: #c82333;
 $ead-danger-hover: #c82333;
+$ead-danger-bc: #fde8e2;
 $ead-icon: #282b2e;
+$ead-secundary-hover-focus: #e0f7e7;
 
 //==================================================
 //===================== core =======================
@@ -53,6 +55,7 @@ $core-btn-secondary-bc: $ead-primary;
 $core-btn-secondary-hover-fg: $ead-font;
 $core-btn-secondary-hover-bg: $ead-secundary;
 $core-btn-secondary-hover-bc: $ead-secundary;
+$core-btn-secundary-hover-focus: $ead-secundary-hover-focus;
 
 $core-btn-default-fg: $ead-primary;
 $core-btn-default-bg: $ead-font;
@@ -63,7 +66,7 @@ $core-btn-default-hover-bc: $ead-secundary;
 
 $core-link-fg: $ead-primary;
 $core-link-hover-fg: $ead-hover;
-$core-link-icon-fg: $ead-secundary;
+$core-link-icon-fg: $ead-icon;
 $core-text-primary-fg: $ead-primary !important;
 
 
@@ -112,8 +115,8 @@ $drawer-item-bc: trasparent;
 $drawer-item-hover-fg: $ead-font;
 $drawer-item-hover-bg: $ead-primary;
 $drawer-item-hover-bc: $ead-primary;
-$drawer-item-active-fg: $ead-font;
-$drawer-item-active-bg: $ead-primary;
+$drawer-item-active-fg: $ead-primary;
+$drawer-item-active-bg: $ead-font;
 $drawer-item-active-bc: $ead-primary;
 
 

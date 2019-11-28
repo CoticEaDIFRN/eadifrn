@@ -63,6 +63,14 @@ body{
     border-color: $core-btn-secondary-hover-bc;
 }
 
+.btn-secondary:focus{
+    box-shadow: 0 0 0 0.2rem $core-btn-secundary-hover-focus;
+}
+.btn-light:hover {
+    background-color: $drawer-bc;
+    border-color: $drawer-bc; 
+}
+
 // links 
 a {
     color: $core-link-fg;
@@ -73,7 +81,7 @@ a:hover {
 }
 
 a .icon {
-    color: $ead-icon;
+    color: $core-link-icon-fg;
 }
 
 .text-primary {

@@ -34,7 +34,7 @@
     background-color: $header-bg;
     font-size: 24px;
     padding-top: 0px;
-    margin-left: 10px;
+    margin-left: 25px;
 }
 
 // Tipo da página  
@@ -43,7 +43,7 @@
     color: $header-count-fg;
     text-align: left;
     line-height: 1.6;
-    margin-left: 75px;
+    margin-left: 65px;
     margin-top: 10px;
 }
 
@@ -103,6 +103,12 @@ li.dropdown.nav-item {
 }
 .fa-times:before{
     color: $ead-danger;
+}
+.fa-bars:before {
+    margin-left: -2px;
+}
+i.icon.fa.fa-bars.fa-fw:hover{
+    color:white;
 }
 @import "ead/header-notification";
 @import "ead/header-usermenu";

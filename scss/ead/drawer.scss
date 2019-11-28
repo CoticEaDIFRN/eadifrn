@@ -23,7 +23,7 @@
     background: transparent;
     margin: 0;
     border: none;
-    left: -16px;
+    left: -6px;
     position: fixed;
     top: 13px;
     margin-left: 9px;
@@ -49,12 +49,8 @@
 
 #nav-drawer .list-group-item:hover {
     background-color: $ead-hover-bg;
+    color: $header-searchbox-fg;
 }
-
-// #nav-drawer [data-type="0"]:hover {
-//     background-color: $drawer-bg;
-// }
-
 
 // // Item do drawer ativo 
 
