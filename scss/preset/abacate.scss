@@ -2,11 +2,11 @@ $ead-primary: #328d96;
 $ead-secundary: #1B4E51;
 $ead-tertiary: #123535;
 $ead-font: #fff;
+$core-body-bg : #ebeced;
 
 //==================================================
 //===================== core =======================
 //==================================================
-$core-body-bg : #ebeced;
 
 $core-btn-primary-fg: $ead-font;
 $core-btn-primary-bg: $ead-primary;
@@ -30,8 +30,8 @@ $core-btn-default-hover-bg: $ead-secundary;
 $core-btn-default-hover-bc: $ead-secundary;
 
 $core-link-fg: $ead-primary;
-$core-link-hover-fg: $ead-secundary;;
-$core-link-icon-fg: $ead-primary;
+$core-link-hover-fg: $ead-secundary;
+$core-link-icon-fg: $ead-secundary;
 $core-text-primary-fg: $ead-primary !important;
 
 
@@ -65,7 +65,7 @@ $header-notification-bc: #123535;
 
 // chat
 $header-navbar-icon-fg: $ead-font;
-$header-navbar-icon-hover-fg: #82fd6c;
+$header-navbar-icon-hover-fg: #41afb5;
 
 
 //==================================================
@@ -73,7 +73,7 @@ $header-navbar-icon-hover-fg: #82fd6c;
 //==================================================
 $drawer-fg: $ead-primary;
 $drawer-bg: $ead-font;
-$drawer-bc: #cad9cb;
+$drawer-bc: trasparent;
 $drawer-item-fg: $ead-font;
 $drawer-item-bg: $ead-primary;
 $drawer-item-bc: trasparent;

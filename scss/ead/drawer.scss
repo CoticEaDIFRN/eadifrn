@@ -5,9 +5,9 @@
 // drawer background 
 [data-region="drawer"] {
     padding: 20px 0;
-    color: $drawer-fg;
+    color: $header-searchbox-fg;
     background-color: $drawer-bg;
-    //border-right: 2px solid $drawer-bc;
+    border-right: 2px solid #dddfe0;
 }
 
 #nav-drawer {
@@ -30,10 +30,10 @@
 }
 
 .page-item.active .page-link {
-    z-index: 1;
-    color: #fff;
-    background-color: $ead-primary;
-    border-color: $ead-primary; 
+    //z-index: 1;
+    color: $drawer-bg;
+    background-color: $drawer-item-bg;
+    border-color: $drawer-item-bg; 
 }
 
 #nav-drawer .list-group-item {
@@ -41,14 +41,13 @@
     border: none;
     font-size: 18px;
     color: $ead-tertiary;
-    background-color: $ead-font;
 }
 
 
 // // [HOVER] Itens do drawer 
 
 #nav-drawer .list-group-item:hover {
-    background-color: $ead-hover-bg;
+    //background-color: $ead-hover-bg;
     color: $header-searchbox-fg;
 }
 
@@ -91,7 +90,7 @@
 // @import "ead/drawer-actions";
 
 #nav-drawer .blocos-fixos {
-    border-top: 2px dotted #cad9cb;
+    border-top: 2px dotted $header-searchbox-bg;
     padding-top: 12px;
 }
 
@@ -172,8 +171,9 @@
     // margin-top: 50px;
     width: 285px;
     background: $drawer-bc;
-    //border-bottom: 2px solid $drawer-bc;
-    //border-top: 2px solid $drawer-bc;
+    border-top: 2px solid #dddfe0;
+    border-bottom: 2px solid #dddfe0;
+    background-color: #ebeced;
 }
 
 // Datas do calendário 
@@ -218,12 +218,12 @@
  .nomes-cursos h4 {
      font-size: 20px;
      font-weight: bold;
-     color: #4D4D4D;
+     color: $ead-tertiary;
  }
 
  .nomes-cursos i {
      font-size: 15px;
-     color: #4D4D4D;
+     color: $ead-tertiary;
  }
 
  #nav-drawer .conteudo-cursos>.list-group-item {

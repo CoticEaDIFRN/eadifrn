@@ -1,61 +1,28 @@
-
-// // cores do tema
-// $ead-destaque: #5d81c1;
-// $ead-destaque-font: #fff;
-// $ead-destaque-hover: #39567f;
-// $ead-destaque-hover-font: #5d81c1;
-// $ead-extradestaque: #33588e;
-// $ead-extradestaque-font: #fff;
-// $ead-extradestaque-hover: #38619b;
-// $ead-extradestaque-hover-font: #33588e;
-// $ead-body-anchor-fg: $ead-destaque;
-// $ead-body-bg: #ebeced;
-// $ead-nocolor: #fff;
-// $ead-counter: #c60c0f;
-// $ead-counter-font: #fff;
-
-// $ead-chat-popover-bg: #162533;
-// $ead-chat-popover-font: #6e9bdb;
-
-// $ead-chat-message-bg: #23374F;
-// $ead-chat-message-font: #fff;
-
-// @import "_set_colors/_all";
-
-$ead-primary: #058235;
-$ead-secundary: #5bc166;
-$ead-hover: #5bc166;
-$ead-hover-bg:#d2e4d0;
+$ead-primary: #5BC266;
+$ead-secundary: #5D81C1;
+$ead-tertiary: #162533;
 $ead-font: #fff;
-$ead-tertiary: #123535;
-$ead-info: #138496;
-$ead-success: #007bff;
-$ead-warning: #ffc107;
-$ead-danger: #c82333;
-$ead-danger-hover: #c82333;
-$ead-danger-bc: #fde8e2;
-$ead-icon: #282b2e;
-$ead-secundary-hover-focus: #e0f7e7;
+$core-body-bg : #e4e8e7;
+
+$ead-hover: #6E9BDB;
+$ead-hover-bg:#d2e4d0; 
 
 //==================================================
 //===================== core =======================
 //==================================================
-$core-body-bg : #ebeced;
-
-$core-btn-primary-fg: $ead-font;
-$core-btn-primary-bg: $ead-primary;
-$core-btn-primary-bc: $ead-primary;
+$core-btn-primary-fg: $ead-secundary;
+$core-btn-primary-bg: $ead-font;
+$core-btn-primary-bc: $ead-secundary;
 $core-btn-primary-hover-fg: $ead-font;
 $core-btn-primary-hover-bg: $ead-hover;
 $core-btn-primary-hover-bc: $ead-hover;
 
-$core-btn-secondary-fg: $ead-primary;
+$core-btn-secondary-fg: $ead-secundary;
 $core-btn-secondary-bg: $ead-font;
-$core-btn-secondary-bc: $ead-primary;
+$core-btn-secondary-bc: $ead-secundary;
 $core-btn-secondary-hover-fg: $ead-font;
 $core-btn-secondary-hover-bg: $ead-secundary;
 $core-btn-secondary-hover-bc: $ead-secundary;
-$core-btn-secundary-hover-focus: $ead-secundary-hover-focus;
 
 $core-btn-default-fg: $ead-primary;
 $core-btn-default-bg: $ead-font;
@@ -64,9 +31,9 @@ $core-btn-default-hover-fg: $ead-font;
 $core-btn-default-hover-bg: $ead-secundary;
 $core-btn-default-hover-bc: $ead-secundary;
 
-$core-link-fg: $ead-primary;
+$core-link-fg: $ead-secundary;
 $core-link-hover-fg: $ead-hover;
-$core-link-icon-fg: $ead-icon;
+$core-link-icon-fg: #53555E;
 $core-text-primary-fg: $ead-primary !important;
 
 
@@ -75,13 +42,13 @@ $core-text-primary-fg: $ead-primary !important;
 //==================================================
 // header
 $header-fg: $ead-font;
-$header-bg: #058235;
+$header-bg: #5BC266;
 $header-count-bg: #c60c0f;
 $header-count-fg: $ead-font;
 
 // header - search box
 $header-searchbox-fg: #282b2e;
-$header-searchbox-bg: #41afb5;
+$header-searchbox-bg: $ead-secundary;
 $header-searchbox-hover-fg: $ead-font;
 $header-searchbox-hover-bg: $header-searchbox-fg;
 
@@ -108,24 +75,24 @@ $header-navbar-icon-hover-fg: #d2e4d0;
 //==================================================
 $drawer-fg: $ead-primary;
 $drawer-bg: $ead-font;
-$drawer-bc: #cad9cb;
+$drawer-bc: $core-body-bg;
 $drawer-item-fg: $ead-font;
-$drawer-item-bg: $ead-primary;
+$drawer-item-bg: $ead-secundary;
 $drawer-item-bc: trasparent;
 $drawer-item-hover-fg: $ead-font;
 $drawer-item-hover-bg: $ead-primary;
 $drawer-item-hover-bc: $ead-primary;
-$drawer-item-active-fg: $ead-primary;
+$drawer-item-active-fg: $ead-secundary;
 $drawer-item-active-bg: $ead-font;
-$drawer-item-active-bc: $ead-primary;
+$drawer-item-active-bc: $ead-secundary;
 
 
 //==================================================
 //===================== page =====================
 //==================================================
-$page-link-fg: $ead-primary;
+$page-link-fg: $ead-secundary;
 $page-link-bg: $ead-font;
-$page-link-bc: $ead-primary;
+$page-link-bc: $ead-secundary;
 $page-link-hover-fg: $ead-secundary;
 $page-link-hover-bg: $ead-font;
 $page-link-hover-bc: $ead-secundary;

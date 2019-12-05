@@ -24,12 +24,14 @@
     border: none;
     border-radius: 0;
     padding: .5rem;
+   // background-color: $ead-body-region-bg;
 }
 
 #region-main .card.card-block {
-    border: none;    
+    border: none;
+    //background-color: $core-body-bg; 
 }
 
-.fdescription.required {
-    background-color: $ead-danger-bc;
-}
+// .fdescription.required {
+//     background-color: $ead-danger-bc;
+// }

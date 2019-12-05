@@ -54,7 +54,7 @@
 }
 
 img.userpicture:hover{
-    box-shadow: 0 0 0 0.2rem rgb(255, 255, 255);
+    box-shadow: 0 0 0 0.2rem $header-count-fg;
  }
 
  .navbar-light .icon:hover {
@@ -91,24 +91,18 @@ li.dropdown.nav-item {
 }
 
 .fa-info-circle:before{
-    color: $ead-info;    
+    color: $drawer-item-bg;    
 }
 
-.fa-trash:before{
-    color: $ead-warning;
+.fa-pencil:before, .form-autocomplete-downarrow{
+    color: $drawer-item-bg;
 }
 
-.fa-pencil:before{
-    color: $ead-success;
-}
-.fa-times:before{
-    color: $ead-danger;
-}
 .fa-bars:before {
     margin-left: -2px;
 }
 i.icon.fa.fa-bars.fa-fw:hover{
-    color:white;
+    color: $header-count-fg;
 }
 @import "ead/header-notification";
 @import "ead/header-usermenu";
