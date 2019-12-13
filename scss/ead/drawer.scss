@@ -36,6 +36,12 @@
     border-color: $drawer-item-bg; 
 }
 
+.page-item.active .page-link:hover{
+    color: $core-btn-secondary-hover-fg;
+    background-color: $core-btn-secondary-hover-bg;
+    border-color: $core-btn-secondary-hover-bc;
+}
+
 #nav-drawer .list-group-item {
     padding: .75rem 2.25rem;
     border: none;
@@ -70,6 +76,10 @@
 #nav-drawer .list-group-item:last-child {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+}
+
+#nav-drawer .list-group-item:hover{
+    color: $core-link-icon-fg;
 }
 
 // @media only screen and (min-width: 768px) {

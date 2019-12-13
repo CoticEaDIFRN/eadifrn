@@ -69,8 +69,8 @@ body{
 // }
 
 .btn-light:hover {
-    background-color: $drawer-bc;
-    border-color: $drawer-bc; 
+    background-color: $core-btn-secondary-hover-bg;
+    border-color: $core-btn-secondary-hover-bc; 
 }
 
 // links 
@@ -99,6 +99,9 @@ a .icon {
 [data-action="cancel"]:hover{
     background-color: $header-count-bg;
     border-color: $header-count-bg;
+}
+.list-group-item-action:hover{
+    background-color: $core-btn-primary-hover-bg;
 }
 
 
