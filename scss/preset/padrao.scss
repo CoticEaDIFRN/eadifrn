@@ -33,6 +33,7 @@ $core-btn-default-hover-bc: $ead-secundary;
 $core-link-fg: $ead-primary;
 $core-link-hover-fg: $ead-secundary;
 $core-link-icon-fg: $ead-tertiary;
+$core-link-icon-hover-fg: $ead-tertiary;
 $core-text-primary-fg: $ead-primary !important;
 
 
@@ -49,7 +50,7 @@ $header-count-fg: $ead-font;
 $header-searchbox-fg: #1b4e51;
 $header-searchbox-bg: #484545;
 $header-searchbox-hover-fg: $ead-font;
-$header-searchbox-hover-bg: $header-searchbox-fg;
+$header-searchbox-hover-bg: $ead-hover;
 
 
 // header - user drawer
@@ -66,7 +67,7 @@ $header-notification-bc: #123535;
 
 // chat
 $header-navbar-icon-fg: $ead-font;
-$header-navbar-icon-hover-fg: #41afb5;
+$header-navbar-icon-hover-fg: $ead-hover;
 
 
 //==================================================
@@ -81,8 +82,8 @@ $drawer-item-bc: trasparent;
 $drawer-item-hover-fg: $ead-font;
 $drawer-item-hover-bg: $ead-primary;
 $drawer-item-hover-bc: $ead-primary;
-$drawer-item-active-fg: $ead-font;
-$drawer-item-active-bg: $ead-primary;
+$drawer-item-active-fg: $ead-secundary;
+$drawer-item-active-bg: $ead-font;
 $drawer-item-active-bc: $ead-primary;
 
 

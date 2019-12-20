@@ -7,7 +7,7 @@
     padding: 20px 0;
     color: $header-searchbox-fg;
     background-color: $drawer-bg;
-    border-right: 2px solid #dddfe0;
+    border-right: 1px solid #dddfe0;
 }
 
 #nav-drawer {
@@ -53,8 +53,12 @@
 // // [HOVER] Itens do drawer 
 
 #nav-drawer .list-group-item:hover {
-    //background-color: $ead-hover-bg;
-    color: $header-searchbox-fg;
+    background-color: $header-searchbox-hover-bg;
+    border-left: 6px solid $header-searchbox-hover-bg;
+    color: $core-link-icon-hover-fg;
+}
+a.list-group-item.list-group-item-action:hover {
+    border-left: none !important;
 }
 
 // // Item do drawer ativo 
@@ -63,7 +67,7 @@
     padding: .75rem 1.8rem;
     color: $drawer-item-active-fg;
     background: $drawer-item-active-bg;
-    border-left: 6px solid $drawer-item-active-bc;
+    border-left: 6px solid $drawer-item-active-fg;
     font-weight: normal;
 }
 
@@ -78,9 +82,6 @@
     border-bottom-left-radius: 0;
 }
 
-#nav-drawer .list-group-item:hover{
-    color: $core-link-icon-fg;
-}
 
 // @media only screen and (min-width: 768px) {
 //     #nav-drawer.closed {
@@ -171,7 +172,11 @@
     margin-right: 12px;
 }
 
-
+[data-key="calendar"]:hover {
+    background-color: $header-searchbox-hover-bg;
+    border-left: none !important;
+    color: $core-link-icon-hover-fg;
+}
 
 
     
@@ -181,8 +186,8 @@
     // margin-top: 50px;
     width: 285px;
     background: $drawer-bc;
-    border-top: 2px solid #dddfe0;
-    border-bottom: 2px solid #dddfe0;
+    //border-top: 2px solid #dddfe0;
+    //border-bottom: 2px solid #dddfe0;
     background-color: #ebeced;
 }
 
