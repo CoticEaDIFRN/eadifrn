@@ -10,3 +10,93 @@
 [data-region=right-hand-drawer].drawer{
     margin-top: 20px;
 }
+
+.bg-light {
+    background-color: $header-navbar-bc !important; 
+}
+
+.border-bottom.px-2.py-3 {
+    background-color: $header-navbar-border-bc;
+}
+
+span.font-weight-bold {
+    color: $ead-font;
+}
+
+.card-header:first-child {
+    background-color: $header-navbar-border-bc;
+    box-shadow: 0 3px 5px 1px rgba(0,0,0,.41);
+}
+
+a.py-0.px-2.d-flex.list-group-item.list-group-item-action.align-items-center {
+    background-color: $header-navbar-bc;
+}
+
+.text-center.p-2{
+    background-color: $header-navbar-bc; 
+}
+
+.text-right.mt-3{
+    color: $ead-font; 
+}
+
+.ml-2 > a > i.icon.fa.fa-cog.fa-fw{
+    color: $ead-font; 
+}
+
+.text-right.mt-3 > a > i.icon.fa.fa-user.fa-fw{
+    color: $ead-font; 
+}
+
+span.expanded-icon-container > i.icon.fa.fa-caret-down.fa-fw{
+    color: $ead-font;
+}
+
+span.collapsed-icon-container > i.icon.fa.fa-caret-right.fa-fw{
+    color: $ead-font;
+}
+
+.w-100.text-truncate.ml-2.my-2 > .d-flex > strong.m-0.text-truncate{
+    color: $ead-font;
+}
+
+.text-muted.ml-auto > span.dir-rtl-hide > i.icon.fa.fa-chevron-right.fa-fw {
+    color: $ead-font;
+}
+
+small.ml-1{
+    color: $ead-font; 
+}
+
+.text-center.p-2 > p.text-muted.mt-2{
+    color: $ead-font !important;
+}
+.border-bottom {
+    border-bottom: 1px solid #0e2617!important;
+}
+
+.border-bottom.px-2.py-3{
+    color: $ead-font;
+}
+
+.icon-back-in-drawer > .dir-rtl-hide > i.icon.fa.fa-chevron-left.fa-fw {
+    color: $ead-font;
+    
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color: $ead-secundary;
+    color: $ead-font;
+}
+
+.ml-auto > a > i.icon.fa.fa-search.fa-fw{
+    color: $ead-font;
+}
+
+ul.nav.nav-pills.nav-fill > li.nav-item{
+    color: $ead-font;
+}
+
+.text-center.p-2{
+    color: $ead-font;
+}
