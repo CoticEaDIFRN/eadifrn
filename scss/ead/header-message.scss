@@ -25,7 +25,7 @@ span.font-weight-bold {
 
 .card-header:first-child {
     background-color: $header-navbar-border-bc;
-    box-shadow: 0 3px 5px 1px rgba(0,0,0,.41);
+    box-shadow: 0 3px 5px 1px $header-notification-card-bg;
 }
 
 a.py-0.px-2.d-flex.list-group-item.list-group-item-action.align-items-center {
@@ -72,7 +72,7 @@ small.ml-1{
     color: $ead-font !important;
 }
 .border-bottom {
-    border-bottom: 1px solid #0e2617!important;
+    border-bottom: 1px solid $header-navbar-bc !important;
 }
 
 .border-bottom.px-2.py-3{
@@ -98,5 +98,43 @@ ul.nav.nav-pills.nav-fill > li.nav-item{
 }
 
 .text-center.p-2{
+    color: $ead-font;
+}
+
+// Notificação
+
+.d-flex.align-self-center.align-items-center > span.badge.badge-pill.badge-primary.bg-primary {
+    background-color: $header-notification-primary-bg !important;
+    color: $header-notification-primary-bc;
+
+}
+
+span.badge.badge-pill.badge-primary.ml-auto.bg-primary{
+    background-color: $header-notification-primary-bg !important;
+    color: $header-notification-primary-bc;
+}
+
+.bg-white.position-relative.border-bottom.px-2.py-2 {
+    background-color: $ead-primary !important;
+    color: $ead-font;
+}
+
+.border-top.bg-white.position-relative {
+    background-color: $ead-primary !important;
+    border-top: 1px solid $ead-primary !important;
+    color: $ead-font;
+}
+
+p.m-0.font-weight-light.text-truncate.last-message{
+    color: $ead-font;
+    font-weight: bolder !important;
+}
+
+span.text-muted {
+    color: $ead-font !important;
+    font-weight: 100;
+}
+
+.p-3.bg-light.text-center {
     color: $ead-font;
 }
