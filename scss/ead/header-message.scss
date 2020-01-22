@@ -31,6 +31,10 @@ span.font-weight-bold {
 a.py-0.px-2.d-flex.list-group-item.list-group-item-action.align-items-center {
     background-color: $header-navbar-bc;
 }
+a.py-0.px-2.d-flex.list-group-item.list-group-item-action.align-items-center:hover{
+    background-color: $ead-primary;
+    color: $ead-font !important;
+}
 
 .text-center.p-2{
     background-color: $header-navbar-bc; 
@@ -99,6 +103,52 @@ ul.nav.nav-pills.nav-fill > li.nav-item{
 
 .text-center.p-2{
     color: $ead-font;
+}
+
+.message-app .btn.btn-link.btn-icon:hover{
+    background-color: $ead-secundary;
+}
+.px-2.py-1.small.position-absolute.position-right.text-muted {
+    color: $ead-font !important;
+}
+
+// Menssagem Envida
+
+.message.clickable.d-flex.flex-column.p-2.mx-1.position-relative.send.bg-secondary.rounded.mb-2.mt-2{
+    background-color: $header-navbar-message-sent-bg !important;
+    color: $header-navbar-message-sent-fg;
+}
+.message-app .message.send .tail{
+    right: 0;
+    margin-right: -.5rem;
+    border-bottom-color: $header-navbar-message-sent-bg;
+}
+
+.message.clickable.d-flex.flex-column.p-2.mx-1.position-relative.send.bg-secondary.rounded.mb-2.mt-2 > .d-flex.align-items-center > .ml-auto.small.text-right.text-muted{
+    color: $header-navbar-message-sent-fg !important;
+}
+// Menssagem recebida
+
+.message.clickable.d-flex.flex-column.p-2.mx-1.position-relative.received.bg-white.rounded.mb-2.mt-2{
+    background-color: $header-navbar-message-received-bg !important;
+    color: $header-navbar-message-received-fg;
+}
+.message-app .message.received .tail{
+    right: 0;
+    margin-right: -.5rem;
+    border-bottom-color: $header-navbar-message-received-bg;
+}
+.ml-auto.small.text-right.text-muted{
+    color: $ead-font !important;
+}
+
+textarea.form-control.bg-light {
+    border: 1px solid $ead-primary;
+    color: $ead-font;
+}
+
+.mt-4{
+    color: $ead-font;   
 }
 
 // Notificação
