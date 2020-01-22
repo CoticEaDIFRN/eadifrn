@@ -76,7 +76,7 @@ small.ml-1{
     color: $ead-font !important;
 }
 .border-bottom {
-    border-bottom: 1px solid $header-navbar-bc !important;
+    border-bottom: 1px solid $header-navbar-bc !important; 
 }
 
 .border-bottom.px-2.py-3{
@@ -110,6 +110,19 @@ ul.nav.nav-pills.nav-fill > li.nav-item{
 }
 .px-2.py-1.small.position-absolute.position-right.text-muted {
     color: $ead-font !important;
+}
+
+.icon-back-in-drawer>.dir-rtl-hide>i.icon.fa.fa-chevron-left.fa-fw:hover{
+    color: $ead-secundary;
+}
+
+.d-flex.align-items-center > .input-group >.form-control:not(:first-child){
+    background-color: $header-navbar-bc;
+    border-color: $header-navbar-bc;
+}
+.d-flex.align-items-center > .input-group > .input-group-prepend > span.input-group-text.pr-0.bg-white{
+    background-color: $header-navbar-bc !important;
+    border-color: $header-navbar-bc;
 }
 
 // Menssagem Envida
