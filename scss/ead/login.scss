@@ -5,4 +5,7 @@
         background-color: $header-bg;
         border-color: $header-bg;
     }
+    & .row {
+        margin: 0;
+    }
 }
