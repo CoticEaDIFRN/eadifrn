@@ -11,11 +11,11 @@
     <div id="page" class="container-fluid">
         {{{ output.full_header }}}
 
-        <div id="page-content" class="row">
+        <div id="page-content">
             <div id="region-main-box" class="col-xs-12">
                 {{#hasregionmainsettingsmenu}}
                 <div id="region-main-settings-menu" class="hidden-print {{#hasblocks}}has-blocks{{/hasblocks}}">
-                    AQ<div>{{{ output.region_main_settings_menu }}} </div>UI
+                    <div>{{{ output.region_main_settings_menu }}} </div>
                 </div>
                 {{/hasregionmainsettingsmenu}}
                 <section id="region-main" {{#hasblocks}}class="has-blocks"{{/hasblocks}}>
