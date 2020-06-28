@@ -77,9 +77,9 @@ function get_frontpage_courses($userid=null, $not_in=[]){
     global $DB;
     
     $in_front = "AND EXISTS (SELECT 1
-    FROM mdl_customfield_category c
-             INNER JOIN mdl_customfield_field f ON (c.id = f.categoryid)
-             INNER JOIN mdl_customfield_data d ON (f.id = d.fieldid)
+    FROM {customfield_category} c
+             INNER JOIN {customfield_field} f ON (c.id = f.categoryid)
+             INNER JOIN {customfield_data} d ON (f.id = d.fieldid)
   WHERE d.instanceid=co.id and c.component='core_course' and c.area='course' and f.shortname = 'show_in_frontpage' and d.intvalue = 1)";
     $outer = '';
     if (count($not_in)>0) {
@@ -89,7 +89,7 @@ function get_frontpage_courses($userid=null, $not_in=[]){
     } else {
         $in_front = '';
         $outer .= "where course_id in (select e.courseid 
-                                        from   mdl_user_enrolments u inner join mdl_enrol e on (u.enrolid = e.id)
+                                        from   {user_enrolments} u inner join {enrol} e on (u.enrolid = e.id)
                                         where u.userid = $userid and e.roleid = 5)";
     }
     
@@ -105,24 +105,24 @@ function get_frontpage_courses($userid=null, $not_in=[]){
                              'https://cdn.pixabay.com/photo/2017/12/30/20/59/report-3050965_960_720.jpg' course_thumbnail,
                              (
                                  SELECT id.value
-                                   FROM mdl_customfield_category ic
-                                            INNER JOIN mdl_customfield_field if ON (ic.id = if.categoryid)
-                                            INNER JOIN mdl_customfield_data id ON (if.id = id.fieldid)
+                                   FROM {customfield_category} ic
+                                            INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
+                                            INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
                                   WHERE (ic.component, ic.area) = ('core_course', 'course')
                                     AND if.shortname IN ('duration')
                                     AND id.instanceid = co.id
                              )                                                                           course_duration,
                              (
                                  SELECT id.value
-                                   FROM mdl_customfield_category ic
-                                            INNER JOIN mdl_customfield_field if ON (ic.id = if.categoryid)
-                                            INNER JOIN mdl_customfield_data id ON (if.id = id.fieldid)
+                                   FROM {customfield_category} ic
+                                            INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
+                                            INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
                                   WHERE (ic.component, ic.area) = ('core_course', 'course')
                                     AND if.shortname IN ('featured')
                                     AND id.instanceid = co.id
                              )                                                                           course_featured
-               FROM mdl_course co
-                        INNER JOIN mdl_course_categories ca ON (co.category = ca.id)
+               FROM {course} co
+                        INNER JOIN {course_categories} ca ON (co.category = ca.id)
               WHERE  (
                             co.visible = 1
                             AND (
