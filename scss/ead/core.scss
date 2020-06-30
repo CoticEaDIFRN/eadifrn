@@ -102,7 +102,7 @@ a .icon {
 }
 
 .list-group-item-action:hover{
-    background-color: $core-btn-primary-hover-bg;
+    // background-color: $core-btn-primary-hover-bg;
 }
 
 
@@ -112,6 +112,7 @@ a .icon {
 
 img.userpicture {
     border-radius: 100%;
+    margin-right: 0;
 }
 
 
