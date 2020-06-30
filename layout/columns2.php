@@ -16,7 +16,7 @@ user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
 require_once($CFG->dirroot.'/calendar/lib.php');
 
-$PAGE->set_context(context_system::instance());
+// $PAGE->set_context(context_system::instance());
 $PAGE->requires->js('/theme/ead/amd/build/vue.min.js', true);
 $PAGE->requires->js_call_amd('theme_ead/frontpage', 'init');
 
