@@ -6,6 +6,7 @@
 .navbar {
     max-height: 70px;
     height: 70px;
+    padding: 0 2em;
 }
 
 // Conteúdo alinhado verticalmente no centro da barra 
@@ -16,7 +17,6 @@
 // Barra completa 
 .navbar-light {
     background-color: $header-bg !important;
-    border-bottom: 1px solid $header-bg;
     z-index: 1000;
     box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.41);
 }
@@ -30,21 +30,24 @@
 
 // Área do Logo 
 .navbar-light .navbar-brand {
-    color: $header-fg;
-    background-color: $header-bg;
+    color: #fff;
+    background-color: #328d96;
     font-size: 24px;
-    padding-top: 0px;
-    margin-left: 25px;
+    padding-top: 0;
+    // box-shadow: 6px 1px 6px -4px rgba(255,255,255,0.45);
+    width: 230px;
+    height: 70px;
+    padding-top: 15px;
+    border-right: 1px solid #ddd;
 }
 
 // Tipo da página  
 #navbar_pagetitle {
     font-size: 24px;
-    color: $header-count-fg;
+    color: #fff;
     text-align: left;
     line-height: 1.6;
-    margin-left: 65px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 // Ícones da barra 
