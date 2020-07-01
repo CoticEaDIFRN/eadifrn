@@ -4,8 +4,8 @@
 
 // Altura da barra 
 .navbar {
-    max-height: 70px;
-    height: 70px;
+    max-height: 50px;
+    height: 50px;
     padding: 0 2em;
 }
 
@@ -36,8 +36,8 @@
     padding-top: 0;
     // box-shadow: 6px 1px 6px -4px rgba(255,255,255,0.45);
     width: 230px;
-    height: 70px;
-    padding-top: 15px;
+    height: 50px;
+    padding-top: 6px;
     border-right: 1px solid #ddd;
 }
 
@@ -108,6 +108,15 @@ li.dropdown.nav-item {
 i.icon.fa.fa-bars.fa-fw:hover{
     color: $header-count-fg;
 }
+
+[data-action="toggle-drawer"] {
+    left: -5px;
+    top: 5px !important;
+    margin-left: 9px;
+    padding: 6px 12px;
+    border-radius: 0;
+}
+
 @import "ead/header-notification";
 @import "ead/header-usermenu";
 // @import "ead/header-message";

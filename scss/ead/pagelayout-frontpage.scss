@@ -32,7 +32,7 @@
 
 //  MBus
 #mbus_header_filter {
-    padding: 0 0 0 40px;
+    padding: 0 0 0 2em;
     height: 50px;
     background-color: $frontpage-filter-bg;
 }
@@ -66,7 +66,7 @@
     opacity: 0.3;
 }
 .mbus_category {
-    padding: 17px 40px;
+    padding: 17px calc(2em + 9px);
     color: $frontpage-category-fg;
     font-size: 9pt;
 }
@@ -79,21 +79,26 @@
     text-transform: uppercase;
     margin-bottom: 17px;
 }
+.mbus_category_title a, .mbus_category_title a:visited,
 .mbus_category_title a, .mbus_category_title a:visited {
     color: $frontpage-category-title-fg;
     text-decoration: none;
     line-height: 22px;
     font-weight: 500;
+    box-shadow: inherit;
 }
 .mbus_category_title a:hover {
     color: $frontpage-category-title-hover-fg;
     text-decoration: underline;
 }
-.mbus_category:first-child .mbus_category_title a, .mbus_category:first-child .mbus_category_title a:visited {
-    color: $frontpage-category-first-title-fg;
+.mbus_category:first-child .mbus_category_title a, .mbus_category:first-child .mbus_category_title a:visited,
+.mbus_category:first-child .mbus_category_title a, .mbus_category:first-child .mbus_category_title a:focus {
+    color: #d9d9d9;
+    background-color: transparent;
+    box-shadow: inherit;
 }
 .mbus_category:first-child .mbus_category_title a:hover {
-    color: $frontpage-category-first-title-hover-fg;
+    color: #fff;
     text-decoration: underline;
 }
 .mbus_category_title i {

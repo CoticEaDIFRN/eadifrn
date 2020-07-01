@@ -8,6 +8,7 @@
     color: $header-searchbox-fg;
     background-color: $drawer-bg;
     border-right: 1px solid #dddfe0;
+    width: 278px;
 }
 
 #nav-drawer {
@@ -53,9 +54,9 @@
 // // [HOVER] Itens do drawer 
 
 #nav-drawer .list-group-item:hover {
-    background-color: $header-searchbox-hover-bg;
-    border-left: 6px solid $header-searchbox-hover-bg;
-    color: $core-link-icon-hover-fg;
+    // background-color: $header-searchbox-hover-bg;
+    // border-left: 6px solid $header-searchbox-hover-bg;
+    color: #f8f9fa;
 }
 a.list-group-item.list-group-item-action:hover {
     border-left: none !important;
