@@ -34,7 +34,7 @@ function ead_course_array($course) {
 };
 
 function ead_frontpage_lanes() {
-    global $USER;
+    global $USER, $CFG;
     $not_in = [];
     $categories = [];
 
@@ -63,14 +63,14 @@ function ead_frontpage_lanes() {
     foreach (get_frontpage_courses(null, $not_in) as $course) {
         if ($categoria->url != "#$course->category_id") {
             $categoria = (object)['description' => $course->category_title, 
-                                  'url' => "#$course->category_id",
+                                  'url' => "$CFG->wwwroot/course/index.php?categoryid=$course->category_id",
                                   'courses' => []];
             array_push($categories, $categoria);
         }
         array_push($categoria->courses, ead_course_array($course));
     }
 
-    return ['home_url' => $USER->id, 'categories' => $categories];
+    return ['home_url' =>  $USER->id, 'categories' => $categories];
 }
 
 function get_frontpage_courses($userid=null, $not_in=[]){
@@ -103,15 +103,15 @@ function get_frontpage_courses($userid=null, $not_in=[]){
                              co.id                                                                       course_see,
                              co.id                                                                       course_enrol,
                              'https://cdn.pixabay.com/photo/2017/12/30/20/59/report-3050965_960_720.jpg' course_thumbnail,
-                             (
-                                 SELECT id.value
+                             coalesce(
+                                (SELECT max(id.value)
                                    FROM {customfield_category} ic
                                             INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
                                             INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
                                   WHERE (ic.component, ic.area) = ('core_course', 'course')
                                     AND if.shortname IN ('duration')
-                                    AND id.instanceid = co.id
-                             )                                                                           course_duration,
+                                    AND id.instanceid = co.id)
+                                    , '*')                                                               course_duration,
                              (
                                  SELECT id.value
                                    FROM {customfield_category} ic
@@ -134,7 +134,7 @@ function get_frontpage_courses($userid=null, $not_in=[]){
               ORDER BY ca.name, co.fullname) AS t  
               $outer
 ";
-// dump($sql);
+// var_dump($sql);
     return $DB->get_records_sql($sql);
 
 }
