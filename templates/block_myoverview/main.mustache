@@ -5,7 +5,7 @@
             {{! <a href=''>Todos</a> }}
             <a v-for="category in categories" :href='category.url'>[[ category.description ]]</a>
         </div>
-        <div id='mbus_filter_search_btn'><i class='fa fa-search' aria-hidden='true'></i></div>
+        <div id='mbus_filter_search_btn' style="display: none;"><i class='fa fa-search' aria-hidden='true'></i></div>
     </aside>
     <aside>
         <div class='mbus_category' v-if="!categories.length">Não há cursos disponíveis para mostrar na página principal</div>
