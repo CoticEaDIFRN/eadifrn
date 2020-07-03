@@ -1,0 +1,45 @@
+/*==================================================*/
+/*================= Notification ===================*/
+/*==================================================*/
+#nav-notification-popover-container .popover-region-toggle::before {
+    display: none;
+}
+
+#nav-notification-popover-container .popover-region-toggle::after {
+    content: "";
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-bottom: 18px solid $header-notification-bg;
+    position: absolute;
+    bottom: -28px;
+    right: 7px;
+    z-index: 2;
+}
+
+.popover-region-container{
+    border: 1px solid $header-notification-bc;
+}
+
+#nav-notification-popover-container .popover-region-container {
+    color: $header-bg;
+    background-color: $header-notification-bg;
+    top: 51px;
+    right: -95px;
+}
+
+.popover-region-header-container{
+    border-bottom: 1px solid $header-notification-bg;
+}
+
+#nav-notification-popover-container .empty-message {
+    color: $header-bg;
+}
+
+#nav-notification-popover-container .popover-region-header-container .icon {
+    color: $header-notification-fg;
+}
+
+#nav-notification-popover-container .see-all-link {
+    color: $header-notification-fg;
+    background-color: $header-notification-bg;
+}

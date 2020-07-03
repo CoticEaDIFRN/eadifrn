@@ -1,0 +1,122 @@
+//==================================================
+//===================== NavBar =====================
+//==================================================
+
+// Altura da barra 
+.navbar {
+    max-height: 50px;
+    height: 50px;
+    padding: 0 2em;
+}
+
+// Conteúdo alinhado verticalmente no centro da barra 
+.container-fluid {
+    padding-top: 6px;
+}
+
+// Barra completa 
+.navbar-light {
+    background-color: $header-bg !important;
+    z-index: 1000;
+    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.41);
+}
+
+// Botão do menu hamburguer 
+.navbar-light .btn-secondary {
+    color: $header-fg;
+    background-color: $header-bg;
+    border-color: $header-bg;
+}
+
+// Área do Logo 
+.navbar-light .navbar-brand {
+    color: #fff;
+    background-color: #328d96;
+    font-size: 24px;
+    padding-top: 0;
+    // box-shadow: 6px 1px 6px -4px rgba(255,255,255,0.45);
+    width: 230px;
+    height: 50px;
+    padding-top: 6px;
+    border-right: 1px solid #ddd;
+}
+
+// Tipo da página  
+#navbar_pagetitle {
+    font-size: 24px;
+    color: #fff;
+    text-align: left;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+// Ícones da barra 
+.navbar-light .icon {
+    color: $header-navbar-icon-fg;
+    font-size: 24px;
+}
+
+img.userpicture:hover{
+    box-shadow: 0 0 0 0.2rem $header-navbar-icon-hover-fg;
+    ;
+ }
+
+ .navbar-light .icon:hover {
+    color: $header-navbar-icon-hover-fg;
+    font-size: 24px;
+}
+
+// Botão tipo de linguagem 
+li.dropdown.nav-item {
+    display: none;
+}
+
+// Margin entre os ícones  
+.navbar-light .navbar-nav .nav-link {
+    margin: 0 15px 0 -7px;
+    height: 24px;
+}
+
+.navbar .popover-region-toggle {
+    width: 30px; 
+}
+
+// Icones - Counter
+.navbar .count-container {
+    border-radius: 10px;
+    background-color: $header-count-bg;
+    color: $header-count-fg;
+    line-height: 12px;
+    width: 15px;
+    height: 15px;
+    font-weight: bold;
+    text-align: center;
+    padding: 1px 0;
+}
+
+.fa-info-circle:before{
+    color: $drawer-item-bg;    
+}
+
+.fa-pencil:before, .form-autocomplete-downarrow{
+    color: $drawer-item-bg;
+}
+
+.fa-bars:before {
+    margin-left: -2px;
+}
+i.icon.fa.fa-bars.fa-fw:hover{
+    color: $header-count-fg;
+}
+
+[data-action="toggle-drawer"] {
+    left: -5px;
+    top: 5px !important;
+    margin-left: 9px;
+    padding: 6px 12px;
+    border-radius: 0;
+}
+
+@import "ead/header-notification";
+@import "ead/header-usermenu";
+// @import "ead/header-message";

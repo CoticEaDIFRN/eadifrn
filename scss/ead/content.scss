@@ -1,0 +1,38 @@
+//==================================================
+//================ Página principal ================
+//==================================================
+#page {
+    margin-top: 0px;
+    padding: 10px calc(1em + 17px);
+}
+.page-link {
+    color: $page-link-fg;
+    background-color: $page-link-bg;
+    border-color: $page-link-bc;
+}
+
+.page-link:hover, .page-link:focus, .page-link:active {
+    color: $page-link-hover-fg;
+    background-color: $page-link-hover-bg;
+    border-color: $page-link-hover-bc;
+}
+
+.course-content ul li.section.main {
+    border-bottom: none;
+}
+
+#region-main {
+    border: none;
+    border-radius: 0;
+    padding: .5rem;
+   // background-color: $ead-body-region-bg;
+}
+
+#region-main .card.card-block {
+    border: none;
+    //background-color: $core-body-bg; 
+}
+
+// .fdescription.required {
+//     background-color: $ead-danger-bc;
+// }

@@ -1,0 +1,11 @@
+.pagelayout-login {
+    margin: 0;
+    & .card-header {
+        color: $header-fg;
+        background-color: $header-bg;
+        border-color: $header-bg;
+    }
+    & .row {
+        margin: 0;
+    }
+}

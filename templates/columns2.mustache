@@ -6,12 +6,12 @@
 
     {{{ output.standard_top_of_body_html }}}
 
-    {{>theme_boost_eadifrn/navbar}}
+    {{>theme_ead/layout-header}}
 
     <div id="page" class="container-fluid">
         {{{ output.full_header }}}
 
-        <div id="page-content" class="row">
+        <div id="page-content">
             <div id="region-main-box" class="col-xs-12">
                 {{#hasregionmainsettingsmenu}}
                 <div id="region-main-settings-menu" class="hidden-print {{#hasblocks}}has-blocks{{/hasblocks}}">
@@ -37,7 +37,8 @@
             </div>
         </div>
     </div>
-    {{> theme_boost_eadifrn/nav-drawer }}
+    {{{ output.standard_after_main_region_html }}}
+    {{> theme_ead/nav-drawer }}
 </div>
 
 {{> theme_boost/footer }}

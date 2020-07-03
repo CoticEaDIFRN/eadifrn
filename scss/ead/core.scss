@@ -1,0 +1,157 @@
+// ==================================================
+// ================= Body          ==================
+// ==================================================
+
+// body
+body{
+    background-color: $core-body-bg;
+    color: $ead-tertiary;
+    // margin-top: 70px;
+    height: auto;
+}
+
+#page-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+#page-my-index {
+    background-color: $core-body-bg;
+}
+
+
+// ==================================================
+// ================= Links e botões  ================
+// ==================================================
+// botões com bordas arredondadas 
+.btn {
+    border-radius: 25px;
+}
+
+// botões de classe btn-primary 
+.btn-primary, .btn-primary:focus {
+    color: $core-btn-primary-fg;
+    background-color: $core-btn-primary-bg;
+    border-color: $core-btn-primary-bc;
+}
+
+// [hover e active] botões de classe btn-primary 
+.btn-primary:hover, .btn-primary:active {
+    color: $core-btn-primary-hover-fg;
+    background-color: $core-btn-primary-hover-bg;
+    border-color: $core-btn-primary-hover-bc;
+}
+
+// botões de classe btn-secondary e btn-default 
+.btn-secondary {
+    color: $core-btn-secondary-fg;
+    background-color: $core-btn-secondary-bg;
+    border-color: $core-btn-secondary-bc;
+}
+
+// [hover] botões de classe btn-secondary e btn-default 
+.btn-secondary:hover, .btn-secondary.active, .btn-secondary.active:focus, .btn-secondary.active:hover {
+    color: $core-btn-secondary-hover-fg;
+    background-color: $core-btn-secondary-hover-bg;
+    border-color: $core-btn-secondary-hover-bc;
+}
+
+// botões de classe btn-secondary e btn-default 
+.btn-default {
+    color: $core-btn-secondary-fg;
+    background-color: $core-btn-secondary-bg;
+    border-color: $core-btn-secondary-bc;
+}
+
+// [hover] botões de classe btn-secondary e btn-default 
+.btn-default:hover, .btn-default.active, .btn-default.active:focus, .btn-default.active:hover {
+    color: $core-btn-secondary-hover-fg;
+    background-color: $core-btn-secondary-hover-bg;
+    border-color: $core-btn-secondary-hover-bc;
+}
+
+// .btn-secondary:focus{
+//     box-shadow: 0 0 0 0.2rem $core-btn-secundary-hover-focus;
+// }
+
+.btn-light:hover {
+    background-color: $core-btn-secondary-hover-bg;
+    border-color: $core-btn-secondary-hover-bc; 
+}
+
+// links 
+a {
+    color: $core-link-fg;
+}
+
+a:hover {
+    color: $core-link-hover-fg;
+}
+
+a .icon {
+    color: $core-link-icon-fg;
+}
+
+.text-primary {
+    color: $core-text-primary-fg;
+}
+
+[data-action="cancel"]{
+    color: $ead-primary;
+    background-color: $ead-font;
+    border-color: $ead-primary;
+}
+
+[data-action="cancel"]:hover{
+    background-color: $header-count-bg;
+    border-color: $header-count-bg;
+}
+
+.list-group-item-action:hover{
+    // background-color: $core-btn-primary-hover-bg;
+}
+
+
+// ==================================================
+// ================= Não sei para que servem  =======
+// ==================================================
+
+img.userpicture {
+    border-radius: 100%;
+    margin-right: 0;
+}
+
+
+// .initialbar .letter.active {
+//     color: #fff;
+//     border-color: #5bc166;
+//     background-color: #5bc166;
+// }
+
+// .initialbar .letter {
+//     color: #274333;
+// }
+
+// .initialbar .letter:hover {
+//     color: #274333;
+// }
+
+
+//==================================================
+//=================== Card =========================
+//==================================================
+.card-header {
+    color: $core-card-title-fg;
+    background: $core-card-title-bg;
+}
+
+// .card {
+//     border: none;
+//     padding: 20px;
+//     margin: 10px;
+// }
+
+// .row {
+//     max-width: 100%;
+// }

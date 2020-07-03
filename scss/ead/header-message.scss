@@ -1,0 +1,203 @@
+/*==================================================*/
+/*==================== Message =====================*/
+/*==================================================*/
+
+// ==================================================
+// ================= Parece ser parte do mensagem ===
+// ==================================================
+
+/* lista de contatos da área de mensagens */
+[data-region=right-hand-drawer].drawer{
+    margin-top: 20px;
+}
+
+.bg-light {
+    background-color: $header-navbar-bc !important; 
+}
+
+.border-bottom.px-2.py-3 {
+    background-color: $header-navbar-border-bc;
+}
+
+span.font-weight-bold {
+    color: $ead-font;
+}
+
+.card-header:first-child {
+    background-color: $header-navbar-border-bc;
+    box-shadow: 0 3px 5px 1px $header-notification-card-bg;
+}
+
+a.py-0.px-2.d-flex.list-group-item.list-group-item-action.align-items-center {
+    background-color: $header-navbar-bc;
+}
+a.py-0.px-2.d-flex.list-group-item.list-group-item-action.align-items-center:hover{
+    background-color: $ead-primary;
+    color: $ead-font !important;
+}
+
+.text-center.p-2{
+    background-color: $header-navbar-bc; 
+}
+
+.text-right.mt-3{
+    color: $ead-font; 
+}
+
+.ml-2 > a > i.icon.fa.fa-cog.fa-fw{
+    color: $ead-font; 
+}
+
+.text-right.mt-3 > a > i.icon.fa.fa-user.fa-fw{
+    color: $ead-font; 
+}
+
+span.expanded-icon-container > i.icon.fa.fa-caret-down.fa-fw{
+    color: $ead-font;
+}
+
+span.collapsed-icon-container > i.icon.fa.fa-caret-right.fa-fw{
+    color: $ead-font;
+}
+
+.w-100.text-truncate.ml-2.my-2 > .d-flex > strong.m-0.text-truncate{
+    color: $ead-font;
+}
+
+.text-muted.ml-auto > span.dir-rtl-hide > i.icon.fa.fa-chevron-right.fa-fw {
+    color: $ead-font;
+}
+
+small.ml-1{
+    color: $ead-font; 
+}
+
+.text-center.p-2 > p.text-muted.mt-2{
+    color: $ead-font !important;
+}
+.border-bottom {
+    border-bottom: 1px solid $header-navbar-bc !important; 
+}
+
+.border-bottom.px-2.py-3{
+    color: $ead-font;
+}
+
+.icon-back-in-drawer > .dir-rtl-hide > i.icon.fa.fa-chevron-left.fa-fw {
+    color: $ead-font;
+    
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color: $ead-secundary;
+    color: $ead-font;
+}
+
+.ml-auto > a > i.icon.fa.fa-search.fa-fw{
+    color: $ead-font;
+}
+
+ul.nav.nav-pills.nav-fill > li.nav-item{
+    color: $ead-font;
+}
+
+.text-center.p-2{
+    color: $ead-font;
+}
+
+.message-app .btn.btn-link.btn-icon:hover{
+    background-color: $ead-secundary;
+}
+.px-2.py-1.small.position-absolute.position-right.text-muted {
+    color: $ead-font !important;
+}
+
+.icon-back-in-drawer>.dir-rtl-hide>i.icon.fa.fa-chevron-left.fa-fw:hover{
+    color: $ead-secundary;
+}
+
+.d-flex.align-items-center > .input-group >.form-control:not(:first-child){
+    background-color: $header-navbar-bc;
+    border-color: $header-navbar-bc;
+}
+.d-flex.align-items-center > .input-group > .input-group-prepend > span.input-group-text.pr-0.bg-white{
+    background-color: $header-navbar-bc !important;
+    border-color: $header-navbar-bc;
+}
+
+// Menssagem Envida
+
+.message.clickable.d-flex.flex-column.p-2.mx-1.position-relative.send.bg-secondary.rounded.mb-2.mt-2{
+    background-color: $header-navbar-message-sent-bg !important;
+    color: $header-navbar-message-sent-fg;
+}
+.message-app .message.send .tail{
+    right: 0;
+    margin-right: -.5rem;
+    border-bottom-color: $header-navbar-message-sent-bg;
+}
+
+.message.clickable.d-flex.flex-column.p-2.mx-1.position-relative.send.bg-secondary.rounded.mb-2.mt-2 > .d-flex.align-items-center > .ml-auto.small.text-right.text-muted{
+    color: $header-navbar-message-sent-fg !important;
+}
+// Menssagem recebida
+
+.message.clickable.d-flex.flex-column.p-2.mx-1.position-relative.received.bg-white.rounded.mb-2.mt-2{
+    background-color: $header-navbar-message-received-bg !important;
+    color: $header-navbar-message-received-fg;
+}
+.message-app .message.received .tail{
+    right: 0;
+    margin-right: -.5rem;
+    border-bottom-color: $header-navbar-message-received-bg;
+}
+.ml-auto.small.text-right.text-muted{
+    color: $ead-font !important;
+}
+
+textarea.form-control.bg-light {
+    border: 1px solid $ead-primary;
+    color: $ead-font;
+}
+
+.mt-4{
+    color: $ead-font;   
+}
+
+// Notificação
+
+.d-flex.align-self-center.align-items-center > span.badge.badge-pill.badge-primary.bg-primary {
+    background-color: $header-notification-primary-bg !important;
+    color: $header-notification-primary-bc;
+
+}
+
+span.badge.badge-pill.badge-primary.ml-auto.bg-primary{
+    background-color: $header-notification-primary-bg !important;
+    color: $header-notification-primary-bc;
+}
+
+.bg-white.position-relative.border-bottom.px-2.py-2 {
+    background-color: $ead-primary !important;
+    color: $ead-font;
+}
+
+.border-top.bg-white.position-relative {
+    background-color: $ead-primary !important;
+    border-top: 1px solid $ead-primary !important;
+    color: $ead-font;
+}
+
+p.m-0.font-weight-light.text-truncate.last-message{
+    color: $ead-font;
+    font-weight: bolder !important;
+}
+
+span.text-muted {
+    color: $ead-font !important;
+    font-weight: 100;
+}
+
+.p-3.bg-light.text-center {
+    color: $ead-font;
+}

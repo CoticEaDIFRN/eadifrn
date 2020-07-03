@@ -1,0 +1,51 @@
+{{!
+    @template ead/header
+
+    This template renders the header.
+
+    Example context (json):
+    {
+        "settingsmenu": "settings_html",
+        "hasbreadcrumb": false,
+        "breadcrumb": "breadcrumb_if_available",
+        "courseheader": "course_header_html"
+        "pageheadingbutton": "page_heading_button"
+    }
+
+    Page header.
+    Page layouts:
+        admin
+        maintenance
+        report
+        mydashboard
+        incourse
+        standard
+        popup
+        redirect
+        login
+        base
+        frontpage
+        course
+        coursecategory
+        embedded
+        frametop
+    Page type: pagetype
+        my-index
+        site-index
+        course-view
+        course-view-{$course->format}
+
+}}
+<div id="page-header" >
+    {{#hasbreadcrumb}}
+        {{{breadcrumb}}}
+        {{#settingsmenu}}
+        <div class="context-header-settings-menu">
+            {{{settingsmenu}}}
+        </div>
+        {{/settingsmenu}}
+        <div class="ml-auto d-flex">
+            {{{pageheadingbutton}}}
+        </div>
+    {{/hasbreadcrumb}}
+</div>

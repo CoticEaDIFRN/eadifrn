@@ -1,12 +1,26 @@
 <?php
+/**
+ * Theme EaD - Columns 2 layout
+ *
+ * @package    theme_ead
+ * @author     Sueldo Sales <sueldosales@gmail.com>
+ * @author     Kelson C. Medeiros <kelsoncm@gmail.com>
+ * @package    theme_ead
+ * @copyright  2017 IFRN <https://ifrn.edu.br>
+ * @license    MIT https://opensource.org/licenses/MIT
+ * @link       https://github.com/CoticEaDIFRN/moodle_theme_ead
+ */
 defined('MOODLE_INTERNAL') || die();
-
-if (!function_exists('dump')) {function dump(...$params) { echo '<pre>'; var_dump(func_get_args()); echo '</pre>'; }}
-if (!function_exists('dumpd')) {function dumpd(...$params) { echo '<pre>'; var_dump(func_get_args()); echo '</pre>'; die(); }}
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
 require_once($CFG->dirroot.'/calendar/lib.php');
 
+// $PAGE->set_context(context_system::instance());
+$PAGE->requires->js('/theme/ead/amd/build/vue.min.js', true);
+$PAGE->requires->js_call_amd('theme_ead/frontpage', 'init');
 
-echo $OUTPUT->render_from_template('theme_boost_eadifrn/columns2', get_ead_ifrn_template_context());
+// require_once(__DIR__ . "/../externallib.php");dumpd(ead_frontpage_lanes());
+
+$OUTPUT->doctype();
+echo $OUTPUT->render_from_template('theme_ead/columns2', get_ead_template_context());

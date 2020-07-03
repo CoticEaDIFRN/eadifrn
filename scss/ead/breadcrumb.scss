@@ -1,0 +1,31 @@
+//==================================================
+//================ Breadcrumb  =====================
+//==================================================
+#page-navbar {
+    width: calc(100% - 50px);
+}
+
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin: 7px 7px 7px 0;
+    min-height: 26px;
+    float: left;
+}
+
+.breadcrumb-item {
+    display: inline;
+}
+
+#page-header .singlebutton button {
+    color: $page-header-btn-fg;
+    background: $page-header-btn-bg;
+    border: 1px solid $page-header-btn-bc;
+    line-height: 26px;    
+}
+
+#page-header .singlebutton button:hover {
+    color: $page-header-btn-hover-fg;
+    background: $page-header-btn-hover-bg;
+    border: 1px solid $page-header-btn-hover-bc;
+}

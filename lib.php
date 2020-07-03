@@ -1,28 +1,35 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
- * Theme Boost eadifrn - Library
+ * Theme EaD - Library
  *
- * @package    theme_boost_eadifrn
- * @copyright  2017 Kathrin Osswald, Ulm University <kathrin.osswald@uni-ulm.de>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @category   MoodleTheme
+ * @author     Sueldo Sales <sueldosales@gmail.com>
+ * @author     Kelson C. Medeiros <kelsoncm@gmail.com>
+ * @package    theme_ead
+ * @copyright  2017 IFRN <https://ifrn.edu.br>
+ * @license    MIT https://opensource.org/licenses/MIT
+ * @link       https://github.com/CoticEaDIFRN/moodle_theme_ead
  */
 
+
 defined('MOODLE_INTERNAL') || die();
+
+if (!function_exists('dump')) {function dump(...$params) { echo "<pre>\n"; print_r(func_get_args()); echo "\n<pre>"; }}
+if (!function_exists('dumpd')) {function dumpd(...$params) { echo "<pre>\n"; print_r(func_get_args()); echo "\n<pre>"; die(); }}
+function get_ead_theme_skins() {
+    return [
+        'abacate.scss' => 'Verde - Abacate',
+        'alface.scss' => 'Verde - Alface',
+        // 'oliva.scss' => 'Verde - Oliva',
+        // 'alto-contraste-claro.scss' => 'Alto contrate - claro',
+        // 'alto-contraste-escuro.scss' => 'Alto contrate - escuro',
+        // 'anil.scss' => 'Azul - Anil',
+        // 'safira.scss' => 'Azul - Safira',
+        // 'ipe.scss' => 'Vívido - Ipê',
+        // 'jerimum.scss' => 'Vívido - Jerimum',
+        'solar.scss' => 'Vívido - Solar',
+        ];
+}
 
 /**
  * Returns the main SCSS content.
@@ -30,40 +37,25 @@ defined('MOODLE_INTERNAL') || die();
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_boost_eadifrn_get_main_scss_content($theme) {
-    global $CFG;
-
-    $scss = '';
-    $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;
-    $fs = get_file_storage();
+function theme_ead_get_main_scss_content($theme) {
+    $choices = [];
+    $choices['abacate.scss'] = 'Verde - Abacate';
+    $choices['alface.scss'] = 'Verde - Alface';
+    $choices['oliva.scss'] = 'Verde - Oliva';
+    $choices['alto-contraste-claro.scss'] = 'Alto contrate - claro';
+    $choices['alto-contraste-escuro.scss'] = 'Alto contrate - escuro';
+    $choices['anil.scss'] = 'Azul - Anil';
+    $choices['safira.scss'] = 'Azul - Safira';
+    $choices['ipe.scss'] = 'Vívido - Ipê';
+    $choices['jerimum.scss'] = 'Vívido - Jerimum';
+    $choices['solar.scss'] = 'Vívido - Solar';
     
-    $context = context_system::instance();
-    if ($filename == 'plain.scss') {
-        // We still load the default preset files directly from the boost theme. No sense in duplicating them.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/plain.scss');
-    } else if ($filename == 'eadifrn.scss') {
-        // We still load the default preset files directly from the boost theme. No sense in duplicating them.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_eadifrn/scss/preset/eadifrn.scss');
-
-    } else if ($filename == 'eadifrn_presencial.scss') {
-        // We still load the default preset files directly from the boost theme. No sense in duplicating them.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost_eadifrn/scss/preset/eadifrn_presencial.scss');
-
-    } else if ($filename && ($presetfile = $fs->get_file($context->id, 'theme_boost_eadifrn', 'preset', 0, '/', $filename))) {
-        // This preset file was fetched from the file area for theme_boost_eadifrn and not theme_boost (see the line above).
-        $scss .= $presetfile->get_content();
+    $filename = !empty($theme->settings->preset) ? $theme->settings->preset : null;
+    if (array_key_exists($filename, get_ead_theme_skins())) {
+        return file_get_contents(__DIR__ . "/scss/preset/$filename");
     } else {
-        // Safety fallback - maybe new installs etc.
-        $scss .= file_get_contents($CFG->dirroot . '/theme/boost/scss/preset/default.scss');
+        return file_get_contents(__DIR__ . "/scss/preset/abacate.scss");
     }
-
-    // Pre CSS - this is loaded AFTER any prescss from the setting but before the main scss.
-    // $pre = file_get_contents($CFG->dirroot . '/theme/boost_eadifrn/scss/pre.scss');
-    // Post CSS - this is loaded AFTER the main scss but before the extra scss from the setting.
-    // $post = file_get_contents($CFG->dirroot . '/theme/boost_eadifrn/scss/post.scss');
-
-    // Combine them together.
-    return $scss;
 }
 
 /**
@@ -74,10 +66,10 @@ function theme_boost_eadifrn_get_main_scss_content($theme) {
  * @param theme_config $theme The theme config object.
  * @return array
  */
-function theme_boost_eadifrn_get_pre_scss($theme) {
+function theme_ead_get_pre_scss($theme) {
     global $CFG;
     // MODIFICATION START.
-    require_once($CFG->dirroot . '/theme/boost_eadifrn/locallib.php');
+    require_once($CFG->dirroot . '/theme/ead/locallib.php');
     // MODIFICATION END.
 
     $scss = '';
@@ -96,7 +88,6 @@ function theme_boost_eadifrn_get_pre_scss($theme) {
         'brandinfocolor' => ['brand-info'],
         'brandwarningcolor' => ['brand-warning'],
         'branddangercolor' => ['brand-danger'],
-        'darknavbar' => ['darknavbar'],
         'footerblocks' => ['footerblocks'],
         'imageareaitemsmaxheight' => ['imageareaitemsmaxheight'],
         'showsettingsincourse' => ['showsettingsincourse'],
@@ -116,7 +107,7 @@ function theme_boost_eadifrn_get_pre_scss($theme) {
     }
 
     // MODIFICATION START: Add login background images that are uploaded to the setting 'loginbackgroundimage' to CSS.
-    // $scss .= theme_boost_eadifrn_get_loginbackgroundimage_scss();
+    // $scss .= theme_ead_get_loginbackgroundimage_scss();
     // MODIFICATION END.
 
     // Prepend pre-scss.
@@ -139,9 +130,9 @@ function theme_boost_eadifrn_get_pre_scss($theme) {
  * @param array $options additional options affecting the file serving
  * @return bool
  */
-function theme_boost_eadifrn_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+function theme_ead_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
     if ($context->contextlevel == CONTEXT_SYSTEM) {
-        $theme = theme_config::load('boost_eadifrn');
+        $theme = theme_config::load('ead');
         if ($filearea === 'favicon') {
             return $theme->setting_file_serve('favicon', $args, $forcedownload, $options);
         } else if ($filearea === 'loginbackgroundimage') {
@@ -159,69 +150,19 @@ function theme_boost_eadifrn_pluginfile($course, $cm, $context, $filearea, $args
 }
 
 /**
- * If setting is updated, use this callback to clear the theme_boost_eadifrn' own application cache.
+ * If setting is updated, use this callback to clear the theme_ead' own application cache.
  */
-function theme_boost_eadifrn_reset_app_cache() {
+function theme_ead_reset_app_cache() {
     // Get the cache from area.
-    $themeboosteadifrncache = cache::make('theme_boost_eadifrn', 'imagearea');
+    $theme_ead_cache = cache::make('theme_ead', 'imagearea');
     // Delete the cache for the imagearea.
-    $themeboosteadifrncache->delete('imageareadata');
+    $theme_ead_cache->delete('imageareadata');
     // To be safe and because there can only be one callback function added to a plugin setting,
     // we also delete the complete theme cache here.
     theme_reset_all_caches();
 }
 
-
-function get_ead_ifrn_commom_moodle_template_context()
-{
-    global $OUTPUT, $PAGE, $COURSE, $SITE;
-
-    if (isloggedin()) {
-        $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
-    } else {
-        $navdraweropen = false;
-    }
-    $extraclasses = [];
-    if ($navdraweropen) {
-        $extraclasses[] = 'drawer-open-left';
-    }
-    $bodyattributes = $OUTPUT->body_attributes($extraclasses);
-    $blockshtml = $OUTPUT->blocks('side-pre');
-    $hasblocks = strpos($blockshtml, 'data-block=') !== false;
-    $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
-    $in_course_page = $PAGE->pagelayout == "course";
-    $not_in_course_page = $PAGE->pagelayout != "course";
-    $within_course_page = $PAGE->pagelayout == "incourse";
-    $not_within_course_page = $PAGE->pagelayout != "incourse";
-    $course_name = $COURSE->fullname;
-    $course_code = $COURSE->shortname;
-    $inte_suap = is_siteadmin() ? "show_suap" : "";
-    return [
-        'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
-        'output' => $OUTPUT,
-        'sidepreblocks' => $blockshtml,
-        'hasblocks' => $hasblocks,
-        'bodyattributes' => $bodyattributes,
-        'navdraweropen' => $navdraweropen,
-        'regionmainsettingsmenu' => $regionmainsettingsmenu,
-        'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-        'link_calendar' => (new moodle_url('/calendar/view.php?view=month'))->out(),
-        'link_sala_aula' => (new moodle_url('/my'))->out(),
-        'link_suap' => (new moodle_url('/suap'))->out(),
-        'link_mural' => (new moodle_url('/mural'))->out(),
-        'link_secretaria' => (new moodle_url('/secretaria'))->out(),
-        'in_course_page' => $in_course_page,
-        'not_in_course_page' => $not_in_course_page,
-        'incourse' => $COURSE,
-        'course' => $COURSE,
-        'within_course_page' => $within_course_page,
-        'not_within_course_page' => $not_within_course_page,
-        'course_name' => $course_name,
-        'inte_suap' => $inte_suap
-    ];
-}
-
-function get_ead_ifrn_calendario() {
+function get_ead_calendario() {
     global $CFG, $COURSE;
     $calendar = \calendar_information::create(time(), $COURSE->id, $COURSE->category);
     list($data, $template) = calendar_get_view($calendar, 'upcoming_mini');
@@ -247,21 +188,22 @@ function get_ead_ifrn_calendario() {
     return new ArrayIterator($result);
 }
 
-function get_ead_ifrn_course_content_actions()
+function get_ead_course_content_actions()
 {
     global $PAGE, $COURSE;
-    if ($PAGE->pagelayout == "course" || $PAGE->pagelayout == "incourse") {
-        $flatnav = [];
-        foreach ($PAGE->flatnav as $child_key) {
-            if ($child_key->type == 30) {
-                $flatnav[] = $child_key;
-            }
-        }
-        return new ArrayIterator($flatnav);
-    }
+    // if ($PAGE->pagelayout == "course" || $PAGE->pagelayout == "incourse") {
+    //     $flatnav = [];
+    //     foreach ($PAGE->flatnav as $child_key) {
+    //         if ($child_key->type == 30) {
+    //             $flatnav[] = $child_key;
+    //         }
+    //     }
+    //     return new ArrayIterator($flatnav);
+    // }
+    return new ArrayIterator($PAGE->flatnav);
 }
     
-function get_ead_ifrn_course_common_actions() 
+function get_ead_course_common_actions() 
 {
     global $PAGE, $COURSE;
     if ($PAGE->pagelayout == "course" || $PAGE->pagelayout == "incourse") {
@@ -297,20 +239,66 @@ function get_ead_ifrn_course_common_actions()
    
         return new ArrayIterator($extraflatnav);
     }
+    return new ArrayIterator([]);
 }
 
-
-
-function get_ead_ifrn_template_context()
+function get_ead_template_context()
 {
-    global $PAGE;
+    global $OUTPUT, $PAGE, $COURSE, $SITE;
 
-    $templatecontext = get_ead_ifrn_commom_moodle_template_context();
-
-    if ($templatecontext['in_course_page'] || $templatecontext['within_course_page']) {
-        $templatecontext['course_content_actions'] = get_ead_ifrn_course_content_actions();
-        $templatecontext['course_common_actions'] = get_ead_ifrn_course_common_actions();
+    if (isloggedin()) {
+        $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
+    } else {
+        $navdraweropen = false;
     }
-    $templatecontext['nosso_calendario'] = get_ead_ifrn_calendario();
-    return $templatecontext;
+    $extraclasses = [];
+    if ($navdraweropen) {
+        $extraclasses[] = 'drawer-open-left';
+    }
+    $bodyattributes = $OUTPUT->body_attributes($extraclasses);
+    $blockshtml = $OUTPUT->blocks('side-pre');
+    $hasblocks = strpos($blockshtml, 'data-block=') !== false;
+    $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+    $in_course_page = $PAGE->pagelayout == "course";
+    $not_in_course_page = $PAGE->pagelayout != "course";
+    $within_course_page = $PAGE->pagelayout == "incourse";
+    $not_within_course_page = $PAGE->pagelayout != "incourse";
+    $course_name = $COURSE->fullname;
+    $course_code = $COURSE->shortname;
+    $is_siteadmin = is_siteadmin();
+    $inte_suap = $is_siteadmin ? "show_suap" : "";
+    $inte_admin = $is_siteadmin ? "show_admin" : "";
+    $course_content_actions = get_ead_course_content_actions();
+    $course_common_actions = get_ead_course_common_actions();
+
+    return [
+        'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
+        'output' => $OUTPUT,
+        'sidepreblocks' => $blockshtml,
+        'hasblocks' => $hasblocks,
+        'bodyattributes' => $bodyattributes,
+        'navdraweropen' => $navdraweropen,
+        'regionmainsettingsmenu' => $regionmainsettingsmenu,
+        'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
+        'link_calendar' => (new moodle_url('/calendar/view.php?view=month'))->out(),
+        'link_sala_aula' => (new moodle_url('/my'))->out(),
+        'link_suap' => (new moodle_url('/suap'))->out(),
+        'link_mural' => (new moodle_url('/mural'))->out(),
+        'link_secretaria' => (new moodle_url('/secretaria'))->out(),
+        'link_admin' => (new moodle_url('/admin/search.php'))->out(),
+        'in_course_page' => $in_course_page,
+        'not_in_course_page' => $not_in_course_page,
+        'incourse' => $COURSE,
+        'course' => $COURSE,
+        'within_course_page' => $within_course_page,
+        'not_within_course_page' => $not_within_course_page,
+        'show_button' => "$not_in_course_page && $not_within_course_page",
+        'course_name' => $course_name,
+        'inte_suap' => $inte_suap,
+        'inte_admin' => $inte_admin,
+        'is_siteadmin' => $is_siteadmin,
+        'nosso_calendario' => get_ead_calendario(),
+        'course_content_actions' => $course_content_actions,
+        'course_common_actions' => $course_common_actions,
+    ];
 };

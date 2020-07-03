@@ -1,0 +1,149 @@
+$ead-primary: #0c5a2e;
+$ead-secundary: #008700;
+$ead-tertiary: #484545;
+$ead-hover: #56d859;
+$ead-font: #fff;
+$core-body-bg : #ebeced;
+
+//==================================================
+//===================== core =======================
+//==================================================
+
+$core-btn-primary-fg: $ead-font;
+$core-btn-primary-bg: $ead-secundary;
+$core-btn-primary-bc: $ead-secundary;
+$core-btn-primary-hover-fg: $ead-tertiary;
+$core-btn-primary-hover-bg: $ead-hover;
+$core-btn-primary-hover-bc: $ead-hover;
+
+$core-btn-secondary-fg: $ead-font;
+$core-btn-secondary-bg: $ead-secundary;
+$core-btn-secondary-bc: $ead-secundary;
+$core-btn-secondary-hover-fg: $ead-tertiary;
+$core-btn-secondary-hover-bg: $ead-hover;
+$core-btn-secondary-hover-bc: $ead-hover;
+
+$core-btn-default-fg: $ead-primary;
+$core-btn-default-bg: $ead-font;
+$core-btn-default-bc: $ead-primary;
+$core-btn-default-hover-fg: $ead-font;
+$core-btn-default-hover-bg: $ead-secundary;
+$core-btn-default-hover-bc: $ead-secundary;
+
+$core-link-fg: $ead-primary;
+$core-link-hover-fg: $ead-secundary;
+$core-link-icon-fg: $ead-tertiary;
+$core-link-icon-hover-fg: $ead-tertiary;
+$core-text-primary-fg: $ead-primary !important;
+
+
+//==================================================
+//===================== header =====================
+//==================================================
+// header
+$header-fg: $ead-font;
+$header-bg: $ead-primary;
+$header-count-bg: #c60c0f;
+$header-count-fg: $ead-font;
+
+// header - search box
+$header-searchbox-fg: #1b4e51;
+$header-searchbox-bg: #484545;
+$header-searchbox-hover-fg: $ead-font;
+$header-searchbox-hover-bg: $ead-hover;
+
+
+// header - user drawer
+$header-onlineuser-indicator: #82fd6c;
+$header-dropdown-menu-bg: #f2f2f2;
+$header-dropdown-menuitem-fg: #344537;
+$header-dropdown-menuitem-icon-fg: #344537;
+
+// notification
+$header-notification-empty-fg: #123535;
+$header-notification-fg: $ead-font;
+$header-notification-bg: #123535;
+$header-notification-bc: #123535;
+$header-notification-primary-bg: #F3AEAC;
+$header-notification-primary-bc: #303030;
+$header-notification-card-bg:  rgba(0,0,0,.41);
+
+// chat
+$header-navbar-icon-fg: $ead-font;
+$header-navbar-icon-hover-fg: $ead-hover;
+$header-navbar-bc: #0E2617;
+$header-navbar-border-bc: #103720;
+$header-navbar-message-sent-bg: #00be6b;
+$header-navbar-message-sent-fg: #303030;
+$header-navbar-message-received-bg: $ead-primary;
+$header-navbar-message-received-fg: $ead-font;
+
+//==================================================
+//====================== drawer ====================
+//==================================================
+$drawer-fg: $ead-primary;
+$drawer-bg: $ead-font;
+$drawer-bc: trasparent;
+$drawer-item-fg: $ead-font;
+$drawer-item-bg: $ead-secundary;
+$drawer-item-bc: trasparent;
+$drawer-item-hover-fg: $ead-font;
+$drawer-item-hover-bg: $ead-primary;
+$drawer-item-hover-bc: $ead-primary;
+$drawer-item-active-fg: $ead-secundary;
+$drawer-item-active-bg: $ead-font;
+$drawer-item-active-bc: $ead-primary;
+
+
+//==================================================
+//===================== page =====================
+//==================================================
+$page-link-fg: $ead-primary;
+$page-link-bg: $ead-font;
+$page-link-bc: $ead-primary;
+$page-link-hover-fg: $ead-secundary;
+$page-link-hover-bg: $ead-font;
+$page-link-hover-bc: $ead-secundary;
+
+$page-header-btn-fg: #274333;
+$page-header-btn-bg: transparent;
+$page-header-btn-bc: transparent;
+$page-header-btn-hover-fg: #2F8C47;
+$page-header-btn-hover-bg: transparent;
+$page-header-btn-hover-bc: transparent;
+
+//==================================================
+//================== Frontpage =====================
+//==================================================
+$frontpage-filter-bg: #fff;
+
+$frontpage-category-fg: #6a6a6a;
+$frontpage-category-first-fg: $ead-font;
+$frontpage-category-first-bg: #484848;
+$frontpage-category-first-title-fg: $ead-font;
+$frontpage-category-first-title-hover-fg: $ead-primary;
+$frontpage-category-card-first-shadow: rgba(255,255,255,.27);
+
+$frontpage-category-title-fg: #6a6a6a;
+$frontpage-category-title-hover-fg: $ead-primary;
+$frontpage-category-card-shadow: rgba(0,0,0,.27);
+
+$frontpage-course-info-bg: #fff;
+$frontpage-course-title-fg: #000;
+$frontpage-course-title-hover-fg: $ead-primary;
+$frontpage-course-duration-fg: #959595;
+$frontpage-course-enrol-fg: $ead-primary;
+
+$frontpage-filter-search-btn-fg: $ead-font;
+$frontpage-filter-search-btn-bg: $ead-secundary;
+$frontpage-filter-search-btn-bc: transparent;
+
+$frontpage-login-fg: $ead-font;
+$frontpage-login-bg: $ead-secundary;
+$frontpage-login-hover-fg: $ead-secundary;
+$frontpage-login-hover-bg: $ead-font;
+
+$core-card-title-fg: #212529;
+$core-card-title-bg: #f2f2f2;
+
+$core-card-block-bc: #fff;

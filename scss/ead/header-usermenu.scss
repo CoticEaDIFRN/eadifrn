@@ -1,0 +1,51 @@
+/*==================================================*/
+/*=================== User Menu ====================*/
+/*==================================================*/
+
+/* Nome do usuário */
+.navbar-light .usertext {
+    display: none;
+}
+
+/* Avatar modificado para a esquerda do nome de usuário */
+.navbar-light .avatars {
+    float: left;
+}
+
+/* Setinha para baixo do lado do nome */
+.dropdown-toggle::after {
+    display: none;
+}    
+
+/* Dropdown menu do usuário */ 
+.navbar-static-top .dropdown .dropdown-menu {
+    background-color: $header-dropdown-menu-bg;
+    width: 280px;
+    margin-top: 29px;
+    border: none;
+    left: -155px;
+}
+
+.navbar.fixed-top .dropdown .dropdown-menu{
+    margin-top: 28px;
+}
+
+/* Itens do menu do usuário */ 
+.navbar-light .dropdown-menu .dropdown-item {
+    color: $header-dropdown-menuitem-fg;
+    border: none;
+    font-size: 14px;
+    margin: 0;
+    padding: 15px 24px;
+}
+
+/* Ícones dos itens do menu do usuário */
+.navbar-light .dropdown-menu .dropdown-item i {
+    color: $header-dropdown-menuitem-icon-fg;
+    font-size: 14px;
+    margin-right: 15px;
+}
+
+span.viewingas {
+    line-height: 0;
+}
