@@ -22,13 +22,9 @@
  * @copyright   2020 Mateus Abrantes <mateus.abrantes@lais.huol.ufrn.br>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 defined('MOODLE_INTERNAL') || die();
 require_once($CFG->dirroot . '/theme/ead/db/upgrade.php');
 
-/**
- * Custom code to be run on installing the plugin.
- */
 function xmldb_theme_ead_install()
 {
     xmldb_theme_ead_upgrade(NULL);

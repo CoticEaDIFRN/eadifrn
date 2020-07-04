@@ -22,10 +22,7 @@
  * @copyright   2020 Kelson Meeiros <kelsoncm@gmail.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 defined('MOODLE_INTERNAL') || die();
-
-require_once(__DIR__.'/upgradelib.php');
 
 function create_or_update_course_custom_field($shortname, $name, $categoryid, $datatype='text', $configdata='{"required":"0","uniquevalues":"0","checkbydefault":"0","locked":"0","visibility":"0"}') {
     global $DB;
@@ -37,7 +34,9 @@ function create_or_update_course_custom_field($shortname, $name, $categoryid, $d
         'name' => $name,
         'categoryid' => $categoryid,
         'datatype' => $datatype,
-        'configdata' => $configdata
+        'configdata' => $configdata,
+        'timecreated'=>1593823353,
+        'timemodified'=>1593823353
     ];
     return $DB->insert_record("customfield_field", $course_custom_field, true);
 }
@@ -49,7 +48,9 @@ function xmldb_theme_ead_upgrade($oldversion) {
         'component'=>'core_course',
         'area'=>'course',
         'itemid'=>0,
-        'contextid'=>1
+        'contextid'=>1,
+        'timecreated'=>1593823353,
+        'timemodified'=>1593823353
     ];
     $categoria = $DB->get_record('customfield_category', $category_fields);
     if (empty($DB->get_record('customfield_category', $category_fields))) {
