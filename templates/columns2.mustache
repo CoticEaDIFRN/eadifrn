@@ -47,7 +47,6 @@
 </html>
 {{#js}}
 require(['theme_boost/loader']);
-require(['theme_boost/drawer'], function(mod) {
-    mod.init();
-});
+require(['theme_boost/drawer'], function(mod) {mod.init();});
+require(['https://cdn.jsdelivr.net/npm/vue@2.6.11', '{{config.wwwroot}}/theme/ead/js/frontpage.min.js'], function(mod){mod.init();});
 {{/js}}
