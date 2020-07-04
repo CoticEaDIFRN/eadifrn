@@ -1,19 +1,4 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Plugin upgrade steps are defined here.
  *
@@ -33,7 +18,7 @@ function create_or_update_course_custom_field($shortname, $name, $categoryid, $d
         'shortname' => $shortname,
         'name' => $name,
         'categoryid' => $categoryid,
-        'datatype' => $datatype,
+        'type' => $datatype,
         'configdata' => $configdata,
         'timecreated'=>1593823353,
         'timemodified'=>1593823353
@@ -43,17 +28,10 @@ function create_or_update_course_custom_field($shortname, $name, $categoryid, $d
 
 function xmldb_theme_ead_upgrade($oldversion) {
     global $DB;
-    $category_fields = [
-        'name' => 'EaD',
-        'component'=>'core_course',
-        'area'=>'course',
-        'itemid'=>0,
-        'contextid'=>1,
-        'timecreated'=>1593823353,
-        'timemodified'=>1593823353
-    ];
-    $categoria = $DB->get_record('customfield_category', $category_fields);
-    if (empty($DB->get_record('customfield_category', $category_fields))) {
+    $category_filter = [ 'name' => 'EaD', 'component'=>'core_course', 'area'=>'course' ];
+    $category_fields = array_merge( $category_filter, [ 'itemid'=>0, 'contextid'=>1, 'descriptionformat'=>0, 'timecreated'=>1593823353, 'timemodified'=>1593823353 ]);
+    $category = $DB->get_record('customfield_category', $category_filter);
+    if (empty($category)) {
         $ultimo = $DB->get_record_sql('SELECT coalesce(max(sortorder), 0) + 1 as sortorder from {customfield_category}' .
                                       " WHERE component='core_course' AND area='course'");
         $category = (object)$category_fields;
