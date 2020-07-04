@@ -55,7 +55,7 @@ function xmldb_theme_ead_upgrade($oldversion) {
     $categoria = $DB->get_record('customfield_category', $category_fields);
     if (empty($DB->get_record('customfield_category', $category_fields))) {
         $ultimo = $DB->get_record_sql('SELECT coalesce(max(sortorder), 0) + 1 as sortorder from {customfield_category}' .
-                                      "WHERE component='core_course' AND area='course'");
+                                      " WHERE component='core_course' AND area='course'");
         $category = (object)$category_fields;
         $category->sortorder = $ultimo->sortorder;
         $category->id = $DB->insert_record("customfield_category", $category);
