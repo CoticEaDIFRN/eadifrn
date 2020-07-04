@@ -24,7 +24,7 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
-require_once($CFG->dirroot . '/auth/sabia/db/upgrade.php');
+require_once($CFG->dirroot . '/theme/ead/db/upgrade.php');
 
 /**
  * Custom code to be run on installing the plugin.
