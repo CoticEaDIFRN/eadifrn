@@ -42,7 +42,7 @@ function create_or_update_course_custom_field($shortname, $name, $categoryid, $d
     return $DB->insert_record("customfield_field", $course_custom_field, true);
 }
 
-function xmldb_auth_sabia_upgrade($oldversion) {
+function xmldb_theme_ead_upgrade($oldversion) {
     global $DB;
     $category_fields = [
         'name' => 'EaD',
