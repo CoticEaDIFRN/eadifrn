@@ -44,7 +44,7 @@ function ead_frontpage_lanes() {
 
     if (isloggedin()) {
         $category = new_category('Continuar estudando', '#continuar');
-        foreach (get_frontpage_courses($USER->id, FALSE, []) as $course) {
+        foreach (get_frontpage_courses($USER->id, false, []) as $course) {
             array_push($not_in, $course->course_id);
             $course->course_enrol = null;
             array_push($category->courses, ead_course_array($course));
@@ -55,14 +55,16 @@ function ead_frontpage_lanes() {
     }
 
     $category = new_category('Destaques', '#destaques');
-    foreach (get_frontpage_courses(null, TRUE, $not_in) as $course) {
+    foreach (get_frontpage_courses(null, true, $not_in) as $course) {
         array_push($not_in, $course->course_id);
         array_push($category->courses, ead_course_array($course));
     }
-    array_push($categories, $category);
+    if (count($category->courses)>0) {
+        array_push($categories, $category);
+    }
 
     $category = new_category(null, null);
-    foreach (get_frontpage_courses(null, FALSE, $not_in) as $course) {
+    foreach (get_frontpage_courses(null, false, $not_in) as $course) {
         if ($category->url != $course->category_id) {
             $category = new_category($course->category_title, $course->category_id);
             array_push($categories, $category);
@@ -73,7 +75,7 @@ function ead_frontpage_lanes() {
     return ['home_url' => "$CFG->wwwroot/user/profile.php", 'categories' => $categories];
 }
 
-function get_frontpage_courses($userid=null, $featured=FALSE, $not_in=[]){
+function get_frontpage_courses($userid=null, $featured=false, $not_in=[]){
     global $DB, $CFG;
     
     $outer = "WHERE course_show_in_frontpage = 1\n";    
@@ -83,7 +85,7 @@ function get_frontpage_courses($userid=null, $featured=FALSE, $not_in=[]){
                                       WHERE u.userid = $userid AND e.roleid = 5)\n";
     } 
 
-    if ($featured!=null) {
+    if ($featured) {
         $outer .= " AND course_featured=1\n";
     }
 
@@ -107,38 +109,38 @@ SELECT * FROM (
             coalesce(
                 (
                     SELECT max(id.value)
-                    FROM mdl_customfield_category ic
-                            INNER JOIN mdl_customfield_field if ON (ic.id = if.categoryid)
-                            INNER JOIN mdl_customfield_data id ON (if.id = id.fieldid)
+                    FROM {customfield_category} ic
+                            INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
+                            INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
                     WHERE (ic.component, ic.area) = ('core_course', 'course')
-                    AND if.shortname IN ('duration')
                     AND id.instanceid = co.id
+                    AND if.shortname IN ('duration')
                 ), 
                 '*'
             ) course_duration,
             (
                 SELECT id.intvalue
-                FROM mdl_customfield_category ic
-                        INNER JOIN mdl_customfield_field if ON (ic.id = if.categoryid)
-                        INNER JOIN mdl_customfield_data id ON (if.id = id.fieldid)
+                FROM {customfield_category} ic
+                        INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
+                        INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
                 WHERE (ic.component, ic.area) = ('core_course', 'course')
-                AND if.shortname IN ('featured')
                 AND id.instanceid = co.id
+                AND if.shortname IN ('featured')
             ) course_featured,
             (
                 SELECT id.intvalue
-                FROM mdl_customfield_category ic
-                        INNER JOIN mdl_customfield_field if ON (ic.id = if.categoryid)
-                        INNER JOIN mdl_customfield_data id ON (if.id = id.fieldid)
+                FROM {customfield_category} ic
+                        INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
+                        INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
                 WHERE (ic.component, ic.area) = ('core_course', 'course')
-                AND if.shortname IN ('show_in_frontpage')
                 AND id.instanceid = co.id
+                AND if.shortname IN ('show_in_frontpage')
             ) course_show_in_frontpage
-    FROM    mdl_course co
-                INNER JOIN mdl_course_categories ca ON (co.category = ca.id)
-    WHERE  co.visible = 1
-        AND  co.startdate <= trunc(extract(EPOCH FROM now()))
-        AND (co.enddate >= trunc(extract(EPOCH FROM now())) OR co.enddate = 0)
+    FROM    {course} co
+                INNER JOIN {course_categories} ca ON (co.category = ca.id)
+    WHERE   co.visible = 1
+      AND   co.startdate <= trunc(extract(EPOCH FROM now()))
+      AND   (co.enddate >= trunc(extract(EPOCH FROM now())) OR co.enddate = 0)
     ORDER BY ca.name, co.fullname
 ) AS t
 $outer
