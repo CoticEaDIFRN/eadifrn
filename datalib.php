@@ -66,7 +66,7 @@ function ead_frontpage_lanes() {
     $category = new_category(null, null);
     foreach (get_frontpage_courses(null, false, $not_in) as $course) {
         if ($category->url != $course->category_id) {
-            $category = new_category($course->category_title, $course->category_id);
+            $category = new_category($course->category_title, "$CFG->wwwroot/course/index.php?categoryid=$course->category_id");
             array_push($categories, $category);
         }
         array_push($category->courses, ead_course_array($course));
