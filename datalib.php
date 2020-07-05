@@ -71,7 +71,7 @@ function ead_frontpage_lanes() {
         }
         array_push($category->courses, ead_course_array($course));
     }
-
+    
     return ['home_url' => "$CFG->wwwroot/user/profile.php", 'categories' => $categories];
 }
 
