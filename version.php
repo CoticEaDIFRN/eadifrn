@@ -13,7 +13,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2020070101;
+$plugin->version = 2020070501;
 $plugin->requires = 2019051100;
 $plugin->component = 'theme_ead';
 
