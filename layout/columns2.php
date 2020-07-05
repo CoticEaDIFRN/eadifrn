@@ -17,8 +17,8 @@ require_once($CFG->libdir . '/behat/lib.php');
 require_once($CFG->dirroot.'/calendar/lib.php');
 
 // $PAGE->set_context(context_system::instance());
-// $PAGE->requires->js('/theme/ead/amd/build/vue.min.js', true);
-// $PAGE->requires->js_call_amd('theme_ead/frontpage', 'init');
+$PAGE->requires->js('/theme/ead/js/vue.min.js', true);
+$PAGE->requires->js_call_amd('theme_ead/frontpage', 'init');
 
 // require_once(__DIR__ . "/../externallib.php");dumpd(ead_frontpage_lanes());
 

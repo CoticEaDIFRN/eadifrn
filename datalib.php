@@ -38,9 +38,13 @@ function ead_frontpage_lanes() {
     $not_in = [];
     $categories = [];
 
+    function new_category($description, $url) {
+        return (object)['description' => $description, 'url' => $url, 'courses' => []];
+    }
+
     if (isloggedin()) {
-        $category = (object)['description' => 'Continuar estudando', 'url' => '#continuar', 'courses' => []];
-        foreach (get_frontpage_courses($USER->id, $not_in) as $course) {
+        $category = new_category('Continuar estudando', '#continuar');
+        foreach (get_frontpage_courses($USER->id, FALSE, []) as $course) {
             array_push($not_in, $course->course_id);
             $course->course_enrol = null;
             array_push($category->courses, ead_course_array($course));
@@ -50,91 +54,98 @@ function ead_frontpage_lanes() {
         }
     }
 
-    if (count($categories)==0) {
-        $category = (object)['description' => 'Destaques', 'url' => '#destaques', 'courses' => []];
-        foreach (get_frontpage_courses(null, $not_in) as $course) {
-            array_push($not_in, $course->course_id);
-            array_push($category->courses, ead_course_array($course));
+    $category = new_category('Destaques', '#destaques');
+    foreach (get_frontpage_courses(null, TRUE, $not_in) as $course) {
+        array_push($not_in, $course->course_id);
+        array_push($category->courses, ead_course_array($course));
+    }
+    array_push($categories, $category);
+
+    $category = new_category(null, null);
+    foreach (get_frontpage_courses(null, FALSE, $not_in) as $course) {
+        if ($category->url != $course->category_id) {
+            $category = new_category($course->category_title, $course->category_id);
+            array_push($categories, $category);
         }
-        array_push($categories, $category);
+        array_push($category->courses, ead_course_array($course));
     }
 
-    $categoria = (object)['description' => null, 'url' => null,'courses' => []];
-    foreach (get_frontpage_courses(null, $not_in) as $course) {
-        if ($categoria->url != "#$course->category_id") {
-            $categoria = (object)['description' => $course->category_title, 
-                                  'url' => "$CFG->wwwroot/course/index.php?categoryid=$course->category_id",
-                                  'courses' => []];
-            array_push($categories, $categoria);
-        }
-        array_push($categoria->courses, ead_course_array($course));
-    }
-
-    return ['home_url' =>  $USER->id, 'categories' => $categories];
+    return ['home_url' => "$CFG->wwwroot/user/profile.php", 'categories' => $categories];
 }
 
-function get_frontpage_courses($userid=null, $not_in=[]){
-    global $DB;
+function get_frontpage_courses($userid=null, $featured=FALSE, $not_in=[]){
+    global $DB, $CFG;
     
-    $in_front = "AND EXISTS (SELECT 1
-    FROM {customfield_category} c
-             INNER JOIN {customfield_field} f ON (c.id = f.categoryid)
-             INNER JOIN {customfield_data} d ON (f.id = d.fieldid)
-  WHERE d.instanceid=co.id and c.component='core_course' and c.area='course' and f.shortname = 'show_in_frontpage' and d.intvalue = 1)";
-    $outer = '';
-    if (count($not_in)>0) {
-        $outer .= "where course_id NOT IN (" . implode($not_in, ', ') . ")";
-    } else if ($userid==null) {
-        $outer .= "where course_featured = '1'";
-    } else {
-        $in_front = '';
-        $outer .= "where course_id in (select e.courseid 
-                                        from   {user_enrolments} u inner join {enrol} e on (u.enrolid = e.id)
-                                        where u.userid = $userid and e.roleid = 5)";
+    $outer = "WHERE course_show_in_frontpage = 1\n";    
+    if ($userid!=null) {
+        $outer .= " AND course_id IN (SELECT e.courseid 
+                                       FROM {user_enrolments} u INNER JOIN {enrol} e ON (u.enrolid = e.id)
+                                      WHERE u.userid = $userid AND e.roleid = 5)\n";
+    } 
+
+    if ($featured!=null) {
+        $outer .= " AND course_featured=1\n";
     }
+
+    if (count($not_in)>0) {
+        $outer .= " AND course_id NOT IN (" . implode($not_in, ', ') . ")";
+    }
+
+     
     
     $sql = "
-    SELECT *
-    FROM (
-             SELECT DISTINCT co.id                                                                       course_id,
-                             co.fullname                                                                 course_title,
-                             ca.id                                                                       category_id,
-                             ca.name                                                                     category_title,
-                             co.id                                                                       course_see,
-                             co.id                                                                       course_enrol,
-                             'https://cdn.pixabay.com/photo/2017/12/30/20/59/report-3050965_960_720.jpg' course_thumbnail,
-                             coalesce(
-                                (SELECT max(id.value)
-                                   FROM {customfield_category} ic
-                                            INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
-                                            INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
-                                  WHERE (ic.component, ic.area) = ('core_course', 'course')
-                                    AND if.shortname IN ('duration')
-                                    AND id.instanceid = co.id)
-                                    , '*')                                                               course_duration,
-                             (
-                                 SELECT id.value
-                                   FROM {customfield_category} ic
-                                            INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
-                                            INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
-                                  WHERE (ic.component, ic.area) = ('core_course', 'course')
-                                    AND if.shortname IN ('featured')
-                                    AND id.instanceid = co.id
-                             )                                                                           course_featured
-               FROM {course} co
-                        INNER JOIN {course_categories} ca ON (co.category = ca.id)
-              WHERE  (
-                            co.visible = 1
-                            AND (
-                                    (trunc(extract(EPOCH FROM now())) BETWEEN co.startdate AND co.enddate)
-                                    OR (co.enddate = 0 AND trunc(extract(EPOCH FROM now())) >= co.startdate)
-                                )
-                     )
-              $in_front
-              ORDER BY ca.name, co.fullname) AS t  
-              $outer
+SELECT * FROM (
+    SELECT  DISTINCT 
+            co.id       course_id,
+            co.fullname course_title,
+            ca.id       category_id,
+            ca.name     category_title,
+            co.id       course_see,
+            co.id       course_enrol,
+            'https://cdn.pixabay.com/photo/2017/12/30/20/59/report-3050965_960_720.jpg' 
+                        course_thumbnail,
+            coalesce(
+                (
+                    SELECT max(id.value)
+                    FROM mdl_customfield_category ic
+                            INNER JOIN mdl_customfield_field if ON (ic.id = if.categoryid)
+                            INNER JOIN mdl_customfield_data id ON (if.id = id.fieldid)
+                    WHERE (ic.component, ic.area) = ('core_course', 'course')
+                    AND if.shortname IN ('duration')
+                    AND id.instanceid = co.id
+                ), 
+                '*'
+            ) course_duration,
+            (
+                SELECT id.intvalue
+                FROM mdl_customfield_category ic
+                        INNER JOIN mdl_customfield_field if ON (ic.id = if.categoryid)
+                        INNER JOIN mdl_customfield_data id ON (if.id = id.fieldid)
+                WHERE (ic.component, ic.area) = ('core_course', 'course')
+                AND if.shortname IN ('featured')
+                AND id.instanceid = co.id
+            ) course_featured,
+            (
+                SELECT id.intvalue
+                FROM mdl_customfield_category ic
+                        INNER JOIN mdl_customfield_field if ON (ic.id = if.categoryid)
+                        INNER JOIN mdl_customfield_data id ON (if.id = id.fieldid)
+                WHERE (ic.component, ic.area) = ('core_course', 'course')
+                AND if.shortname IN ('show_in_frontpage')
+                AND id.instanceid = co.id
+            ) course_show_in_frontpage
+    FROM    mdl_course co
+                INNER JOIN mdl_course_categories ca ON (co.category = ca.id)
+    WHERE  co.visible = 1
+        AND  co.startdate <= trunc(extract(EPOCH FROM now()))
+        AND (co.enddate >= trunc(extract(EPOCH FROM now())) OR co.enddate = 0)
+    ORDER BY ca.name, co.fullname
+) AS t
+$outer
 ";
-// var_dump($sql);
+    $sql = str_replace('{', $CFG->prefix, $sql);
+    $sql = str_replace('}', '', $sql);
+    // var_dump($sql);
     return $DB->get_records_sql($sql);
 
 }
