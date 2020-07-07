@@ -104,8 +104,10 @@ SELECT * FROM (
             ca.name     category_title,
             co.id       course_see,
             co.id       course_enrol,
-            'https://cdn.pixabay.com/photo/2017/12/30/20/59/report-3050965_960_720.jpg' 
-                        course_thumbnail,
+            CASE
+                WHEN fi.id IS  NULL THEN 'theme/ead/pix/course_thumbnail.jpg'
+                ELSE 'pluginfile.php/' || cx.id || '/' || fi.component || '/' || fi.filearea || '/' || fi.filename  
+             END course_thumbnail,
             coalesce(
                 (
                     SELECT max(id.value)
@@ -138,6 +140,8 @@ SELECT * FROM (
             ) course_show_in_frontpage
     FROM    {course} co
                 INNER JOIN {course_categories} ca ON (co.category = ca.id)
+                INNER JOIN {context} cx ON (cx.contextlevel=50 AND cx.instanceid=co.id)
+                    LEFT JOIN {files} fi ON (cx.id=fi.contextid AND fi.filename!='.')
     WHERE   co.visible = 1
       AND   co.startdate <= trunc(extract(EPOCH FROM now()))
       AND   (co.enddate >= trunc(extract(EPOCH FROM now())) OR co.enddate = 0)
@@ -147,7 +151,13 @@ $outer
 ";
     $sql = str_replace('{', $CFG->prefix, $sql);
     $sql = str_replace('}', '', $sql);
+    $result = $DB->get_records_sql($sql);
+    
+    foreach ($result as $course) {
+        $course->course_thumbnail = "$CFG->wwwroot/$course->course_thumbnail";
+    }
+
     // var_dump($sql);
-    return $DB->get_records_sql($sql);
+    return $result;
 
 }
