@@ -64,9 +64,10 @@ function ead_frontpage_lanes() {
     }
 
     $category = new_category(null, null);
+    $url_prefix = "$CFG->wwwroot/course/index.php?categoryid=";
     foreach (get_frontpage_courses(null, false, $not_in) as $course) {
-        if ($category->url != $course->category_id) {
-            $category = new_category($course->category_title, "$CFG->wwwroot/course/index.php?categoryid=$course->category_id");
+        if ($category->url != "$url_prefix$course->category_id") {
+            $category = new_category($course->category_title, "$url_prefix$course->category_id");
             array_push($categories, $category);
         }
         array_push($category->courses, ead_course_array($course));
@@ -96,58 +97,70 @@ function get_frontpage_courses($userid=null, $featured=false, $not_in=[]){
      
     
     $sql = "
-SELECT * FROM (
-    SELECT  DISTINCT 
-            co.id       course_id,
-            co.fullname course_title,
-            ca.id       category_id,
-            ca.name     category_title,
-            co.id       course_see,
-            co.id       course_enrol,
-            'https://cdn.pixabay.com/photo/2017/12/30/20/59/report-3050965_960_720.jpg' 
-                        course_thumbnail,
-            coalesce(
+    SELECT * FROM (
+        SELECT  DISTINCT 
+                co.id        course_id,
+                co.sortorder course_sortorder,
+                co.fullname  course_title,
+                co.id        course_see,
+                co.id        course_enrol,
+                ca.id        category_id,
+                ca.sortorder category_sortorder,
+                ca.name      category_title,
+                CASE
+                    WHEN fi.id IS  NULL THEN 'theme/ead/pix/course_thumbnail.jpg'
+                    ELSE 'pluginfile.php/' || cx.id || '/' || fi.component || '/' || fi.filearea || '/' || fi.filename  
+                END course_thumbnail,
+                coalesce(
+                    (
+                        SELECT max(id.value)
+                        FROM {customfield_category} ic
+                                INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
+                                INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
+                        WHERE (ic.component, ic.area) = ('core_course', 'course')
+                        AND id.instanceid = co.id
+                        AND if.shortname IN ('duration')
+                    ), 
+                    '*'
+                ) course_duration,
                 (
-                    SELECT max(id.value)
+                    SELECT id.intvalue
                     FROM {customfield_category} ic
                             INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
                             INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
                     WHERE (ic.component, ic.area) = ('core_course', 'course')
                     AND id.instanceid = co.id
-                    AND if.shortname IN ('duration')
-                ), 
-                '*'
-            ) course_duration,
-            (
-                SELECT id.intvalue
-                FROM {customfield_category} ic
-                        INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
-                        INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
-                WHERE (ic.component, ic.area) = ('core_course', 'course')
-                AND id.instanceid = co.id
-                AND if.shortname IN ('featured')
-            ) course_featured,
-            (
-                SELECT id.intvalue
-                FROM {customfield_category} ic
-                        INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
-                        INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
-                WHERE (ic.component, ic.area) = ('core_course', 'course')
-                AND id.instanceid = co.id
-                AND if.shortname IN ('show_in_frontpage')
-            ) course_show_in_frontpage
-    FROM    {course} co
-                INNER JOIN {course_categories} ca ON (co.category = ca.id)
-    WHERE   co.visible = 1
-      AND   co.startdate <= trunc(extract(EPOCH FROM now()))
-      AND   (co.enddate >= trunc(extract(EPOCH FROM now())) OR co.enddate = 0)
-    ORDER BY ca.name, co.fullname
-) AS t
-$outer
-";
+                    AND if.shortname IN ('featured')
+                ) course_featured,
+                (
+                    SELECT id.intvalue
+                    FROM {customfield_category} ic
+                            INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
+                            INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
+                    WHERE (ic.component, ic.area) = ('core_course', 'course')
+                    AND id.instanceid = co.id
+                    AND if.shortname IN ('show_in_frontpage')
+                ) course_show_in_frontpage
+        FROM    {course} co
+                    INNER JOIN {course_categories} ca ON (co.category = ca.id)
+                    INNER JOIN {context} cx ON (cx.contextlevel=50 AND cx.instanceid=co.id)
+                        LEFT JOIN {files} fi ON (cx.id=fi.contextid AND fi.filename!='.' AND fi.component='course' AND fi.filearea='overviewfiles')
+        WHERE   co.visible = 1
+        AND   co.startdate <= trunc(extract(EPOCH FROM now()))
+        AND   (co.enddate >= trunc(extract(EPOCH FROM now())) OR co.enddate = 0)
+        ORDER BY ca.sortorder, ca.name, co.sortorder, co.fullname
+    ) AS t
+    $outer
+    ";
     $sql = str_replace('{', $CFG->prefix, $sql);
     $sql = str_replace('}', '', $sql);
+    $result = $DB->get_records_sql($sql);
+    
+    foreach ($result as $course) {
+        $course->course_thumbnail = "$CFG->wwwroot/$course->course_thumbnail";
+    }
+
     // var_dump($sql);
-    return $DB->get_records_sql($sql);
+    return $result;
 
 }
