@@ -1,0 +1,25 @@
+//==================================================
+//============ Page layout: mypublic ==============
+//==================================================
+
+.pagelayout-mypublic {
+    margin-left: 0 !important;
+
+    & #nav-drawer{ display: none !important; }
+    & #maincontent { display: none !important; }
+    & #page { padding: 0; margin: 0; }
+    & #page-content { margin: 0; padding: 0; }
+    & #region-main-box { margin: 0; padding: 0; }
+    & #region-main { padding: 0; margin: 0; }    
+    & [data-region=drawer-toggle] { display: none !important; }
+    & #page-header {
+        display: none;
+    }
+    & #page-content {
+        max-width: 760px;
+        margin: 2em auto;
+        border-top: 2px solid silver;
+        padding-top: 10px;
+        background: #fff;        
+    }
+}

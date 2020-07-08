@@ -165,6 +165,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
         if (isloggedin()) {
             if($PAGE->pagelayout == 'frontpage' || $PAGE->pagelayout == 'mydashboard') {
                 $pagetitle = "Vitrine de cursos";
+            } elseif ($PAGE->pagelayout == 'mypublic') {
+                $pagetitle = "Perfil público";
             } elseif ($PAGE->pagelayout == 'mydashboard') {
                 $pagetitle = "Salas de aula";
             } elseif ($PAGE->pagelayout == 'course' || $PAGE->pagelayout == 'incourse') {
