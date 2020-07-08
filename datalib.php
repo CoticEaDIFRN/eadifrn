@@ -97,61 +97,61 @@ function get_frontpage_courses($userid=null, $featured=false, $not_in=[]){
      
     
     $sql = "
-    SELECT * FROM (
-        SELECT  DISTINCT 
-                co.id        course_id,
-                co.sortorder course_sortorder,
-                co.fullname  course_title,
-                co.id        course_see,
-                co.id        course_enrol,
-                ca.id        category_id,
-                ca.sortorder category_sortorder,
-                ca.name      category_title,
-                CASE
-                    WHEN fi.id IS  NULL THEN 'theme/ead/pix/course_thumbnail.jpg'
-                    ELSE 'pluginfile.php/' || cx.id || '/' || fi.component || '/' || fi.filearea || '/' || fi.filename  
-                END course_thumbnail,
-                coalesce(
-                    (
-                        SELECT max(id.value)
-                        FROM {customfield_category} ic
-                                INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
-                                INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
-                        WHERE (ic.component, ic.area) = ('core_course', 'course')
-                        AND id.instanceid = co.id
-                        AND if.shortname IN ('duration')
-                    ), 
-                    '*'
-                ) course_duration,
+SELECT * FROM (
+    SELECT  DISTINCT 
+            co.id        course_id,
+            co.sortorder course_sortorder,
+            co.fullname  course_title,
+            co.id        course_see,
+            co.id        course_enrol,
+            ca.id        category_id,
+            ca.sortorder category_sortorder,
+            ca.name      category_title,
+            CASE
+                WHEN fi.id IS  NULL THEN 'theme/ead/pix/course_thumbnail.jpg'
+                ELSE 'pluginfile.php/' || cx.id || '/' || fi.component || '/' || fi.filearea || '/' || fi.filename  
+             END course_thumbnail,
+            coalesce(
                 (
-                    SELECT id.intvalue
+                    SELECT max(id.value)
                     FROM {customfield_category} ic
                             INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
                             INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
                     WHERE (ic.component, ic.area) = ('core_course', 'course')
                     AND id.instanceid = co.id
-                    AND if.shortname IN ('featured')
-                ) course_featured,
-                (
-                    SELECT id.intvalue
-                    FROM {customfield_category} ic
-                            INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
-                            INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
-                    WHERE (ic.component, ic.area) = ('core_course', 'course')
-                    AND id.instanceid = co.id
-                    AND if.shortname IN ('show_in_frontpage')
-                ) course_show_in_frontpage
-        FROM    {course} co
-                    INNER JOIN {course_categories} ca ON (co.category = ca.id)
-                    INNER JOIN {context} cx ON (cx.contextlevel=50 AND cx.instanceid=co.id)
-                        LEFT JOIN {files} fi ON (cx.id=fi.contextid AND fi.filename!='.' AND fi.component='course' AND fi.filearea='overviewfiles')
-        WHERE   co.visible = 1
-        AND   co.startdate <= trunc(extract(EPOCH FROM now()))
-        AND   (co.enddate >= trunc(extract(EPOCH FROM now())) OR co.enddate = 0)
-        ORDER BY ca.sortorder, ca.name, co.sortorder, co.fullname
-    ) AS t
-    $outer
-    ";
+                    AND if.shortname IN ('duration')
+                ), 
+                '*'
+            ) course_duration,
+            (
+                SELECT id.intvalue
+                FROM {customfield_category} ic
+                        INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
+                        INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
+                WHERE (ic.component, ic.area) = ('core_course', 'course')
+                AND id.instanceid = co.id
+                AND if.shortname IN ('featured')
+            ) course_featured,
+            (
+                SELECT id.intvalue
+                FROM {customfield_category} ic
+                        INNER JOIN {customfield_field} if ON (ic.id = if.categoryid)
+                        INNER JOIN {customfield_data} id ON (if.id = id.fieldid)
+                WHERE (ic.component, ic.area) = ('core_course', 'course')
+                AND id.instanceid = co.id
+                AND if.shortname IN ('show_in_frontpage')
+            ) course_show_in_frontpage
+    FROM    {course} co
+                INNER JOIN {course_categories} ca ON (co.category = ca.id)
+                INNER JOIN {context} cx ON (cx.contextlevel=50 AND cx.instanceid=co.id)
+                    LEFT JOIN {files} fi ON (cx.id=fi.contextid AND fi.filename!='.' AND fi.component='course' AND fi.filearea='overviewfiles')
+    WHERE   co.visible = 1
+      AND   co.startdate <= trunc(extract(EPOCH FROM now()))
+      AND   (co.enddate >= trunc(extract(EPOCH FROM now())) OR co.enddate = 0)
+    ORDER BY ca.sortorder, ca.name, co.sortorder, co.fullname
+) AS t
+$outer
+";
     $sql = str_replace('{', $CFG->prefix, $sql);
     $sql = str_replace('}', '', $sql);
     $result = $DB->get_records_sql($sql);
