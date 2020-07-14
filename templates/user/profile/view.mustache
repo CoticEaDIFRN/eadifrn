@@ -1,0 +1,66 @@
+<img id='profile_photo' src='{{profile.photo}}'>
+<div class="profile_body">
+    {{#profile}}
+    <h2>{{fullname}}</h2>
+    <div>{{username}}</div>
+    <div style="display: table; margin-top: 1em;">
+        {{#polo}}<dl style="display: table-cell;padding-right: 1em;"><dt>Pólo</dt><dd>{{polo}}</dd></dl>{{/polo}}
+        {{#campus_sigla}}<dl style="display: table-cell;"><dt>Campus</dt><dd>{{campus_sigla}}</dd></dl>{{/campus_sigla}}
+    </div>
+    {{/profile}}
+    <div>
+        <div style="margin-top: 1em;"><b>Cursos inscritos</b></div>
+        <div>
+            {{#courses}}
+            <div style="border: 1px solid silver;margin-top: 0.5em;padding: 0.25em 0.75em 0.5em 0.75em;">
+                <div style="font-weight: 500;"><a href="{{{ config.wwwroot }}}/course/view.php?id={{id}}">{{title}}</a></div>
+                <div style="font-size: 10pt;display: table;width: 100%;">
+                    <span style="display: table-cell;padding-right: 2em;width: 50%;">{{code}}</span>
+                    {{#grade}}<span style="display: table-cell; text-align: right;">nota final: {{grade}}</span>{{/grade}}
+                </div>
+                
+                {{#progress}}<div class="progress"><div class='progress-bar' role='progressbar' style='width:{{progress}}%'><span class='progress-bar-label'>{{progress}}%</span></div></div>{{/progress}}
+                {{^progress}}<div class="progress"><div class="no-progress"><span class='progress-bar-label'>Não iniciado</span></div></div>{{/progress}}
+            </div>
+            {{/courses}}
+        </div>
+
+        <br>
+        <ul class="nav nav-tabs" id="user_blocks" role="tablist">
+        {{#user_blocks}}
+        <li class="nav-item">
+            <a class="nav-link {{active}}" id="{{name}}-tab" data-toggle="tab" href="#{{name}}" role="tab" aria-controls="{{name}}" aria-selected="false" style="width: 82px;display: inline-block;"><i title="{{title}}" aria-label="{{title}}" class="icon fa fa-{{icon}} fa-fw " style="font-size: 48px;"></i></a>
+        </li>
+        {{/user_blocks}}
+        </ul>
+
+        <div class="tab-content">
+        {{#user_blocks}}
+        <div class="tab-pane {{active}}" id="{{name}}" role="tabpanel" aria-labelledby="{{name}}-tab" style="padding: 1em;
+border-left: 1px solid #dee2e6;
+border-right: 1px solid #dee2e6;
+border-bottom: 1px solid #dee2e6;">
+            <p style="text-align: center;"><strong>{{title}}</strong></p>
+            <dl>
+            {{#nodes}}
+                {{#content}}
+                    <dt class='{{name}}_label'>{{title}}</dt><dd class='{{name}}_content'>{{{content}}}</dd>
+                {{/content}}
+                {{^content}}
+                    <dd><a href='{{url}}'>{{title}}</a></dd>
+                {{/content}}
+            {{/nodes}}
+            </dl>
+        </div>
+        {{/user_blocks}}
+        </div>
+        <!--
+        <br>
+        <ul>
+        {{#rest_nodes}}
+        <li>{{title}}</li>
+        {{/rest_nodes}}
+        </ul>
+        -->
+    </div>
+</div>

@@ -14,8 +14,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-if (!function_exists('dump')) {function dump(...$params) { echo "<pre>\n"; print_r(func_get_args()); echo "\n<pre>"; }}
-if (!function_exists('dumpd')) {function dumpd(...$params) { echo "<pre>\n"; print_r(func_get_args()); echo "\n<pre>"; die(); }}
+if (!function_exists('dump')) {function dump(...$params) { echo "<pre>\n"; foreach ($params as $n){print_r($n);}; echo "\n<pre>"; }}
+if (!function_exists('dumpd')) {function dumpd(...$params) { echo "<pre>\n"; foreach ($params as $n){print_r($n);}; echo "\n<pre>"; die(); }}
 function get_ead_theme_skins() {
     return [
         'abacate.scss' => 'Verde - Abacate',
