@@ -36,30 +36,33 @@ if ($ADMIN->fulltree) {
                                               get_string('homepage_student', 'theme_ead'), 
                                               get_string('homepage_student_desc', 'theme_ead'), 
                                               '$SITE/vitrine/', 
-                                              ['$SITE/vitrine/'=>'Vitrine', 
-                                               '$SITE/my/'=>'Painel',
-                                               '$SITE/'=>'Página pública']));
+                                              ['$SITE/vitrine/'=>'Vitrine', // TODO LANG 
+                                               '$SITE/my/'=>'Painel', // TODO LANG 
+                                               '$SITE/'=>'Página pública' // TODO LANG 
+                                               ]));
 
     $page->add(new admin_setting_configselect('theme_ead/homepage_teacher',
                                               get_string('homepage_teacher', 'theme_ead'), 
                                               get_string('homepage_teacher_desc', 'theme_ead'), 
                                               '$SITE/diarios/', 
-                                              ['$SITE/diarios/'=>'Diários', 
-                                               '$SITE/course/'=>'Cursos', 
-                                               '$SITE/vitrine/'=>'Vitrine', 
-                                               '$SITE/my/'=>'Painel',
-                                               '$SITE/'=>'Página pública']));
+                                              ['$SITE/diarios/'=>'Diários',  // TODO LANG 
+                                               '$SITE/course/'=>'Cursos',  // TODO LANG 
+                                               '$SITE/vitrine/'=>'Vitrine',  // TODO LANG 
+                                               '$SITE/my/'=>'Painel', // TODO LANG 
+                                               '$SITE/'=>'Página pública' // TODO LANG 
+                                               ]));
                                               
     $page->add(new admin_setting_configselect('theme_ead/homepage_managers',
                                               get_string('homepage_teacher', 'theme_ead'), 
                                               get_string('homepage_teacher_desc', 'theme_ead'), 
                                               '$SITE/admin/search.php', 
-                                              ['$SITE/admin/search.php'=>'Administração', 
-                                               '$SITE/diarios/'=>'Diários', 
-                                               '$SITE/course/'=>'Cursos', 
-                                               '$SITE/vitrine/'=>'Vitrine', 
-                                               '$SITE/my/'=>'Painel',
-                                               '$SITE/'=>'Página pública']));
+                                              ['$SITE/admin/search.php'=>'Administração',  // TODO LANG 
+                                               '$SITE/diarios/'=>'Diários',  // TODO LANG 
+                                               '$SITE/course/'=>'Cursos',  // TODO LANG 
+                                               '$SITE/vitrine/'=>'Vitrine',  // TODO LANG 
+                                               '$SITE/my/'=>'Painel', // TODO LANG 
+                                               '$SITE/'=>'Página pública' // TODO LANG 
+                                               ]));
 
     // Settings title to group favicon related settings together with a common heading. We don't want a description here.
     $name = 'theme_ead/faviconheading';

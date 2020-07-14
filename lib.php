@@ -213,21 +213,21 @@ function get_ead_course_common_actions()
         $notas = new stdClass();
         $notas->action_url = new moodle_url("/grade/report/index.php", ['id'=>$COURSE->id]);
         $notas->icon = "table";
-        $notas->label = "Notas";
+        $notas->label = "Notas"; // TODO LANG Notas
         $extraflatnav[] = $notas;
 
         // Participantes
         $participantes = new stdClass();
         $participantes->action_url = new moodle_url("/user/index.php", ['id'=>$COURSE->id]);
         $participantes->icon = "users";
-        $participantes->label = "Participantes";
+        $participantes->label = "Participantes"; // TODO LANG Participantes
         $extraflatnav[] = $participantes;
      
         // Emblemas
         $emblemas = new stdClass();
         $emblemas->action_url = new moodle_url("/badges/mybadges.php", ['type'=>2, 'id'=>$COURSE->id]);
         $emblemas->icon = "shield";
-        $emblemas->label = "Emblemas";
+        $emblemas->label = "Emblemas"; // TODO LANG Emblemas
         $extraflatnav[] = $emblemas;
     
         //// Competências
