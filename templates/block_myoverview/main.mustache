@@ -8,12 +8,12 @@
         <div id='mbus_filter_search_btn' style="display: none;"><i class='fa fa-search' aria-hidden='true'></i></div>
     </aside>
     <aside>
-        <div class='mbus_category' v-if="!categories.length">Não há cursos disponíveis para mostrar na página principal</div> <!-- TODO LANG Não há cursos disponíveis para mostrar na página principal -->
+        <div class='mbus_category' v-if="!categories.length">{{#str}}no_course_at_frontpage, theme_ead{{/str}}</div>
         <div class='mbus_category' v-for="category in categories">
             <div class='mbus_category_title'><a :href='category.url'>[[ category.description ]]<i class='fa fa-arrow-right' aria-hidden='true'></i></a></div>
             <div class='mbus_courses_cards'>
                 <div class='mbus_courses_cards_inner'>
-                    <div class='mbus_category' v-if="!category.courses.length">Não há cursos disponíveis para mostrar nesta categoria</div> <!-- TODO LANG Não há cursos disponíveis para mostrar nesta categoria -->
+                    <div class='mbus_category' v-if="!category.courses.length">{{#str}}no_course_at_category, theme_ead{{/str}}</div> 
                     <div class='mbus_course_card' v-for='course in category.courses'>
                         <a :href='course.see'><img :src='course.thumbnail' /></a>
                         <div class='mbus_course_info'>
@@ -22,9 +22,9 @@
                             </div>
                             <div class='mbus_course_footer'>
                                 <div class='mbus_course_duration'>
-                                    Duração: <span>[[ course.duration ]]</span> <!-- TODO LANG  Duração-->
+                                    {{# str }}duration, theme_ead{{/str}}: <span>[[ course.duration ]]</span>
                                 </div>
-                                <div class='mbus_course_enrol'><a :href='course.enrol' v-if='course.enrol'>Inscreva-se</a></div>  <!-- TODO LANG Inscreva-se -->
+                                <div class='mbus_course_enrol'><a :href='course.enrol' v-if='course.enrol'>{{#str}}enrol, theme_ead{{/str}}</a></div>
                             </div>
                         </div>
                     </div>

@@ -18,6 +18,12 @@ $string['choosereadme'] = 'Theme EaD is a child theme of Boost to be used on IFR
 
 // SETTINGS.
 $string['configtitle'] = 'EaD';
+$string['administration'] = 'Administration';
+$string['to_teach'] = 'To teach';
+$string['to_learn'] = 'To learn';
+$string['showcase'] = 'Showcase';
+$string['dashboard'] = 'Dashboard';
+$string['frontpage'] = 'Frontpage';
 
 // General settings.
 $string['skinheadingsetting'] = 'Skin';
@@ -42,3 +48,14 @@ $string['homepage_admin_desc'] = 'Choose the homepage for administrators';
 $string['faviconheadingsetting'] = 'Favicon';
 $string['faviconsetting'] = 'Favicon';
 $string['faviconsetting_desc'] = 'You can upload one image (.ico or .png format) that the browser will show as the favicon of your Moodle website.';
+
+// Templates
+$string['duration'] = 'Duration';
+$string['no_course_at_frontpage'] = 'No courses available to show on the frontpage';
+$string['no_course_at_category'] = 'No courses available to show on this category';
+$string['enrol'] = 'Enrol';
+$string['my_courses'] = 'My courses';
+$string['grades'] = 'Grades';
+
+// Libs
+$string['participants'] = 'Participants';

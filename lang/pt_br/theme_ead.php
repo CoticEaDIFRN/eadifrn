@@ -17,11 +17,17 @@ $string['pluginname'] = 'EaD';
 $string['choosereadme'] = 'Theme EaD is a child theme of Boost to be used on IFRN.';
 
 // SETTINGS.
-$string['configtitle'] = 'Theme EaD settings';
+$string['configtitle'] = 'EaD';
+$string['administration'] = 'Administração';
+$string['to_teach'] = 'Diário';
+$string['to_learn'] = 'Sala';
+$string['showcase'] = 'Vitrine';
+$string['dashboard'] = 'Painel';
+$string['frontpage'] = 'Página pública';
 
 // General settings.
-$string['presetheadingsetting'] = 'Theme presets';
-$string['generalsettings'] = '';
+$string['skinheadingsetting'] = 'Pele';
+$string['generalsettings'] = 'Geral';
 
 // ...Skin.
 $string['skin_heading'] = 'Pele';
@@ -43,3 +49,15 @@ $string['homepage_admin_desc'] = 'Escolha a página inicial para os administrado
 $string['faviconheadingsetting'] = 'Ícone para os favoritos';
 $string['faviconsetting'] = 'Ícone para os favoritos';
 $string['faviconsetting_desc'] = 'Você pode enviar uma única imagem (.ico or .png format) para ser usado como ícono dos favoritos para este site';
+
+
+// Templates
+$string['duration'] = 'Duração';
+$string['no_course_at_frontpage'] = 'Não há cursos disponíveis para mostrar na página principal';
+$string['no_course_at_category'] = 'Não há cursos disponíveis para mostrar nesta categoria';
+$string['enrol'] = 'Inscreva-se';
+$string['my_courses'] = 'Cursos inscritos';
+$string['grades'] = 'Notas';
+
+// Libs
+$string['participants'] = 'Participantes';
