@@ -51,6 +51,7 @@ class renderer extends \core_user\output\myprofile\renderer {
         
         tira($nodes, "custom_field_cidade_codigo");
         tira($nodes, "courseprofiles");
+        tira($nodes, "mobileappnode");
 
         $result = [
             (object)[
