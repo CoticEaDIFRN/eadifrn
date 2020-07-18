@@ -59,5 +59,11 @@ $string['enrol'] = 'Inscreva-se';
 $string['my_courses'] = 'Cursos inscritos';
 $string['grades'] = 'Notas';
 
+$string['security_privacy'] = "Segurança e privacidade";
+$string['what_i_wrote'] = "Onde eu escrevi";
+$string['extra'] = "Extra";
+$string['academic_evolution'] = "Evolução acadêmica";
+$string['personal_info'] = "Minhas informações pessoais";
+
 // Libs
 $string['participants'] = 'Participantes';

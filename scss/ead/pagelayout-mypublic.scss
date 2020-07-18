@@ -8,13 +8,12 @@
     & #nav-drawer{ display: none !important; }
     & #maincontent { display: none !important; }
     & #page { padding: 0; margin: 0; }
-    & #page-content { margin: 0; padding: 0; }
+    & #page-content { width: 100%; padding: 0; margin: 3em auto 0 auto; }
     & #region-main-box { margin: 0; padding: 0; }
     & #region-main { padding: 0; margin: 0; }    
     & [data-region=drawer-toggle] { display: none !important; }
     & #page { max-width: 760px; margin: auto;}
     & #page-header div { display: none; }
-    & #page-content { width: 100%; margin: 3em auto 0 auto; border-top: 2px solid silver; }
     & #region-main { overflow-x: unset; }
     & .progress{ background-color: lightcoral; height: 21px;}
     & .progress-bar{ background-color: lightseagreen;}
