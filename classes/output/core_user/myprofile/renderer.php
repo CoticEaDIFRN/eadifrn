@@ -163,12 +163,15 @@ class renderer extends \core_user\output\myprofile\renderer {
         }
         $courses = array_values($DB->get_records_sql($sql, $params));
 
+        $user_picture = new \user_picture($user);
+        $user_picture->size = 160;
+
         $context = [
             "is_siteadmin"=>is_siteadmin(),
             "profile"=> (object)[
                 // "photo"=>"http://preview.byaviators.com/template/superlist/assets/img/tmp/agent-2.jpg",
                 // "photo"=> "$CFG->wwwroot/theme/image.php/ead/core/1594419754/u/f2",
-                "photo"=>(new \user_picture($user))->get_url($PAGE),
+                "photo"=>$user_picture->get_url($PAGE),
                 "fullname"=>"$user->firstname $user->middlename $user->lastname ",
                 "id"=>$user->id,
                 "username"=>$user->username,
