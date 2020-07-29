@@ -244,7 +244,7 @@ function get_ead_course_common_actions()
 
 function get_ead_template_context()
 {
-    global $OUTPUT, $PAGE, $COURSE, $SITE;
+    global $OUTPUT, $PAGE, $COURSE, $SITE, $course;
 
     if (isloggedin()) {
         $navdraweropen = (get_user_preferences('drawer-open-nav', 'true') == 'true');
@@ -260,9 +260,9 @@ function get_ead_template_context()
     $hasblocks = strpos($blockshtml, 'data-block=') !== false;
     $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
     $in_course_page = $PAGE->pagelayout == "course";
-    $not_in_course_page = $PAGE->pagelayout != "course";
-    $within_course_page = $PAGE->pagelayout == "incourse";
-    $not_within_course_page = $PAGE->pagelayout != "incourse";
+    $not_in_course_page = !$in_course_page;
+    $within_course_page = $not_in_course_page && ($PAGE->pagelayout == "incourse" || $course != null);
+    $not_within_course_page = !$within_course_page;
     $course_name = $COURSE->fullname;
     $course_code = $COURSE->shortname;
     $is_siteadmin = is_siteadmin();

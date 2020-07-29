@@ -32,6 +32,24 @@
         transition: width .6s ease;
         text-align: center;
     }
+    & .page-context-header {
+        display: none !important;
+    }
+}
+
+.path-user {
+    & .page-context-header {display: none;}
+    // & #region-main {background: unset; padding: 3em 0 0 0;}
+    & .progress{ background-color: lightcoral; height: 21px;}
+    & .progress-bar{ background-color: lightseagreen;}
+    & .progress-bar-label{ position: absolute; left: 0; right: 0;}
+}
+
+.path-user.pagelayout-standard {
+    & #region-main {background: unset; padding: 3em 0 0 0;}
+}
+.path-user.pagelayout-incourse  {
+    & #region-main {padding: 0;}
 }
 
 #profile_photo  {

@@ -143,18 +143,25 @@ class renderer extends \core_user\output\myprofile\renderer {
     }
 
     public function render_tree(tree $tree) {
-        global $CFG, $OUTPUT, $PAGE, $DB, $user;
+        global $CFG, $OUTPUT, $PAGE, $DB, $user, $course;
+        // https://www.php.net/manual/en/function.ob-get-contents.php
+        // $PAGE->set_pa
 
         $sql = "select   c.id        id,
-        c.fullname  title, 
-        c.shortname code,
-        c.id        grade,
-        c.id * 10   progress
-from     avs2_course c 	
-            inner join avs2_enrol e on (e.courseid=c.id and e.roleid=5)
-                inner join avs2_user_enrolments ue on (ue.enrolid=e.id) 
-where    ue.userid = ?";
-        $courses = array_values($DB->get_records_sql($sql, [$user->id]));
+                        c.fullname  title, 
+                        c.shortname code,
+                        c.id        grade,
+                        c.id * 10   progress
+                from    {course} c 	
+                            inner join {enrol} e on (e.courseid=c.id and e.roleid=5)
+                                inner join {user_enrolments} ue on (ue.enrolid=e.id) 
+                where    ue.userid = ?";
+        $params = [$user->id];
+        if ($course != null) {
+            $sql .= " and e.courseid = ?";
+            $params[] = $course->id;
+        }
+        $courses = array_values($DB->get_records_sql($sql, $params));
 
         $context = [
             "is_siteadmin"=>is_siteadmin(),
